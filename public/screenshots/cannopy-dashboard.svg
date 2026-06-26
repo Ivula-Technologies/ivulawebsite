@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800" font-family="Inter, system-ui, sans-serif">
+  <!-- ========================================================= -->
+  <!-- PLACEHOLDER SCREENSHOT — replace this file with a real     -->
+  <!-- Cannopy dashboard export at /public/screenshots/.          -->
+  <!-- ========================================================= -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f8fc"/>
+      <stop offset="1" stop-color="#eef2fb"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16224a"/>
+      <stop offset="0.5" stop-color="#3450a8"/>
+      <stop offset="1" stop-color="#06b0d4"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06b0d4" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#06b0d4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#bg)"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="240" height="800" fill="#0e1733"/>
+  <rect x="24" y="28" width="34" height="34" rx="9" fill="url(#brand)"/>
+  <rect x="68" y="36" width="96" height="16" rx="6" fill="#ffffff" opacity="0.9"/>
+  <g fill="#9fb0d8">
+    <rect x="24" y="100" width="192" height="40" rx="10" fill="#1f2f66"/>
+    <rect x="44" y="113" width="120" height="14" rx="5" fill="#ffffff" opacity="0.85"/>
+    <rect x="44" y="165" width="120" height="14" rx="5"/>
+    <rect x="44" y="213" width="100" height="14" rx="5"/>
+    <rect x="44" y="261" width="130" height="14" rx="5"/>
+    <rect x="44" y="309" width="90" height="14" rx="5"/>
+    <rect x="44" y="357" width="110" height="14" rx="5"/>
+  </g>
+  <rect x="24" y="720" width="192" height="52" rx="12" fill="#1f2f66"/>
+  <circle cx="52" cy="746" r="16" fill="url(#brand)"/>
+  <rect x="78" y="738" width="80" height="11" rx="4" fill="#ffffff" opacity="0.85"/>
+  <rect x="78" y="754" width="56" height="9" rx="4" fill="#9fb0d8"/>
+
+  <!-- Top bar -->
+  <rect x="240" y="0" width="1040" height="76" fill="#ffffff"/>
+  <rect x="272" y="28" width="220" height="20" rx="7" fill="#0e1733"/>
+  <rect x="980" y="22" width="200" height="32" rx="16" fill="#eef2fb"/>
+  <circle cx="1006" cy="38" r="8" fill="#9fb0d8"/>
+  <rect x="1020" y="33" width="120" height="10" rx="5" fill="#aebfe9"/>
+
+  <!-- Page title -->
+  <rect x="272" y="108" width="260" height="26" rx="8" fill="#16224a"/>
+  <rect x="272" y="146" width="360" height="14" rx="6" fill="#aebfe9"/>
+
+  <!-- Stat cards -->
+  <g>
+    <rect x="272" y="190" width="232" height="120" rx="16" fill="#ffffff" stroke="#e2e8f5"/>
+    <rect x="296" y="214" width="40" height="40" rx="11" fill="#ecfdff"/>
+    <rect x="296" y="270" width="90" height="22" rx="7" fill="#16224a"/>
+    <rect x="296" y="298" width="120" height="0" />
+    <rect x="296" y="300" width="0" height="0"/>
+    <text x="296" y="234" font-size="18" fill="#06b0d4" font-weight="700">★</text>
+  </g>
+  <g>
+    <rect x="520" y="190" width="232" height="120" rx="16" fill="#ffffff" stroke="#e2e8f5"/>
+    <rect x="544" y="214" width="40" height="40" rx="11" fill="#eef2fb"/>
+    <rect x="544" y="270" width="110" height="22" rx="7" fill="#16224a"/>
+  </g>
+  <g>
+    <rect x="768" y="190" width="232" height="120" rx="16" fill="#ffffff" stroke="#e2e8f5"/>
+    <rect x="792" y="214" width="40" height="40" rx="11" fill="#ecfdff"/>
+    <rect x="792" y="270" width="80" height="22" rx="7" fill="#16224a"/>
+  </g>
+  <g>
+    <rect x="1016" y="190" width="232" height="120" rx="16" fill="url(#brand)"/>
+    <rect x="1040" y="214" width="40" height="40" rx="11" fill="#ffffff" opacity="0.2"/>
+    <rect x="1040" y="270" width="100" height="22" rx="7" fill="#ffffff" opacity="0.95"/>
+    <rect x="1040" y="300" width="60" height="0"/>
+  </g>
+
+  <!-- Chart card -->
+  <rect x="272" y="334" width="608" height="320" rx="16" fill="#ffffff" stroke="#e2e8f5"/>
+  <rect x="296" y="360" width="160" height="16" rx="6" fill="#16224a"/>
+  <rect x="296" y="384" width="100" height="11" rx="5" fill="#aebfe9"/>
+  <!-- chart area -->
+  <path d="M300 590 L380 540 L460 560 L540 500 L620 520 L700 450 L780 470 L855 410 L855 620 L300 620 Z" fill="url(#chart)"/>
+  <path d="M300 590 L380 540 L460 560 L540 500 L620 520 L700 450 L780 470 L855 410" fill="none" stroke="#06b0d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#06b0d4">
+    <circle cx="380" cy="540" r="4"/><circle cx="540" cy="500" r="4"/>
+    <circle cx="700" cy="450" r="4"/><circle cx="855" cy="410" r="4"/>
+  </g>
+  <line x1="300" y1="620" x2="855" y2="620" stroke="#e2e8f5"/>
+
+  <!-- Members / activity card -->
+  <rect x="896" y="334" width="352" height="320" rx="16" fill="#ffffff" stroke="#e2e8f5"/>
+  <rect x="920" y="360" width="150" height="16" rx="6" fill="#16224a"/>
+  <g>
+    <circle cx="940" cy="420" r="16" fill="#ecfdff"/>
+    <rect x="968" y="410" width="150" height="11" rx="5" fill="#16224a"/>
+    <rect x="968" y="426" width="90" height="9" rx="4" fill="#aebfe9"/>
+    <rect x="1180" y="412" width="44" height="18" rx="9" fill="#dff7e6"/>
+
+    <circle cx="940" cy="470" r="16" fill="#eef2fb"/>
+    <rect x="968" y="460" width="130" height="11" rx="5" fill="#16224a"/>
+    <rect x="968" y="476" width="100" height="9" rx="4" fill="#aebfe9"/>
+    <rect x="1180" y="462" width="44" height="18" rx="9" fill="#dff7e6"/>
+
+    <circle cx="940" cy="520" r="16" fill="#ecfdff"/>
+    <rect x="968" y="510" width="160" height="11" rx="5" fill="#16224a"/>
+    <rect x="968" y="526" width="80" height="9" rx="4" fill="#aebfe9"/>
+    <rect x="1180" y="512" width="44" height="18" rx="9" fill="#fff1d6"/>
+
+    <circle cx="940" cy="570" r="16" fill="#eef2fb"/>
+    <rect x="968" y="560" width="120" height="11" rx="5" fill="#16224a"/>
+    <rect x="968" y="576" width="110" height="9" rx="4" fill="#aebfe9"/>
+    <rect x="1180" y="562" width="44" height="18" rx="9" fill="#dff7e6"/>
+  </g>
+
+  <!-- bottom table strip -->
+  <rect x="272" y="678" width="976" height="96" rx="16" fill="#ffffff" stroke="#e2e8f5"/>
+  <rect x="296" y="702" width="140" height="13" rx="5" fill="#16224a"/>
+  <rect x="296" y="734" width="900" height="10" rx="5" fill="#eef2fb"/>
+  <rect x="296" y="752" width="760" height="10" rx="5" fill="#f1f5fc"/>
+</svg>
