@@ -1,10 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
-/**
- * Brand mark. Swap the SVG path / wordmark here to rebrand everywhere.
- */
 export function Logo({
   className,
   showWord = true,
@@ -21,26 +19,19 @@ export function Logo({
       )}
       aria-label={`${site.name} home`}
     >
-      <span className="relative inline-flex size-9 items-center justify-center overflow-hidden rounded-xl bg-brand-gradient shadow-glow">
-        {/* Stylized "i" / canopy mark — replace with your real logo SVG */}
-        <svg
-          viewBox="0 0 32 32"
-          className="size-5 text-white"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M16 4C9 9 6 14 6 19a10 10 0 0 0 20 0c0-5-3-10-10-15Z"
-            fill="currentColor"
-            fillOpacity="0.95"
-          />
-          <circle cx="16" cy="20" r="3" fill="#0e1733" />
-        </svg>
-        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+      <span className="relative inline-flex size-9 items-center justify-center">
+        <Image
+          src="/ivula-mark.svg"
+          alt=""
+          width={36}
+          height={36}
+          className="size-9"
+          priority
+        />
       </span>
       {showWord && (
-        <span className="leading-none">
-          Ivula<span className="text-cyan-500">.</span>
+        <span className="leading-none text-navy-900 dark:text-white">
+          Ivula<span className="ml-1 text-[0.62em] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Tech</span>
         </span>
       )}
     </Link>

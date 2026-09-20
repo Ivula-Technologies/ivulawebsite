@@ -13,16 +13,16 @@ export function ServicesTeaser() {
           <Reveal direction="right">
             <div className="flex flex-col items-start gap-6">
               <Badge variant="accent" className="uppercase">
-                <Code2 className="size-3.5" /> Custom software
+                <Code2 className="size-3.5" /> What we do
               </Badge>
               <h2 className="text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
-                Need something built? We do that too.
+                From operational friction to dependable software.
               </h2>
               <p className="max-w-lg text-pretty text-lg text-muted-foreground">
-                Beyond our own products, Ivula Technologies partners with
-                businesses worldwide to design and build custom software — web
-                apps, internal tools, integrations, and full SaaS products,
-                engineered with the same craft behind Cannopy.
+                Ivula brings product strategy, design, engineering, AI, and
+                cloud capability into one focused team. We can shape a new idea,
+                automate a painful workflow, or strengthen a product that has
+                outgrown its first version.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Button asChild variant="default" size="lg">
@@ -31,7 +31,7 @@ export function ServicesTeaser() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/services#quote">Request a quote</Link>
+                  <Link href="/contact">Discuss a project</Link>
                 </Button>
               </div>
             </div>

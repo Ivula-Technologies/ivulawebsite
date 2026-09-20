@@ -11,7 +11,8 @@ import { cta } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Explore the Ivula family of products — starting with Ivula Cannopy, our organization-management platform for member-based communities.",
+    "Explore Ivula's product portfolio, starting with Ivula Canopy — organization-management software for nonprofits, churches, and community teams.",
+  alternates: { canonical: "/products" },
 };
 
 export default function ProductsPage() {
@@ -24,12 +25,12 @@ export default function ProductsPage() {
             A growing family of <span className="text-gradient">products</span>
           </>
         }
-        description="Ivula is a product studio. Cannopy is our flagship today — and the first of many focused tools we're building for organizations worldwide."
+        description="We build software around real operational problems. Ivula Canopy is our flagship today — and the first of a growing family of focused products."
       >
         <Button asChild variant="gradient" size="xl">
-          <Link href={cta.trialHref}>
+          <a href={cta.trialHref}>
             {cta.trialLabel} <ArrowRight className="size-4" />
-          </Link>
+          </a>
         </Button>
         <Button asChild variant="outline" size="xl">
           <a href={cta.mailto}>

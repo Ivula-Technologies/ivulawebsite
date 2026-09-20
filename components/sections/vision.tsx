@@ -5,17 +5,17 @@ import { vision } from "@/lib/content";
 export function Vision() {
   return (
     <section
-      id="vision"
-      className="relative overflow-hidden border-y border-border bg-secondary/30 py-20 md:py-28"
+      id="about"
+      className="relative overflow-hidden py-20 md:py-28"
     >
       <div className="container-wide">
         <SectionHeading
-          eyebrow="Our vision"
-          title="One studio, a growing family of products"
-          description="We're playing a long game: focused, modern software that earns trust by being genuinely useful — starting with Cannopy."
+          eyebrow="Why Ivula"
+          title="A software partner that thinks like an owner"
+          description="Founded in Nairobi in 2022, Ivula combines the care of a product team with the practical discipline of an engineering partner."
         />
 
-        <div className="relative mt-16">
+        <div className="relative mx-auto mt-16 max-w-5xl">
           {/* Vertical timeline line */}
           <span className="absolute left-[27px] top-2 hidden h-[calc(100%-2rem)] w-px bg-gradient-to-b from-cyan-500/50 via-border to-transparent md:block" />
 

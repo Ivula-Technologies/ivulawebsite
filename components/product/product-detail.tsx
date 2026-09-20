@@ -12,6 +12,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { AnimatedCounter } from "@/components/motion/animated-counter";
 import { Magnetic } from "@/components/motion/magnetic";
+import { usePrefersReducedMotion } from "@/components/motion/use-reduced-motion";
 import { cta as siteCta } from "@/lib/site";
 
 /**
@@ -20,6 +21,7 @@ import { cta as siteCta } from "@/lib/site";
  */
 export function ProductDetail({ slug }: { slug: string }) {
   const product = getProduct(slug);
+  const reduce = usePrefersReducedMotion();
   if (!product) return null;
   const Icon = product.icon;
 
@@ -50,16 +52,29 @@ export function ProductDetail({ slug }: { slug: string }) {
                 <div className="flex flex-wrap items-center gap-3">
                   <Magnetic>
                     <Button asChild variant="gradient" size="xl">
-                      <Link href={product.cta.primaryHref}>
-                        {product.cta.primaryLabel}
-                        <ArrowRight className="size-4" />
-                      </Link>
+                      {product.cta.primaryHref.startsWith("/") ? (
+                        <Link href={product.cta.primaryHref}>
+                          {product.cta.primaryLabel}
+                          <ArrowRight className="size-4" />
+                        </Link>
+                      ) : (
+                        <a href={product.cta.primaryHref}>
+                          {product.cta.primaryLabel}
+                          <ArrowRight className="size-4" />
+                        </a>
+                      )}
                     </Button>
                   </Magnetic>
                   <Button asChild variant="outline" size="xl">
-                    <Link href={product.cta.secondaryHref}>
-                      {product.cta.secondaryLabel}
-                    </Link>
+                    {product.cta.secondaryHref.startsWith("/") ? (
+                      <Link href={product.cta.secondaryHref}>
+                        {product.cta.secondaryLabel}
+                      </Link>
+                    ) : (
+                      <a href={product.cta.secondaryHref}>
+                        {product.cta.secondaryLabel}
+                      </a>
+                    )}
                   </Button>
                 </div>
               </Reveal>
@@ -69,7 +84,7 @@ export function ProductDetail({ slug }: { slug: string }) {
               <div className="relative">
                 <div className="absolute -inset-6 rounded-[2rem] bg-brand-gradient opacity-20 blur-2xl" />
                 <motion.div
-                  animate={{ y: [0, -10, 0] }}
+                  animate={reduce ? undefined : { y: [0, -10, 0] }}
                   transition={{
                     duration: 6,
                     repeat: Infinity,
@@ -113,8 +128,8 @@ export function ProductDetail({ slug }: { slug: string }) {
           <div className="container-wide">
             <SectionHeading
               eyebrow="Who it's for"
-              title="Built for member-based communities"
-              description="If your organization runs on people, contributions, and momentum, Cannopy was made for you."
+              title="Built for people-powered organizations"
+              description="If your team coordinates people, programs, service, and impact, Canopy helps keep the work visible and manageable."
             />
             <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {product.audiences.map((aud) => {
@@ -145,11 +160,11 @@ export function ProductDetail({ slug }: { slug: string }) {
         <section className="relative overflow-hidden border-y border-border bg-secondary/30 py-20 md:py-28">
           <div className="container-wide">
             <SectionHeading
-              eyebrow="60-second setup"
+              eyebrow="Simple rollout"
               title="How it works"
-              description="From spreadsheet chaos to a single source of truth in three simple steps."
+              description="Move from scattered records to one practical workspace without a complicated implementation project."
             />
-            <div className="mt-14 grid gap-8 md:grid-cols-3">
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
               {product.steps.map((step, i) => (
                 <Reveal key={step.title} direction="up" delay={i * 0.1}>
                   <div className="relative flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-8 shadow-soft">
@@ -175,7 +190,7 @@ export function ProductDetail({ slug }: { slug: string }) {
             <SectionHeading
               eyebrow="Features"
               title="Everything in one place"
-              description="No more juggling spreadsheets, chats, and paper records. Cannopy brings your whole organization together."
+              description="No more juggling spreadsheets, chats, and paper records. Canopy brings everyday operations into one connected workspace."
             />
             <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {product.features.map((feature) => {
@@ -212,11 +227,11 @@ export function ProductDetail({ slug }: { slug: string }) {
                   Ready to ditch the spreadsheet chaos?
                 </h2>
                 <p className="text-pretty text-white/80">
-                  Start free today and become a founding organization — with
-                  founder-level onboarding and early pricing locked in for life.
+                  Explore Canopy with your own organization for 14 days. No
+                  credit card is required to get started.
                 </p>
                 <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/80">
-                  {["No contract", "Cancel anytime", "Used worldwide"].map(
+                  {["14-day free trial", "No credit card", "Built for lean teams"].map(
                     (item) => (
                       <li key={item} className="inline-flex items-center gap-2">
                         <Check className="size-4 text-cyan-400" /> {item}
@@ -227,10 +242,10 @@ export function ProductDetail({ slug }: { slug: string }) {
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   <Magnetic>
                     <Button asChild variant="accent" size="xl">
-                      <Link href={product.cta.primaryHref}>
+                      <a href={product.cta.primaryHref}>
                         {product.cta.primaryLabel}
                         <ArrowRight className="size-4" />
-                      </Link>
+                      </a>
                     </Button>
                   </Magnetic>
                   <Button

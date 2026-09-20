@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Sora } from "next/font/google";
+import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LenisProvider } from "@/components/providers/lenis-provider";
@@ -8,39 +9,46 @@ import { Footer } from "@/components/layout/footer";
 import { PageTransition } from "@/components/layout/page-transition";
 import { site } from "@/lib/site";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
   variable: "--font-sans",
   display: "swap",
+  weight: "100 900",
 });
 
-const sora = Sora({
-  subsets: ["latin"],
+const sora = localFont({
+  src: "../node_modules/@fontsource-variable/sora/files/sora-latin-wght-normal.woff2",
   variable: "--font-display",
   display: "swap",
-  weight: ["500", "600", "700", "800"],
+  weight: "100 800",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Software for member-based organizations`,
+    default: `${site.name} — Software Products, AI & Automation`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
   keywords: [
-    "organization management software",
-    "church management software",
-    "nonprofit software",
-    "cooperative management",
-    "member management",
-    "Ivula Cannopy",
-    "SaaS",
+    "software development company Kenya",
+    "AI automation",
+    "workflow automation",
+    "SaaS product development",
+    "cloud software",
     "custom software development",
+    "Ivula Canopy",
+    "Nairobi software company",
   ],
   authors: [{ name: site.name }],
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: `${site.name} — Manage members, money, and momentum`,
+    title: `${site.name} — Technology that serves your business`,
     description: site.description,
     url: site.url,
     siteName: site.name,
@@ -49,8 +57,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Manage members, money, and momentum`,
+    title: `${site.name} — Technology that serves your business`,
     description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   icons: {
     icon: "/favicon.svg",
@@ -75,6 +87,29 @@ const themeScript = `
 })();
 `;
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}/ivula-logo.svg`,
+  description: site.description,
+  foundingDate: "2022",
+  foundingLocation: {
+    "@type": "Place",
+    name: "Nairobi, Kenya",
+  },
+  email: site.contact.email,
+  sameAs: [site.social.linkedin],
+  knowsAbout: [
+    "Custom software development",
+    "SaaS product development",
+    "Artificial intelligence",
+    "Workflow automation",
+    "Cloud systems",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -82,10 +117,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body className="min-h-screen antialiased">
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
+        <Script
+          id="organization-json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <ThemeProvider>
           <LenisProvider>
             <a

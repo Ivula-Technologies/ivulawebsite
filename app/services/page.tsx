@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, Mail, Quote } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -9,32 +10,34 @@ import { services, serviceValues } from "@/lib/content";
 import { cta } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Custom Software Development",
+  title: "Software Product & Automation Services",
   description:
-    "Ivula Technologies builds custom software for businesses worldwide — web apps, internal tools, integrations, and full SaaS products.",
+    "Ivula Technologies provides product discovery, custom software, SaaS development, AI and workflow automation, cloud systems, APIs, and product optimization.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Custom software"
+        eyebrow="Software services"
         title={
           <>
-            Software you can&apos;t <span className="text-gradient">buy off the shelf</span>
+            Build the capability your next stage{" "}
+            <span className="text-gradient">actually needs.</span>
           </>
         }
-        description="We build the same modern, production-grade software behind our own products — for businesses worldwide. From a single internal tool to a full SaaS platform."
+        description="From product discovery and UX to AI automation, cloud systems, and full SaaS delivery, Ivula helps teams turn operational challenges into dependable software."
       >
         <Magnetic>
           <Button asChild variant="gradient" size="xl">
             <a href="#quote">
-              Request a quote <ArrowRight className="size-4" />
+              Discuss a project <ArrowRight className="size-4" />
             </a>
           </Button>
         </Magnetic>
         <Button asChild variant="outline" size="xl">
-          <a href={cta.mailto}>
+          <a href={cta.projectMailto}>
             <Mail className="size-4" /> Email us
           </a>
         </Button>
@@ -45,8 +48,8 @@ export default function ServicesPage() {
         <div className="container-wide">
           <SectionHeading
             eyebrow="What we build"
-            title="Full-stack product engineering"
-            description="One team, end to end — design, build, ship, and iterate."
+            title="A focused team from problem to product"
+            description="Bring us a rough idea, a broken workflow, or an existing product that needs a stronger next version."
           />
           <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => {
@@ -77,7 +80,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Why Ivula"
             title="A product studio, not a code shop"
-            description="We run our own software in production. That changes how we build yours."
+            description="We run our own software in production. That changes the questions we ask and the choices we make for yours."
           />
           <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
             {serviceValues.map((value) => (
@@ -106,30 +109,28 @@ export default function ServicesPage() {
               </div>
               <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6">
                 <h2 className="text-balance font-display text-3xl font-bold sm:text-4xl md:text-display-sm">
-                  Tell us what you&apos;re building
+                  Start with the problem, not the feature list
                 </h2>
                 <p className="text-pretty text-white/80">
-                  Send us a few lines about your project — goals, timeline, and
-                  budget if you have one — and we&apos;ll get back to you with
-                  next steps. No forms, no funnels, just a real reply.
+                  Share who is affected, where the current process breaks down,
+                  and what a better outcome would change. If there is a timeline
+                  or budget range, include it so our first response can be useful.
                 </p>
                 <Magnetic>
                   <Button asChild variant="accent" size="xl">
-                    <a
-                      href={`${cta.mailto}?subject=Custom%20software%20enquiry`}
-                    >
-                      <Mail className="size-4" /> Request a quote
+                    <a href={cta.projectMailto}>
+                      <Mail className="size-4" /> Discuss a project
                     </a>
                   </Button>
                 </Magnetic>
                 <p className="text-sm text-white/60">
                   Prefer to explore our products first?{" "}
-                  <a
+                  <Link
                     href="/products"
                     className="font-medium text-cyan-300 underline-offset-4 hover:underline"
                   >
                     See what we&apos;ve built
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

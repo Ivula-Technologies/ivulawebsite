@@ -18,17 +18,16 @@ const ThemeContext = React.createContext<ThemeContextValue | null>(null);
  * app/layout.tsx applies the class before paint to avoid a flash.
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>("light");
-
-  React.useEffect(() => {
+  const [theme, setThemeState] = React.useState<Theme>(() => {
+    if (typeof window === "undefined") return "light";
     const stored = localStorage.getItem("theme") as Theme | null;
-    const initial =
+    return (
       stored ??
       (window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
-        : "light");
-    setThemeState(initial);
-  }, []);
+        : "light")
+    );
+  });
 
   const apply = React.useCallback((t: Theme) => {
     const root = document.documentElement;

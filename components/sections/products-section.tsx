@@ -16,9 +16,9 @@ export function ProductsSection() {
     <section id="products" className="py-20 md:py-28">
       <div className="container-wide">
         <SectionHeading
-          eyebrow="What we're building"
-          title="Our products"
-          description="Ivula is a product studio. Cannopy is our flagship — and the first of a growing family of focused tools for organizations worldwide."
+          eyebrow="We build what we believe in"
+          title="Products informed by real operations"
+          description="Running our own software keeps us close to the realities of adoption, reliability, support, and continuous improvement. Ivula Canopy is our flagship product."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -32,7 +32,7 @@ export function ProductsSection() {
         <Reveal direction="up" className="mt-12 flex justify-center">
           <Button asChild variant="ghost" size="lg">
             <Link href="/products">
-              Browse all products <ArrowRight className="size-4" />
+              Explore our products <ArrowRight className="size-4" />
             </Link>
           </Button>
         </Reveal>

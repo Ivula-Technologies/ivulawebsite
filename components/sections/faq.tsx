@@ -15,7 +15,7 @@ export function Faq() {
               align="left"
               eyebrow="FAQ"
               title="Questions, answered"
-              description="The things organizations ask us most — straight answers, no fine print."
+              description="A few practical answers before we start a product conversation."
             />
             <Reveal direction="up" className="mt-8">
               <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
