@@ -121,9 +121,9 @@ export function Header() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href={cta.canopyHref} onClick={() => setOpen(false)}>
-                    Explore Canopy
-                  </a>
+                  <Link href={cta.workHref} onClick={() => setOpen(false)}>
+                    {cta.workLabel}
+                  </Link>
                 </Button>
               </div>
             </div>

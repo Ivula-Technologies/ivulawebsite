@@ -24,7 +24,7 @@ export const site = {
 } as const;
 
 export const mainNav = [
-  { title: "Products", href: "/products" },
+  { title: "Work", href: "/#work" },
   { title: "Services", href: "/services" },
   { title: "Approach", href: "/#approach" },
   { title: "About", href: "/#about" },
@@ -32,11 +32,11 @@ export const mainNav = [
 ] as const;
 
 export const footerNav = {
-  Product: [
+  "Selected work": [
     { title: "Ivula Canopy", href: "/products/canopy" },
+    { title: "Code Joy Academy", href: "https://www.codejoyacademy.com/" },
+    { title: "Code Joy Academy LMS", href: "https://lms.codejoyacademy.com/" },
     { title: "All products", href: "/products" },
-    { title: "Start Canopy free", href: site.canopy.signup },
-    { title: "Canopy sign in", href: site.canopy.login },
   ],
   Company: [
     { title: "Services", href: "/services" },
@@ -54,6 +54,8 @@ export const footerNav = {
 export const cta = {
   projectHref: "/contact",
   projectLabel: "Discuss a project",
+  workHref: "/#work",
+  workLabel: "View selected work",
   canopyHref: site.canopy.home,
   canopyLabel: "Explore Canopy",
   trialHref: site.canopy.signup,

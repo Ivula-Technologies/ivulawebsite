@@ -101,10 +101,10 @@ export function Hero() {
                 </Button>
               </Magnetic>
               <Button asChild variant="outline" size="xl">
-                <a href={cta.canopyHref}>
-                  {cta.canopyLabel}
+                <Link href={cta.workHref}>
+                  {cta.workLabel}
                   <ArrowRight className="size-4" />
-                </a>
+                </Link>
               </Button>
             </motion.div>
 

@@ -80,9 +80,16 @@ export const viewport: Viewport = {
 const themeScript = `
 (function() {
   try {
-    var t = localStorage.getItem('theme');
-    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    if (t === 'dark') document.documentElement.classList.add('dark');
+    var p = localStorage.getItem('ivula-theme') || localStorage.getItem('theme') || 'auto';
+    if (p !== 'auto' && p !== 'light' && p !== 'dark') p = 'auto';
+    var now = new Date();
+    var localHour = now.getHours() + now.getMinutes() / 60;
+    var t = p === 'auto' ? (localHour >= 18.5 || localHour < 6.5 ? 'dark' : 'light') : p;
+    var root = document.documentElement;
+    root.classList.toggle('dark', t === 'dark');
+    root.dataset.theme = t;
+    root.dataset.themeMode = p;
+    root.style.colorScheme = t;
   } catch (e) {}
 })();
 `;
@@ -116,7 +123,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${sora.variable}`}
+      data-theme="light"
+      data-theme-mode="auto"
+      suppressHydrationWarning
+    >
       <body className="min-h-screen antialiased">
         <Script
           id="theme-init"
