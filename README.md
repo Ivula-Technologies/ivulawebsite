@@ -32,7 +32,7 @@ npm run build
 - `/pricing` — verified 14-day Canopy trial information
 - `/contact` — guided enquiry paths
 
-The former `/products/cannopy` URL permanently redirects to the correctly spelled route.
+On cPanel/Apache, the former `/products/cannopy` URL permanently redirects to the correctly spelled route through `public/.htaccess`.
 
 ## Content and configuration
 
@@ -53,3 +53,4 @@ Product cards and detail pages are data-driven. To add another live product, app
 - No environment variables are required for the current marketing site.
 - Contact links use the email address configured in `lib/site.ts`.
 - Canopy trial and sign-in links point to `canopy.ivulatechnologies.com`.
+- Production builds create a static `out/` directory for cPanel; upload its contents, including the hidden `.htaccess` file.
