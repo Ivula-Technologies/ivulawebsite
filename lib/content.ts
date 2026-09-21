@@ -4,70 +4,47 @@ import {
   Smartphone,
   Cloud,
   Workflow,
-  Boxes,
   Gauge,
-  Lock,
-  CreditCard,
-  XCircle,
-  Globe2,
+  Compass,
+  Rocket,
+  RefreshCw,
+  Handshake,
+  Lightbulb,
+  LifeBuoy,
   Sparkles,
 } from "lucide-react";
 
-/** Objection-killing FAQ shown on the homepage and contact page. */
+/** Practical sales questions shown on the homepage and contact page. */
 export const faqs = [
   {
-    question: "Is our data safe?",
+    question: "What kinds of software does Ivula build?",
     answer:
-      "Yes. Your data is encrypted in transit and at rest, hosted on trusted cloud infrastructure, and access is controlled by roles you define. We never sell your data, and you can export it any time — it's always yours.",
+      "We design and build web platforms, SaaS products, mobile-first experiences, internal tools, APIs, cloud systems, and AI-powered workflow automation. We can take a product from early discovery through launch or improve an existing system.",
   },
   {
-    question: "Is there a contract or long-term commitment?",
+    question: "Can you help before we have a complete specification?",
     answer:
-      "No long-term contract. Start free, and when paid plans launch you'll pay month-to-month. Founding members lock in early pricing, but you're never locked into a contract.",
+      "Yes. We can begin with a focused discovery engagement to clarify the problem, users, priorities, risks, and first release. The result is a practical scope and roadmap your team can evaluate before committing to a larger build.",
   },
   {
-    question: "Can we cancel anytime?",
+    question: "Do you work with teams outside Kenya?",
     answer:
-      "Absolutely. There are no cancellation fees and no hoops to jump through. If Cannopy isn't right for your organization, you can leave whenever you like and take your data with you.",
+      "Yes. Ivula was founded in Nairobi and works remotely with organizations in different markets. We structure communication, reviews, and handover so distributed teams always know what is happening next.",
   },
   {
-    question: "Do you work with organizations outside Kenya?",
+    question: "How do you estimate timeline and cost?",
     answer:
-      "Yes — Ivula is built for a global audience. We were founded in Nairobi, but Cannopy works for churches, nonprofits, cooperatives, and member groups anywhere in the world. Pricing is shown in USD.",
+      "After understanding the problem and the smallest useful release, we share a clear scope, delivery stages, assumptions, and commercial proposal. Larger ideas can be phased so you validate value before expanding the investment.",
   },
   {
-    question: "What if we're not technical?",
+    question: "What happens after launch?",
     answer:
-      "Cannopy is designed for real people, not IT departments. Founding members also get hands-on, founder-level onboarding to import your data and get set up — so you're never on your own.",
+      "We plan for handover from the start and can continue with monitoring, improvements, and product support. The exact arrangement depends on your team, internal capacity, and how quickly the product needs to evolve.",
   },
   {
-    question: "Do you also build custom software?",
+    question: "What is Ivula Canopy?",
     answer:
-      "Yes. Beyond our own products, Ivula Technologies builds custom software for businesses — web apps, internal tools, integrations, and more. Visit our Services page to request a quote.",
-  },
-] as const;
-
-/** Founding-member offer perks. */
-export const foundingPerks = [
-  {
-    title: "Founder-level onboarding",
-    description:
-      "We personally help you import members and get set up — no wrestling with a new tool alone.",
-  },
-  {
-    title: "Locked-in early pricing",
-    description:
-      "Founding organizations keep early-bird pricing for life, even as we add features and plans.",
-  },
-  {
-    title: "Direct line to the team",
-    description:
-      "Your feedback shapes the roadmap. Founding members get a direct channel to the people building Cannopy.",
-  },
-  {
-    title: "Founding badge",
-    description:
-      "Be recognized as one of the first organizations to grow with Ivula Cannopy.",
+      "Ivula Canopy is our organization-management platform for nonprofits, churches, youth programs, volunteer groups, and community teams. It brings people, events, attendance, announcements, engagement insights, and reports into one workspace.",
   },
 ] as const;
 
@@ -80,91 +57,114 @@ export interface Service {
 /** Custom software development services. */
 export const services: Service[] = [
   {
-    icon: Code2,
-    title: "Web applications",
+    icon: Compass,
+    title: "Product discovery & UX",
     description:
-      "Modern, fast, scalable web apps built with the same stack and craft behind our own products.",
+      "Turn a rough idea or operational problem into a clear product scope, user journey, prototype, and delivery roadmap.",
+  },
+  {
+    icon: Code2,
+    title: "Web platforms & SaaS",
+    description:
+      "Design and build secure customer portals, internal platforms, marketplaces, and subscription software that can grow with you.",
   },
   {
     icon: Smartphone,
-    title: "Mobile experiences",
+    title: "Mobile-first products",
     description:
-      "Responsive web and mobile-first experiences that feel native on every device.",
+      "Create responsive web and mobile experiences that stay fast, clear, and usable across the devices your customers rely on.",
   },
   {
     icon: Workflow,
-    title: "Internal tools & automation",
+    title: "AI & workflow automation",
     description:
-      "Dashboards, admin panels, and workflow automation that replace manual, error-prone processes.",
+      "Reduce repetitive work with practical AI, RPA, dashboards, and automated workflows connected to your real operations.",
   },
   {
     icon: Cloud,
-    title: "APIs & integrations",
+    title: "Cloud systems & APIs",
     description:
-      "Connect the systems you already use — payments, messaging, accounting, and more.",
-  },
-  {
-    icon: Boxes,
-    title: "SaaS product development",
-    description:
-      "From idea to launch: we partner with founders to design and ship production-grade SaaS.",
+      "Build dependable backends, APIs, integrations, and cloud infrastructure that make data and business systems work together.",
   },
   {
     icon: Gauge,
-    title: "Performance & polish",
+    title: "Product rescue & optimization",
     description:
-      "Audits and rebuilds that make existing products faster, cleaner, and a joy to use.",
+      "Audit and improve products that are slow, hard to use, difficult to maintain, or struggling to reach a reliable launch.",
   },
 ];
+
+export const deliverySteps = [
+  {
+    icon: Compass,
+    number: "01",
+    title: "Understand the problem",
+    description:
+      "We align on users, business goals, current constraints, and the outcome that would make the work worthwhile.",
+  },
+  {
+    icon: Lightbulb,
+    number: "02",
+    title: "Shape the right solution",
+    description:
+      "We turn the opportunity into a focused scope, experience, technical approach, and realistic release plan.",
+  },
+  {
+    icon: Rocket,
+    number: "03",
+    title: "Build and launch",
+    description:
+      "You see progress in working increments, review key decisions, and launch with a product your team can operate confidently.",
+  },
+  {
+    icon: RefreshCw,
+    number: "04",
+    title: "Learn and improve",
+    description:
+      "After launch, we use real feedback and product data to prioritize improvements instead of guessing what to build next.",
+  },
+] as const;
 
 /** Why-Ivula trust points for the services page. */
 export const serviceValues = [
   {
-    title: "We build our own products",
+    title: "Product thinking, not just tickets",
     description:
-      "We don't just ship and leave. We run the same software in production ourselves — so we sweat the details.",
+      "We challenge assumptions, protect the core outcome, and help you choose the smallest release that can create real value.",
   },
   {
-    title: "Founder-led & physics-trained",
+    title: "Close, transparent collaboration",
     description:
-      "Led by a founder with a degree in Applied Physics & Computer Science. Rigorous thinking, real engineering.",
+      "You get clear checkpoints, visible progress, and direct conversations with the people shaping and building the product.",
   },
   {
-    title: "Global standard, fair pricing",
+    title: "Built to last beyond launch",
     description:
-      "World-class craft from our base in Nairobi — international quality without international overhead.",
+      "We make deliberate choices around maintainability, security, ownership, and handover so the product can keep growing.",
   },
 ] as const;
 
-/** Vision / roadmap timeline for the homepage. */
+/** Studio story for the homepage. */
 export const vision = [
   {
-    phase: "Today",
-    title: "Cannopy, our flagship",
+    phase: "We own the outcome",
+    title: "Product-minded by default",
     description:
-      "A focused organization-management platform for member-based communities, in active development with founding members.",
+      "We build our own products, including Ivula Canopy. That operator perspective changes how we prioritize, test, launch, and support client work.",
+    icon: Handshake,
+  },
+  {
+    phase: "We solve before we scale",
+    title: "Clarity before complexity",
+    description:
+      "The goal is not to add more technology. It is to remove friction with the simplest dependable system that can move the organization forward.",
     icon: Sparkles,
   },
   {
-    phase: "Next",
-    title: "A growing product family",
+    phase: "We stay useful",
+    title: "A partner beyond the release",
     description:
-      "More focused tools that solve real problems for organizations — built on the same modern foundation.",
-    icon: Boxes,
+      "From product discovery to post-launch improvement, we adapt the partnership to the capability and pace your team actually needs.",
+    icon: LifeBuoy,
   },
-  {
-    phase: "Always",
-    title: "Custom software for business",
-    description:
-      "Partnering with companies worldwide to build the software they can't buy off the shelf.",
-    icon: Code2,
-  },
-] as const;
-
-/** FAQ-style trust icons reused elsewhere. */
-export const trustHighlights = [
-  { icon: Lock, label: "Encrypted & private" },
-  { icon: CreditCard, label: "No contract" },
-  { icon: XCircle, label: "Cancel anytime" },
-  { icon: Globe2, label: "Used worldwide" },
 ] as const;

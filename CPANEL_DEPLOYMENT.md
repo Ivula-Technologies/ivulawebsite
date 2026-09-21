@@ -19,7 +19,7 @@ A successful build creates an `out/` directory.
 2. Open the document root for `ivulatechnologies.com` (normally `public_html/`, unless the domain is configured with a different document root).
 3. Back up or remove the old website files from that document root.
 4. Upload the **contents of `out/`**, not the `out` folder itself.
-5. Confirm that `index.html`, `_next/`, `products/`, `services/`, `pricing/`, and `contact/` are directly inside the document root.
+5. Confirm that `index.html`, `.htaccess`, `_next/`, `products/`, `services/`, `pricing/`, and `contact/` are directly inside the document root. In cPanel, enable **Show Hidden Files** if `.htaccess` is not visible.
 6. In cPanel **SSL/TLS Status**, enable AutoSSL for the domain.
 7. Test the temporary/server URL if available before changing DNS.
 

@@ -1,17 +1,16 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Users,
-  Wallet,
   CalendarHeart,
   BarChart3,
   MessagesSquare,
   ShieldCheck,
-  Megaphone,
   Layers,
   Building2,
   HeartHandshake,
   Sprout,
   Church,
+  GraduationCap,
 } from "lucide-react";
 
 /**
@@ -57,7 +56,7 @@ export interface ProductStat {
 export interface Product {
   slug: string;
   name: string;
-  /** Short product family label, e.g. "Ivula Cannopy". */
+  /** Short product family label, e.g. "Ivula Canopy". */
   fullName: string;
   status: ProductStatus;
   /** One-line elevator pitch (used on cards). */
@@ -74,7 +73,7 @@ export interface Product {
     to: string;
   };
   icon: LucideIcon;
-  /** Placeholder screenshot — swap the file in /public/screenshots. */
+  /** Product preview asset served from /public/screenshots. */
   screenshot: string;
   audiences: ProductAudience[];
   features: ProductFeature[];
@@ -91,108 +90,114 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    slug: "cannopy",
-    name: "Cannopy",
-    fullName: "Ivula Cannopy",
+    slug: "canopy",
+    name: "Canopy",
+    fullName: "Ivula Canopy",
     status: "live",
     tagline:
-      "All-in-one organization management for member-based communities.",
-    headline: "Manage your members, money, and momentum — all in one place.",
+      "One clear workspace for people-powered organizations.",
+    headline: "Run your people-powered programs from one clear workspace.",
     subhead:
-      "Ivula Cannopy is the all-in-one platform for churches, nonprofits, youth groups, and cooperatives to manage members, track contributions, and grow engagement — without the spreadsheet chaos.",
+      "Ivula Canopy helps nonprofits, churches, youth programs, and community teams manage people, volunteers, events, attendance, announcements, and reports without scattered spreadsheets.",
     description:
-      "Cannopy replaces the tangle of spreadsheets, group chats, and paper records that member-based organizations rely on. Keep one trusted record of every member, track every contribution, run events and communications, and see your community's health at a glance.",
+      "Canopy replaces disconnected spreadsheets, group chats, and paper records with one dependable source of truth. Give staff and volunteer leaders the context they need to coordinate programs, understand participation, and report with confidence.",
     accent: { from: "#3450a8", to: "#06b0d4" },
     icon: Sprout,
-    screenshot: "/screenshots/cannopy-dashboard.svg",
+    screenshot: "/screenshots/canopy-dashboard.svg",
     audiences: [
       {
-        icon: Church,
-        label: "Churches & faith communities",
-        pain: "Tithes in a notebook, members in your head, and no clear picture of who's drifting away.",
+        icon: HeartHandshake,
+        label: "Nonprofits & volunteer groups",
+        pain: "Coordinate volunteers, attendance, outreach, and leadership reporting without duplicate spreadsheets.",
       },
       {
-        icon: HeartHandshake,
-        label: "Nonprofits & NGOs",
-        pain: "Donor records scattered across spreadsheets and inboxes when your funders want clean reports.",
+        icon: Church,
+        label: "Churches & ministries",
+        pain: "Keep members, ministries, services, events, and care teams visible from one operational workspace.",
       },
       {
         icon: Users,
-        label: "Youth & community groups",
-        pain: "Chasing dues over WhatsApp and losing track of who showed up to what.",
+        label: "Youth & community programs",
+        pain: "Organize teams, chapters, activities, and participation as your community grows.",
       },
       {
-        icon: Building2,
-        label: "Cooperatives & SACCOs",
-        pain: "Member contributions and balances that are painful to reconcile and easy to dispute.",
+        icon: GraduationCap,
+        label: "Educational programs",
+        pain: "Support cohorts, clubs, student groups, and extracurricular programs with clearer records and reporting.",
       },
     ],
     features: [
       {
         icon: Users,
-        title: "Member directory",
+        title: "People directory",
         description:
-          "One trusted, searchable record for every member — profiles, roles, groups, attendance, and history.",
+          "Keep members, volunteers, staff, donors, and stakeholders organized with the context your team needs.",
       },
       {
-        icon: Wallet,
-        title: "Contributions & dues",
+        icon: Building2,
+        title: "Volunteer coordination",
         description:
-          "Record tithes, donations, dues, and pledges. See who's paid, who's pending, and full giving history.",
+          "Group people into teams, ministries, committees, projects, or departments with clear leadership assignments.",
       },
       {
         icon: CalendarHeart,
         title: "Events & attendance",
         description:
-          "Plan services, meetings, and programs. Track attendance and follow up with people who miss out.",
-      },
-      {
-        icon: MessagesSquare,
-        title: "Communications",
-        description:
-          "Reach the right group with announcements and reminders — no more copy-pasting across chats.",
+          "Plan activities, record participation, and understand which programs are keeping people connected.",
       },
       {
         icon: BarChart3,
-        title: "Insights & reports",
+        title: "Engagement dashboard",
         description:
-          "Growth, giving, and engagement trends in clear dashboards. Export clean reports for your board or funders.",
+          "Turn day-to-day activity into useful insight about participation, volunteer activity, and growth.",
+      },
+      {
+        icon: MessagesSquare,
+        title: "Announcements",
+        description:
+          "Reach the right people quickly with centralized updates instead of scattered texts and email threads.",
       },
       {
         icon: ShieldCheck,
-        title: "Roles & permissions",
+        title: "Reports & exports",
         description:
-          "Give treasurers, admins, and leaders exactly the access they need — your data stays protected.",
+          "Create clear reports and CSV exports for board meetings, team reviews, funders, and operational planning.",
       },
     ],
     steps: [
       {
-        title: "Add your members",
+        title: "Create your workspace",
         description:
-          "Import a spreadsheet or add members in minutes. Cannopy becomes your single source of truth.",
+          "Set up your nonprofit, church, youth program, or community organization.",
       },
       {
-        title: "Track money & activity",
+        title: "Bring your people in",
         description:
-          "Log contributions, run events, and send communications — everything connected to the right people.",
+          "Add members, volunteers, staff, and stakeholders so everyone works from the same list.",
       },
       {
-        title: "Watch momentum grow",
+        title: "Coordinate programs",
         description:
-          "See engagement and giving trends, spot who needs follow-up, and make confident decisions.",
+          "Create teams, events, shifts, and activities that match how your organization operates.",
+      },
+      {
+        title: "Track participation",
+        description:
+          "Capture attendance, volunteer hours, and engagement signals as the work happens.",
+      },
+      {
+        title: "Report with confidence",
+        description:
+          "Use dashboards and exports to brief staff, boards, funders, and program leaders.",
       },
     ],
-    stats: [
-      { value: 1, suffix: "", label: "Single source of truth" },
-      { value: 90, suffix: "%", label: "Less spreadsheet wrangling" },
-      { value: 60, suffix: "s", label: "To send an announcement" },
-      { value: 24, suffix: "/7", label: "Access from any device" },
-    ],
+    stats: [],
     cta: {
-      primaryLabel: "Start free trial",
-      primaryHref: "/pricing",
+      primaryLabel: "Start free for 14 days",
+      primaryHref: "https://canopy.ivulatechnologies.com/signup",
       secondaryLabel: "Request a demo",
-      secondaryHref: "/contact",
+      secondaryHref:
+        "mailto:info@ivulatechnologies.com?subject=Ivula%20Canopy%20demo%20request",
     },
   },
   // ---------------------------------------------------------------------------
@@ -208,9 +213,9 @@ export const products: Product[] = [
       "We're building a family of focused products for organizations worldwide.",
     headline: "More products are on the way.",
     subhead:
-      "Cannopy is the first of many. We're building a growing family of focused, modern tools for the way organizations actually work.",
+      "Canopy is the first of many. We're building a growing family of focused, modern tools for the way organizations actually work.",
     description:
-      "Ivula is a product studio. Cannopy is our flagship, but it's the first chapter — not the whole story.",
+      "Ivula is a product studio. Canopy is our flagship, but it's the first chapter — not the whole story.",
     accent: { from: "#16224a", to: "#506dc2" },
     icon: Layers,
     screenshot: "/screenshots/coming-soon.svg",
@@ -222,7 +227,7 @@ export const products: Product[] = [
       primaryLabel: "Get product updates",
       primaryHref: "/contact",
       secondaryLabel: "See our vision",
-      secondaryHref: "/#vision",
+      secondaryHref: "/#about",
     },
   },
 ];
@@ -246,9 +251,4 @@ export function getProductSlugs(): string[] {
 }
 
 /** The flagship product, surfaced prominently on the homepage. */
-export const flagship = products.find((p) => p.slug === "cannopy")!;
-
-/** Icons re-exported for the homepage audience/feature sections. */
-export const audienceIcons = { Church, HeartHandshake, Users, Building2 };
-export const trustIcon = ShieldCheck;
-export const marketingIcon = Megaphone;
+export const flagship = products.find((p) => p.slug === "canopy")!;

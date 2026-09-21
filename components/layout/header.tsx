@@ -24,11 +24,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change.
-  React.useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={cn(
@@ -83,7 +78,7 @@ export function Header() {
           <ThemeToggle />
           <Magnetic className="hidden sm:block">
             <Button asChild variant="gradient" size="sm">
-              <Link href={cta.trialHref}>{cta.trialLabel}</Link>
+              <Link href={cta.projectHref}>{cta.projectLabel}</Link>
             </Button>
           </Magnetic>
 
@@ -113,6 +108,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-secondary"
                 >
                   {item.title}
@@ -120,12 +116,14 @@ export function Header() {
               ))}
               <div className="mt-3 flex flex-col gap-2">
                 <Button asChild variant="gradient" size="lg">
-                  <Link href={cta.trialHref}>{cta.trialLabel}</Link>
+                  <Link href={cta.projectHref} onClick={() => setOpen(false)}>
+                    {cta.projectLabel}
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href={cta.mailto}>
-                    <Mail className="size-4" /> Email us
-                  </a>
+                  <Link href={cta.workHref} onClick={() => setOpen(false)}>
+                    {cta.workLabel}
+                  </Link>
                 </Button>
               </div>
             </div>

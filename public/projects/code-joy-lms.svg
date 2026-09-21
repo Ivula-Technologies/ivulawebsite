@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="960" viewBox="0 0 1280 960" role="img" aria-labelledby="title desc">
+  <title id="title">Code Joy Academy learning portal</title>
+  <desc id="desc">A secure learning portal welcome screen with classes, assignments, progress, attendance and family accounts.</desc>
+  <defs>
+    <linearGradient id="backdrop" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#07152e"/>
+      <stop offset="0.55" stop-color="#123b7d"/>
+      <stop offset="1" stop-color="#1599c4"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#31d9f2" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#5d74e8" stop-opacity=".15"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="28" stdDeviation="30" flood-color="#020817" flood-opacity=".35"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="960" fill="url(#backdrop)"/>
+  <circle cx="1080" cy="120" r="250" fill="#31d9f2" opacity=".18" filter="url(#blur)"/>
+  <circle cx="150" cy="880" r="260" fill="#7582ff" opacity=".2" filter="url(#blur)"/>
+  <g opacity=".13" stroke="#fff">
+    <path d="M0 120H1280M0 240H1280M0 360H1280M0 480H1280M0 600H1280M0 720H1280M0 840H1280"/>
+    <path d="M160 0V960M320 0V960M480 0V960M640 0V960M800 0V960M960 0V960M1120 0V960"/>
+  </g>
+
+  <g transform="translate(92 96)">
+    <circle cx="32" cy="32" r="32" fill="url(#glow)"/>
+    <path d="M20 20h13v27L22 39v-8l-9 3 7-14Zm29 0v12L33 48v-9L49 20Zm14 22L36 69l-7-7 14-17 20-3Z" fill="#fff"/>
+    <text x="82" y="31" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">CODE JOY ACADEMY</text>
+    <text x="82" y="56" fill="#b8cff4" font-family="Inter, Arial, sans-serif" font-size="15" letter-spacing="3">LEARN · GROW · EXCEL</text>
+  </g>
+
+  <g transform="translate(92 278)" font-family="Inter, Arial, sans-serif">
+    <rect width="520" height="430" rx="32" fill="#fff" opacity=".07" stroke="#fff" stroke-opacity=".12"/>
+    <rect x="36" y="36" width="116" height="34" rx="17" fill="#fff" opacity=".1"/>
+    <circle cx="57" cy="53" r="6" fill="#55e2f4"/>
+    <text x="75" y="59" fill="#d5e4ff" font-size="13" font-weight="700">SECURE PORTAL</text>
+    <text x="36" y="135" fill="#fff" font-size="50" font-weight="750">Everything your</text>
+    <text x="36" y="190" fill="#fff" font-size="50" font-weight="750">journey needs.</text>
+    <text x="36" y="242" fill="#c1d3ee" font-size="21">Classes, assignments, progress and</text>
+    <text x="36" y="272" fill="#c1d3ee" font-size="21">family accounts in one protected place.</text>
+    <g transform="translate(36 320)">
+      <rect width="170" height="50" rx="25" fill="#fff"/>
+      <text x="26" y="32" fill="#0c1e40" font-size="16" font-weight="700">Invitation only</text>
+      <circle cx="143" cy="25" r="12" fill="#1ba9d4"/>
+      <path d="m139 25 3 3 6-7" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <g transform="translate(696 192)" filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect width="492" height="606" rx="36" fill="#fff"/>
+    <circle cx="64" cy="66" r="25" fill="#eef7ff"/>
+    <path d="M52 56h11v23l-9-7v-7l-8 2 6-11Zm25 0v10L64 79v-7l13-16Zm12 18L67 96l-6-6 11-13 17-3Z" fill="#178fc8"/>
+    <text x="104" y="62" fill="#0c1e40" font-size="15" font-weight="700">WELCOME BACK</text>
+    <text x="104" y="82" fill="#71819b" font-size="12">Secure learning portal</text>
+    <text x="48" y="156" fill="#0c1e40" font-size="32" font-weight="750">Sign in to the LMS</text>
+    <text x="48" y="188" fill="#71819b" font-size="15">Use the details from your academy invitation.</text>
+    <text x="48" y="246" fill="#31425e" font-size="13" font-weight="700">EMAIL ADDRESS</text>
+    <rect x="48" y="264" width="396" height="60" rx="14" fill="#f7f9fc" stroke="#dfe7f1"/>
+    <text x="70" y="301" fill="#8b98ab" font-size="15">name@example.com</text>
+    <text x="48" y="374" fill="#31425e" font-size="13" font-weight="700">PASSWORD</text>
+    <rect x="48" y="392" width="396" height="60" rx="14" fill="#f7f9fc" stroke="#dfe7f1"/>
+    <text x="70" y="429" fill="#8b98ab" font-size="19">••••••••••</text>
+    <rect x="48" y="488" width="396" height="64" rx="16" fill="#123b7d"/>
+    <text x="166" y="528" fill="#fff" font-size="17" font-weight="700">Sign in securely</text>
+  </g>
+</svg>

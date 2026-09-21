@@ -45,10 +45,7 @@ export function AnimatedCounter({
   }, [inView, reduce, value, motionValue]);
 
   React.useEffect(() => {
-    if (reduce) {
-      setDisplay(value);
-      return;
-    }
+    if (reduce) return;
     const unsub = spring.on("change", (latest) => {
       setDisplay(Math.round(latest));
     });
@@ -58,7 +55,7 @@ export function AnimatedCounter({
   return (
     <motion.span ref={ref} className={className}>
       {prefix}
-      {display}
+      {reduce ? value : display}
       {suffix}
     </motion.span>
   );

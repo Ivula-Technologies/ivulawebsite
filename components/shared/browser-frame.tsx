@@ -4,19 +4,20 @@ import { cn } from "@/lib/utils";
 /**
  * Tasteful browser/device chrome around a product screenshot.
  *
- * Swap the screenshot by replacing the file at `src`
- * (placeholders live in /public/screenshots — clearly marked).
+ * Swap the preview by replacing the file at `src` in /public/screenshots.
  */
 export function BrowserFrame({
   src,
   alt,
   className,
   url = "app.ivulatechnologies.com",
+  priority = false,
 }: {
   src: string;
   alt: string;
   className?: string;
   url?: string;
+  priority?: boolean;
 }) {
   return (
     <div
@@ -44,7 +45,7 @@ export function BrowserFrame({
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
           className="object-cover object-top"
-          priority={false}
+          priority={priority}
         />
       </div>
     </div>

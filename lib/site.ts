@@ -5,55 +5,71 @@
 export const site = {
   name: "Ivula Technologies",
   shortName: "Ivula",
-  tagline: "A product studio building modern software for a global market.",
+  tagline: "Building Solutions. Solving Problems.",
   description:
-    "Ivula Technologies is a software product studio building modern SaaS and custom software for organizations worldwide. Our flagship product, Ivula Cannopy, helps member-based communities manage members, money, and momentum.",
-  url: "https://ivulatechnologies.com",
-  // Origin / authenticity story — not the core pitch.
-  origin: "Founded in Nairobi, Kenya · Building for the world",
+    "Ivula Technologies designs and builds practical software products, AI-powered workflows, and custom platforms that help organizations work smarter and grow with confidence.",
+  url: "https://www.ivulatechnologies.com",
+  origin: "Founded in Nairobi in 2022 · Building for the world",
   contact: {
-    // Email only — no phone number anywhere on the site (per brand guidance).
     email: "info@ivulatechnologies.com",
   },
-  // Social links — fill in real handles when available.
   social: {
-    linkedin: "#",
-    x: "#",
-    github: "#",
+    linkedin: "https://www.linkedin.com/company/ivula-technologies-ltd",
+  },
+  canopy: {
+    home: "https://canopy.ivulatechnologies.com",
+    signup: "https://canopy.ivulatechnologies.com/signup",
+    login: "https://canopy.ivulatechnologies.com/login",
   },
 } as const;
 
 export const mainNav = [
-  { title: "Products", href: "/products" },
+  { title: "Work", href: "/#work" },
   { title: "Services", href: "/services" },
-  { title: "Pricing", href: "/pricing" },
+  { title: "Approach", href: "/#approach" },
+  { title: "About", href: "/#about" },
   { title: "Contact", href: "/contact" },
 ] as const;
 
 export const footerNav = {
-  Product: [
-    { title: "Ivula Cannopy", href: "/products/cannopy" },
+  "Selected work": [
+    { title: "Ivula Canopy", href: "/products/canopy" },
+    { title: "Code Joy Academy", href: "https://www.codejoyacademy.com/" },
+    { title: "Code Joy Academy LMS", href: "https://lms.codejoyacademy.com/" },
     { title: "All products", href: "/products" },
-    { title: "Pricing", href: "/pricing" },
-    { title: "Start free trial", href: "/pricing" },
   ],
   Company: [
     { title: "Services", href: "/services" },
     { title: "Contact", href: "/contact" },
-    { title: "Our vision", href: "/#vision" },
+    { title: "About Ivula", href: "/#about" },
   ],
-  Resources: [
-    { title: "How it works", href: "/#how-it-works" },
+  Explore: [
+    { title: "How we work", href: "/#approach" },
     { title: "FAQ", href: "/#faq" },
-    { title: "Founding members", href: "/#founding" },
+    { title: "LinkedIn", href: site.social.linkedin },
   ],
 } as const;
 
 /** Convenience helpers for CTA links used across the site. */
 export const cta = {
-  trialHref: "/pricing",
-  trialLabel: "Start free trial",
-  demoHref: "/contact",
-  demoLabel: "Request a demo",
+  projectHref: "/contact",
+  projectLabel: "Discuss a project",
+  workHref: "/#work",
+  workLabel: "View selected work",
+  canopyHref: site.canopy.home,
+  canopyLabel: "Explore Canopy",
+  trialHref: site.canopy.signup,
+  trialLabel: "Start Canopy free",
+  signInHref: site.canopy.login,
+  demoHref: `mailto:${site.contact.email}?subject=${encodeURIComponent(
+    "Ivula Canopy demo request"
+  )}`,
+  demoLabel: "Request a Canopy demo",
   mailto: `mailto:${site.contact.email}`,
+  projectMailto: `mailto:${site.contact.email}?subject=${encodeURIComponent(
+    "Custom software project enquiry"
+  )}`,
+  partnershipMailto: `mailto:${site.contact.email}?subject=${encodeURIComponent(
+    "Partnership conversation"
+  )}`,
 } as const;

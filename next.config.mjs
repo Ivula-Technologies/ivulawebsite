@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
 
   // Export the marketing site as plain static files so it can be hosted
   // directly from cPanel/Apache without a long-running Node.js process.

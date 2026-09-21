@@ -1,60 +1,58 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Reveal } from "@/components/motion/reveal";
-import { flagship } from "@/lib/products";
-import { usePrefersReducedMotion } from "@/components/motion/use-reduced-motion";
+import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
+import { Button } from "@/components/ui/button";
+import { deliverySteps } from "@/lib/content";
 
 export function HowItWorks() {
-  const reduce = usePrefersReducedMotion();
   return (
     <section
-      id="how-it-works"
+      id="approach"
       className="relative overflow-hidden border-y border-border bg-secondary/30 py-20 md:py-28"
     >
       <div className="container-wide">
         <SectionHeading
-          eyebrow="60-second how-it-works"
-          title="From spreadsheet chaos to clarity, fast"
-          description="No IT department required. Cannopy gets your organization organized in three simple steps."
+          eyebrow="How we work"
+          title="Clear decisions before heavy development"
+          description="A practical delivery process keeps the team focused on outcomes, makes progress visible, and reduces expensive surprises."
         />
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {flagship.steps.map((step, i) => (
-            <Reveal key={step.title} direction="up" delay={i * 0.12}>
-              <div className="relative flex h-full flex-col gap-4">
-                {/* Connector line */}
-                {i < flagship.steps.length - 1 && (
-                  <span className="absolute left-7 top-7 hidden h-px w-[calc(100%+2rem)] bg-gradient-to-r from-cyan-500/40 to-transparent md:block" />
-                )}
-                <motion.span
-                  whileHover={reduce ? undefined : { scale: 1.08, rotate: -3 }}
-                  className="relative z-10 inline-flex size-14 items-center justify-center rounded-2xl bg-brand-gradient font-display text-xl font-bold text-white shadow-glow"
-                >
-                  {i + 1}
-                </motion.span>
-                <h3 className="font-display text-xl font-bold">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <RevealGroup className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {deliverySteps.map((step) => {
+            const Icon = step.icon;
+            return (
+              <RevealItem key={step.number} className="h-full">
+                <div className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+                  <span className="absolute right-5 top-3 font-display text-6xl font-bold text-cyan-500/[0.08]">
+                    {step.number}
+                  </span>
+                  <span className="relative inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
+                    <Icon className="size-5" />
+                  </span>
+                  <div className="relative">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-400">
+                      Step {step.number}
+                    </p>
+                    <h3 className="mt-2 font-display text-xl font-bold">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </RevealItem>
+            );
+          })}
+        </RevealGroup>
 
-        <Reveal direction="up" delay={0.2}>
-          <div className="mt-14 flex items-center justify-center">
-            <button
-              type="button"
-              className="group inline-flex items-center gap-3 rounded-full border border-border bg-card px-5 py-3 text-sm font-medium shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card-hover"
-            >
-              <span className="flex size-9 items-center justify-center rounded-full bg-cyan-500 text-white transition-transform group-hover:scale-110">
-                <Play className="size-4 fill-current" />
-              </span>
-              Watch the 60-second tour
-              <span className="text-muted-foreground">(placeholder)</span>
-            </button>
-          </div>
+        <Reveal direction="up" className="mt-12 flex justify-center">
+          <Button asChild variant="outline" size="lg">
+            <Link href="/contact">
+              Start a conversation <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </Reveal>
       </div>
     </section>

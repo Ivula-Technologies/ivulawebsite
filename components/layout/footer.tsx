@@ -31,12 +31,21 @@ export function Footer() {
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.title}
-                    </Link>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.title}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.title}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -47,22 +56,22 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-6 rounded-3xl border border-border bg-brand-gradient p-8 text-white shadow-glow sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="font-display text-xl font-bold sm:text-2xl">
-              Become a founding organization
+              Have a software challenge worth solving?
             </h3>
             <p className="mt-1 text-sm text-white/80">
-              Start free, lock in early pricing, and shape what we build next.
+              Share the problem, the outcome you need, and where your current tools are falling short.
             </p>
           </div>
           <div className="flex flex-shrink-0 gap-3">
             <Button asChild variant="accent" size="lg">
-              <Link href={cta.trialHref}>{cta.trialLabel}</Link>
+              <Link href={cta.projectHref}>{cta.projectLabel}</Link>
             </Button>
             <Button
               asChild
               size="lg"
               className="bg-white/10 text-white hover:bg-white/20"
             >
-              <a href={cta.mailto}>
+              <a href={cta.projectMailto}>
                 Email us <ArrowUpRight className="size-4" />
               </a>
             </Button>
@@ -80,9 +89,12 @@ export function Footer() {
             <Link href="/services" className="transition-colors hover:text-foreground">
               Services
             </Link>
-            <Link href="/pricing" className="transition-colors hover:text-foreground">
-              Pricing
-            </Link>
+            <a
+              href={site.social.linkedin}
+              className="transition-colors hover:text-foreground"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>
