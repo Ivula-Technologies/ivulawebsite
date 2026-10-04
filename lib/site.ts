@@ -37,6 +37,7 @@ export const mainNav = [
   { title: "Services", href: "/services" },
   { title: "Engagements", href: "/#engagements" },
   { title: "Approach", href: "/#approach" },
+  { title: "Care Plans", href: "/care-plans" },
   { title: "Contact", href: "/contact" },
 ] as const;
 
@@ -49,6 +50,7 @@ export const footerNav = {
   ],
   Company: [
     { title: "Services", href: "/services" },
+    { title: "Hosting & care plans", href: "/care-plans" },
     { title: "Contact", href: "/contact" },
     { title: "About Ivula", href: "/#about" },
   ],

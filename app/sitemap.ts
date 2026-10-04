@@ -5,7 +5,7 @@ import { getProductSlugs } from "@/lib/products";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/products", "/services", "/pricing", "/contact"];
+  const staticRoutes = ["", "/products", "/services", "/pricing", "/care-plans", "/contact"];
   const productRoutes = getProductSlugs().map((slug) => `/products/${slug}`);
 
   return [...staticRoutes, ...productRoutes].map((path) => ({
