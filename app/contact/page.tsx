@@ -6,6 +6,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
+import { ProjectBriefForm } from "@/components/lead/project-brief-form";
 import { faqs } from "@/lib/content";
 import { cta, site } from "@/lib/site";
 
@@ -22,8 +23,8 @@ const reasons = [
     title: "Build or improve software",
     description:
       "Share the problem, the users, and the outcome you need. We can help shape, build, launch, or rescue the product.",
-    label: "Discuss a project",
-    href: cta.projectMailto,
+    label: "Fill in the project brief",
+    href: "#brief",
   },
   {
     icon: MessageSquare,
@@ -50,23 +51,49 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Let&apos;s solve something{" "}
-            <span className="text-gradient">worth solving.</span>
+            Get a free estimate{" "}
+            <span className="text-gradient">for your project.</span>
           </>
         }
-        description="Tell us what is not working, what you want to make possible, and where you are in the journey. You'll reach a real person on our team."
+        description="Tell us what you want to build or fix. Within one business day, a real person on our team replies with honest advice, a rough plan, and a cost range."
       >
         <Magnetic>
           <Button asChild variant="gradient" size="xl">
+            <a href="#brief">
+              Start your brief <ArrowRight className="size-4" />
+            </a>
+          </Button>
+        </Magnetic>
+        {site.bookingUrl ? (
+          <Button asChild variant="outline" size="xl">
+            <a href={site.bookingUrl} target="_blank" rel="noreferrer">
+              Book a 30-minute call
+            </a>
+          </Button>
+        ) : (
+          <Button asChild variant="outline" size="xl">
             <a href={cta.projectMailto}>
               <Mail className="size-4" /> {site.contact.email}
             </a>
           </Button>
-        </Magnetic>
+        )}
       </PageHero>
+
+      <section id="brief" className="scroll-mt-24 pb-12 pt-4">
+        <div className="container-wide max-w-4xl">
+          <Reveal direction="up">
+            <ProjectBriefForm />
+          </Reveal>
+        </div>
+      </section>
 
       <section className="pb-12 pt-8">
         <div className="container-wide">
+          <SectionHeading
+            eyebrow="Other ways to reach us"
+            title="Not a new build? We can still help"
+            className="mb-12"
+          />
           <RevealGroup className="grid gap-6 md:grid-cols-3">
             {reasons.map((reason) => {
               const Icon = reason.icon;
@@ -92,38 +119,6 @@ export default function ContactPage() {
               );
             })}
           </RevealGroup>
-        </div>
-      </section>
-
-      <section className="py-12">
-        <div className="container-wide">
-          <Reveal direction="up">
-            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-navy-900 px-8 py-14 text-center text-white shadow-soft-lg">
-              <div className="pointer-events-none absolute inset-0">
-                <div className="absolute left-1/2 top-0 size-96 -translate-x-1/2 rounded-full bg-cyan-500/25 blur-[130px]" />
-              </div>
-              <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-5">
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-white/10">
-                  <Mail className="size-7 text-cyan-300" />
-                </span>
-                <h2 className="font-display text-2xl font-bold sm:text-3xl">
-                  A useful first message is simple
-                </h2>
-                <a
-                  href={cta.projectMailto}
-                  className="font-display text-xl font-semibold text-cyan-300 underline-offset-4 hover:underline sm:text-2xl"
-                >
-                  {site.contact.email}
-                </a>
-                <p className="text-sm leading-relaxed text-white/70">
-                  Include the problem, who experiences it, what you have tried,
-                  and the outcome you want. If you already have a timeline or
-                  budget range, include that too — it helps us give you a more
-                  useful first response.
-                </p>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 

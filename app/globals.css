@@ -77,6 +77,8 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     color-scheme: light;
+    /* Decorative glows and slide-in reveals must never cause sideways scroll on phones. */
+    overflow-x: clip;
   }
   html.dark {
     color-scheme: dark;

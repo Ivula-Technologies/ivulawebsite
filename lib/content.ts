@@ -27,9 +27,14 @@ export const faqs = [
       "Yes. We can begin with a focused discovery engagement to clarify the problem, users, priorities, risks, and first release. The result is a practical scope and roadmap your team can evaluate before committing to a larger build.",
   },
   {
-    question: "Do you work with teams outside Kenya?",
+    question: "How does working with a Nairobi team work for US companies?",
     answer:
-      "Yes. Ivula was founded in Nairobi and works remotely with organizations in different markets. We structure communication, reviews, and handover so distributed teams always know what is happening next.",
+      "Smoothly. Our working day overlaps with US Eastern mornings, so you get live calls, quick answers, and progress that keeps moving while you sleep. Everything runs in English through the tools you already use: Slack, Zoom or Meet, GitHub, and Linear or Jira.",
+  },
+  {
+    question: "Who owns the code and designs?",
+    answer:
+      "You do. Source code, designs, and documentation are yours, delivered in repositories and accounts you control. We plan the handover from day one so you are never locked in.",
   },
   {
     question: "How do you estimate timeline and cost?",
@@ -122,6 +127,74 @@ export const deliverySteps = [
     title: "Learn and improve",
     description:
       "After launch, we use real feedback and product data to prioritize improvements instead of guessing what to build next.",
+  },
+] as const;
+
+export interface Engagement {
+  icon: LucideIcon;
+  slug: "discovery" | "mvp" | "automation";
+  name: string;
+  headline: string;
+  description: string;
+  timeline: string;
+  deliverables: readonly string[];
+  cta: string;
+  featured?: boolean;
+}
+
+/**
+ * Productized ways to start. Clear entry offers make it easy for a buyer to
+ * say yes to a first step instead of an open-ended project.
+ */
+export const engagements: readonly Engagement[] = [
+  {
+    icon: Compass,
+    slug: "discovery",
+    name: "Discovery Sprint",
+    headline: "Turn an idea into a scoped, priced plan.",
+    description:
+      "For founders and teams who need clarity before committing a budget. We pressure-test the idea and leave you with a plan you can build with us or anyone else.",
+    timeline: "About 2 weeks",
+    deliverables: [
+      "User journeys and a clickable prototype",
+      "Prioritized feature scope for version one",
+      "Technical architecture and risk review",
+      "Fixed-price build proposal and timeline",
+    ],
+    cta: "Plan my product",
+  },
+  {
+    icon: Rocket,
+    slug: "mvp",
+    name: "MVP Build",
+    headline: "Launch a product customers can pay for.",
+    description:
+      "A dedicated design and engineering team takes your product from scope to launch, with working software to review every week.",
+    timeline: "Typically 8 to 12 weeks",
+    deliverables: [
+      "Product design and brand-ready UI",
+      "Web or mobile app, backend, and payments",
+      "Analytics, hosting, and launch support",
+      "Code, accounts, and docs handed to you",
+    ],
+    cta: "Build my MVP",
+    featured: true,
+  },
+  {
+    icon: Workflow,
+    slug: "automation",
+    name: "AI & Automation",
+    headline: "Win back hours of manual work every week.",
+    description:
+      "We find the repetitive, error-prone work slowing your team down and replace it with AI assistants, integrations, and dashboards.",
+    timeline: "Pilot in 3 to 4 weeks",
+    deliverables: [
+      "Workflow audit with estimated time savings",
+      "AI agents, integrations, and automations",
+      "Dashboards that show what changed",
+      "Team training and ongoing tuning",
+    ],
+    cta: "Automate a workflow",
   },
 ] as const;
 

@@ -31,7 +31,7 @@ export function ServicesTeaser() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Discuss a project</Link>
+                  <Link href="/#engagements">See ways to start</Link>
                 </Button>
               </div>
             </div>

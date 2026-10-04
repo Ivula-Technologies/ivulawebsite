@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
+import { Engagements } from "@/components/sections/engagements";
 import { services, serviceValues } from "@/lib/content";
 import { cta } from "@/lib/site";
 
@@ -31,9 +32,9 @@ export default function ServicesPage() {
       >
         <Magnetic>
           <Button asChild variant="gradient" size="xl">
-            <a href="#quote">
-              Discuss a project <ArrowRight className="size-4" />
-            </a>
+            <Link href={cta.projectHref}>
+              {cta.projectLabel} <ArrowRight className="size-4" />
+            </Link>
           </Button>
         </Magnetic>
         <Button asChild variant="outline" size="xl">
@@ -73,6 +74,10 @@ export default function ServicesPage() {
           </RevealGroup>
         </div>
       </section>
+
+      <div className="border-t border-border">
+        <Engagements />
+      </div>
 
       {/* Why Ivula */}
       <section className="border-y border-border bg-secondary/30 py-16 md:py-24">
@@ -118,9 +123,9 @@ export default function ServicesPage() {
                 </p>
                 <Magnetic>
                   <Button asChild variant="accent" size="xl">
-                    <a href={cta.projectMailto}>
-                      <Mail className="size-4" /> Discuss a project
-                    </a>
+                    <Link href={cta.projectHref}>
+                      {cta.projectLabel} <ArrowRight className="size-4" />
+                    </Link>
                   </Button>
                 </Magnetic>
                 <p className="text-sm text-white/60">

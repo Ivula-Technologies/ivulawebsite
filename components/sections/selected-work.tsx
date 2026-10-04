@@ -71,6 +71,18 @@ function ProjectCard({
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           {project.description}
         </p>
+        <dl className="mt-6 grid gap-4 border-t border-border pt-6 text-sm">
+          {[
+            { label: "Challenge", text: project.challenge },
+            { label: "What we built", text: project.solution },
+            { label: "Result", text: project.outcome },
+          ].map((row) => (
+            <div key={row.label} className="grid gap-1 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
+              <dt className="font-semibold text-foreground">{row.label}</dt>
+              <dd className="text-muted-foreground">{row.text}</dd>
+            </div>
+          ))}
+        </dl>
         <div className="mt-6 flex flex-wrap items-center gap-2">
           {project.tags.map((tag) => (
             <span
@@ -105,15 +117,15 @@ export function SelectedWork() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 max-w-3xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
-                Products people can understand, trust, and use.
+                Real products, live in production.
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:ml-auto">
-              A selection of platforms we have shaped and shipped—from
-              organization operations to online education and connected
-              learning.
+              Each one started as a problem on a whiteboard. Here is what was
+              broken, what we built, and where it is today. Click through and
+              try them yourself.
             </p>
           </Reveal>
         </div>

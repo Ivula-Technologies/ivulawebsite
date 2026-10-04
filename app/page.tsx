@@ -4,16 +4,20 @@ import { SelectedWork } from "@/components/sections/selected-work";
 import { ServicesTeaser } from "@/components/sections/services-teaser";
 import { Vision } from "@/components/sections/vision";
 import { Faq } from "@/components/sections/faq";
+import { Engagements } from "@/components/sections/engagements";
+import { LeadCapture } from "@/components/sections/lead-capture";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesTeaser />
       <SelectedWork />
+      <ServicesTeaser />
+      <Engagements />
       <HowItWorks />
       <Vision />
       <Faq />
+      <LeadCapture />
     </>
   );
 }

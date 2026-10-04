@@ -21,9 +21,17 @@ import { flagship } from "@/lib/products";
 import { cta, site } from "@/lib/site";
 
 const trustPills = [
-  "Founder-led delivery",
-  "Product-minded partnership",
-  "Nairobi roots, global outlook",
+  "Free written estimate",
+  "Working software every week",
+  "You own 100% of the code",
+];
+
+/** Verifiable proof points; keep these factual. */
+const proof = [
+  { value: "3", label: "platforms live in production" },
+  { value: "Own SaaS", label: "we run Ivula Canopy ourselves" },
+  { value: "Since 2022", label: "designing and shipping software" },
+  { value: "US mornings", label: "live overlap with Eastern time" },
 ];
 
 const capabilities = [
@@ -67,7 +75,7 @@ export function Hero() {
             <motion.div variants={item}>
               <Badge variant="accent" className="uppercase">
                 <Sparkles className="size-3.5" />
-                Product studio · Nairobi, Kenya
+                Product & AI studio for startups and growing teams
               </Badge>
             </motion.div>
 
@@ -75,17 +83,18 @@ export function Hero() {
               variants={item}
               className="mt-7 text-balance font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-display-md"
             >
-              Technology that genuinely{" "}
-              <span className="text-gradient">serves your business.</span>
+              Launch your product faster,{" "}
+              <span className="text-gradient">without the agency price tag.</span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl"
             >
-              We help ambitious teams clarify ideas, automate difficult work,
-              and launch dependable software — from internal platforms and AI
-              workflows to full SaaS products.
+              Ivula is a senior design and engineering team that turns ideas
+              into revenue-ready SaaS products, AI automations, and internal
+              tools. You get a clear plan and price up front, then working
+              software to review every week.
             </motion.p>
 
             <motion.div
@@ -124,7 +133,7 @@ export function Hero() {
               variants={item}
               className="mt-8 text-sm text-muted-foreground"
             >
-              Already have a brief?{" "}
+              Rather email?{" "}
               <a
                 href={cta.projectMailto}
                 className="inline-flex items-center gap-1.5 font-semibold text-foreground underline-offset-4 hover:underline"
@@ -189,6 +198,24 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
+
+        <motion.dl
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border shadow-soft lg:grid-cols-4"
+        >
+          {proof.map((item) => (
+            <div key={item.label} className="flex flex-col gap-1 bg-card p-6">
+              <dt className="order-2 text-sm text-muted-foreground">
+                {item.label}
+              </dt>
+              <dd className="order-1 font-display text-2xl font-bold tracking-tight sm:text-3xl">
+                {item.value}
+              </dd>
+            </div>
+          ))}
+        </motion.dl>
       </div>
     </section>
   );

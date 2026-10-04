@@ -11,6 +11,10 @@ export interface Project {
   mediaAlt: string;
   mediaKind: ProjectMediaKind;
   tags: readonly string[];
+  /** Short case-study breakdown shown on the work cards. */
+  challenge: string;
+  solution: string;
+  outcome: string;
 }
 
 /**
@@ -30,6 +34,12 @@ export const projects: readonly Project[] = [
     mediaAlt: "Illustrated preview of the Ivula Canopy organization dashboard",
     mediaKind: "dashboard",
     tags: ["SaaS product", "Operations", "Reporting"],
+    challenge:
+      "Community organizations were tracking members, volunteers, and attendance across spreadsheets, chat groups, and paper.",
+    solution:
+      "A SaaS workspace for people, events, attendance, announcements, and reports.",
+    outcome:
+      "Live in production with self-serve sign-up and a 14-day free trial.",
   },
   {
     slug: "code-joy-academy",
@@ -43,6 +53,12 @@ export const projects: readonly Project[] = [
     mediaAlt: "A learner joining a Code Joy Academy online class",
     mediaKind: "photo",
     tags: ["Web experience", "Brand system", "Admissions"],
+    challenge:
+      "A new online school needed to earn parents' trust and turn visits into admissions enquiries.",
+    solution:
+      "A brand system and admissions-focused website that explains the program and guides families to apply.",
+    outcome:
+      "Live at codejoyacademy.com as the school's front door for new families.",
   },
   {
     slug: "code-joy-lms",
@@ -56,5 +72,11 @@ export const projects: readonly Project[] = [
     mediaAlt: "Illustrated preview of the secure Code Joy Academy learning portal",
     mediaKind: "portal",
     tags: ["LMS", "Secure access", "Family accounts"],
+    challenge:
+      "Classes, assignments, and progress lived in separate tools, leaving families and teachers without one view.",
+    solution:
+      "A secure learning portal with role-based access for students, parents, and teachers.",
+    outcome:
+      "Live at lms.codejoyacademy.com, running day-to-day learning for the school.",
   },
 ] as const;

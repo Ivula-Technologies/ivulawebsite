@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Ivula Technologies — Technology that serves your business";
+export const alt = "Ivula Technologies — Launch your product faster";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
@@ -72,13 +72,13 @@ export default function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              fontSize: 74,
+              fontSize: 64,
               lineHeight: 1.04,
               letterSpacing: -3,
               fontWeight: 800,
             }}
           >
-            Technology that genuinely serves your business.
+            Launch your product faster, without the agency price tag.
           </div>
           <div
             style={{
