@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Loader2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { engagements } from "@/lib/content";
@@ -32,7 +33,7 @@ const timelines = [
 type Status = "idle" | "submitting" | "sent" | "mailto" | "error";
 
 const fieldClass =
-  "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/70 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30";
+  "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground/70 hover:border-cyan-500/40 focus:-translate-y-px focus:border-cyan-500 focus:shadow-glow focus:outline-none focus:ring-2 focus:ring-cyan-500/30";
 
 function Label({
   htmlFor,
@@ -136,14 +137,23 @@ export function ProjectBriefForm({ className }: { className?: string }) {
 
   if (status === "sent" || status === "mailto") {
     return (
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-10 text-center shadow-soft-lg",
           className
         )}
         role="status"
       >
-        <CheckCircle2 className="size-12 text-emerald-500" />
+        <motion.span
+          initial={{ scale: 0, rotate: -30 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.15 }}
+        >
+          <CheckCircle2 className="size-12 text-emerald-500" />
+        </motion.span>
         <h3 className="font-display text-2xl font-bold">
           {status === "sent" ? "Thanks, your brief is in." : "Almost there."}
         </h3>
@@ -159,7 +169,7 @@ export function ProjectBriefForm({ className }: { className?: string }) {
             </a>
           </Button>
         )}
-      </div>
+      </motion.div>
     );
   }
 

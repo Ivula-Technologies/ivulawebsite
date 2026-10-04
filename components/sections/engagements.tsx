@@ -3,6 +3,7 @@ import { ArrowRight, Check, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
+import { SpotlightCard } from "@/components/motion/spotlight-card";
 import { engagements } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -22,21 +23,21 @@ export function Engagements() {
             const Icon = engagement.icon;
             return (
               <RevealItem key={engagement.slug} className="h-full">
-                <div
+                <SpotlightCard
                   className={cn(
-                    "relative flex h-full flex-col gap-6 rounded-3xl border bg-card p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover",
+                    "flex h-full flex-col gap-6 rounded-3xl border bg-card p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover",
                     engagement.featured
                       ? "border-cyan-500/50 ring-1 ring-cyan-500/30"
                       : "border-border"
                   )}
                 >
                   {engagement.featured && (
-                    <span className="absolute -top-3 left-8 rounded-full bg-brand-gradient px-3 py-1 text-xs font-semibold text-white shadow-glow">
+                    <span className="absolute -top-3 left-8 z-10 rounded-full bg-brand-gradient px-3 py-1 text-xs font-semibold text-white shadow-glow">
                       Most popular
                     </span>
                   )}
                   <div className="flex items-center gap-4">
-                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
+                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft transition-transform duration-500 group-hover/spot:-rotate-6 group-hover/spot:scale-110">
                       <Icon className="size-6" />
                     </span>
                     <div>
@@ -58,7 +59,7 @@ export function Engagements() {
                   </div>
                   <ul className="flex flex-1 flex-col gap-3">
                     {engagement.deliverables.map((item) => (
-                      <li key={item} className="flex gap-3 text-sm">
+                      <li key={item} className="flex gap-3 text-sm transition-transform duration-300 group-hover/spot:translate-x-0.5">
                         <Check className="mt-0.5 size-4 shrink-0 text-cyan-500" />
                         {item}
                       </li>
@@ -74,7 +75,7 @@ export function Engagements() {
                       {engagement.cta} <ArrowRight className="size-4" />
                     </Link>
                   </Button>
-                </div>
+                </SpotlightCard>
               </RevealItem>
             );
           })}

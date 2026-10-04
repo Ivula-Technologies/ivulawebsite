@@ -7,6 +7,7 @@ import { LenisProvider } from "@/components/providers/lenis-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { PageTransition } from "@/components/layout/page-transition";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { site } from "@/lib/site";
 
 const inter = localFont({
@@ -156,6 +157,7 @@ export default function RootLayout({
             >
               Skip to content
             </a>
+            <ScrollProgress />
             <Header />
             <main id="main">
               <PageTransition>{children}</PageTransition>
