@@ -56,10 +56,10 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-6 rounded-3xl border border-border bg-brand-gradient p-8 text-white shadow-glow sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="font-display text-xl font-bold sm:text-2xl">
-              Have a software challenge worth solving?
+              Ready to ship something customers will pay for?
             </h3>
             <p className="mt-1 text-sm text-white/80">
-              Share the problem, the outcome you need, and where your current tools are falling short.
+              Send a short brief and get a free written estimate within one business day.
             </p>
           </div>
           <div className="flex flex-shrink-0 gap-3">

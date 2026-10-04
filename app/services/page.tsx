@@ -6,6 +6,8 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
+import { Engagements } from "@/components/sections/engagements";
+import { SpotlightCard } from "@/components/motion/spotlight-card";
 import { services, serviceValues } from "@/lib/content";
 import { cta } from "@/lib/site";
 
@@ -31,9 +33,9 @@ export default function ServicesPage() {
       >
         <Magnetic>
           <Button asChild variant="gradient" size="xl">
-            <a href="#quote">
-              Discuss a project <ArrowRight className="size-4" />
-            </a>
+            <Link href={cta.projectHref}>
+              {cta.projectLabel} <ArrowRight className="size-4" />
+            </Link>
           </Button>
         </Magnetic>
         <Button asChild variant="outline" size="xl">
@@ -56,7 +58,7 @@ export default function ServicesPage() {
               const Icon = service.icon;
               return (
                 <RevealItem key={service.title} className="h-full">
-                  <div className="group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+                  <SpotlightCard className="group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                     <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
                       <Icon className="size-6" />
                     </span>
@@ -66,13 +68,17 @@ export default function ServicesPage() {
                     <p className="text-sm text-muted-foreground">
                       {service.description}
                     </p>
-                  </div>
+                  </SpotlightCard>
                 </RevealItem>
               );
             })}
           </RevealGroup>
         </div>
       </section>
+
+      <div className="border-t border-border">
+        <Engagements />
+      </div>
 
       {/* Why Ivula */}
       <section className="border-y border-border bg-secondary/30 py-16 md:py-24">
@@ -118,9 +124,9 @@ export default function ServicesPage() {
                 </p>
                 <Magnetic>
                   <Button asChild variant="accent" size="xl">
-                    <a href={cta.projectMailto}>
-                      <Mail className="size-4" /> Discuss a project
-                    </a>
+                    <Link href={cta.projectHref}>
+                      {cta.projectLabel} <ArrowRight className="size-4" />
+                    </Link>
                   </Button>
                 </Magnetic>
                 <p className="text-sm text-white/60">

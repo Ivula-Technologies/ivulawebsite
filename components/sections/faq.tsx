@@ -20,7 +20,7 @@ export function Faq() {
             <Reveal direction="up" className="mt-8">
               <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
                 <p className="text-sm text-muted-foreground">
-                  Still have a question?
+                  Still have a question? We reply within one business day.
                 </p>
                 <a
                   href={cta.mailto}

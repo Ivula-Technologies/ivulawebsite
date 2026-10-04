@@ -3,6 +3,7 @@ import { ArrowRight, Code2 } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { SpotlightCard } from "@/components/motion/spotlight-card";
 import { services } from "@/lib/content";
 
 export function ServicesTeaser() {
@@ -31,7 +32,7 @@ export function ServicesTeaser() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Discuss a project</Link>
+                  <Link href="/#engagements">See ways to start</Link>
                 </Button>
               </div>
             </div>
@@ -42,7 +43,7 @@ export function ServicesTeaser() {
               {services.slice(0, 4).map((service) => {
                 const Icon = service.icon;
                 return (
-                  <div
+                  <SpotlightCard
                     key={service.title}
                     className="group flex flex-col gap-3 rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
                   >
@@ -55,7 +56,7 @@ export function ServicesTeaser() {
                     <p className="text-sm text-muted-foreground">
                       {service.description}
                     </p>
-                  </div>
+                  </SpotlightCard>
                 );
               })}
             </div>

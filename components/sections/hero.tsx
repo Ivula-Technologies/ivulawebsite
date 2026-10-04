@@ -16,14 +16,38 @@ import { Badge } from "@/components/ui/badge";
 import { BrowserFrame } from "@/components/shared/browser-frame";
 import { AuroraBackground } from "@/components/shared/aurora-background";
 import { Magnetic } from "@/components/motion/magnetic";
+import { SplitWords } from "@/components/motion/split-words";
+import { AnimatedCounter } from "@/components/motion/animated-counter";
 import { usePrefersReducedMotion } from "@/components/motion/use-reduced-motion";
 import { flagship } from "@/lib/products";
 import { cta, site } from "@/lib/site";
 
 const trustPills = [
-  "Founder-led delivery",
-  "Product-minded partnership",
-  "Nairobi roots, global outlook",
+  "Free written estimate",
+  "Working software every week",
+  "You own 100% of the code",
+];
+
+/** Verifiable proof points; keep these factual. */
+const proof: { value: string; count?: number; label: string }[] = [
+  { value: "3", count: 3, label: "platforms live in production" },
+  { value: "Own SaaS", label: "we run Ivula Canopy ourselves" },
+  { value: "Since 2022", label: "designing and shipping software" },
+  { value: "US mornings", label: "live overlap with Eastern time" },
+];
+
+/** Scrolling strip of the kinds of things we ship. */
+const stack = [
+  "SaaS platforms",
+  "MVPs for startups",
+  "AI agents & assistants",
+  "Workflow automation",
+  "Customer portals",
+  "Internal tools",
+  "Mobile-first web apps",
+  "APIs & integrations",
+  "Dashboards & reporting",
+  "Payments & subscriptions",
 ];
 
 const capabilities = [
@@ -67,7 +91,7 @@ export function Hero() {
             <motion.div variants={item}>
               <Badge variant="accent" className="uppercase">
                 <Sparkles className="size-3.5" />
-                Product studio · Nairobi, Kenya
+                Product & AI studio for startups and growing teams
               </Badge>
             </motion.div>
 
@@ -75,17 +99,27 @@ export function Hero() {
               variants={item}
               className="mt-7 text-balance font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-display-md"
             >
-              Technology that genuinely{" "}
-              <span className="text-gradient">serves your business.</span>
+              <SplitWords text="Launch your product faster," delay={0.15} />{" "}
+              <motion.span
+                className="inline-block"
+                initial={reduce ? false : { opacity: 0, y: "0.3em", filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span className="text-gradient text-gradient-animated">
+                  without the agency price tag.
+                </span>
+              </motion.span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl"
             >
-              We help ambitious teams clarify ideas, automate difficult work,
-              and launch dependable software — from internal platforms and AI
-              workflows to full SaaS products.
+              Ivula is a senior design and engineering team that turns ideas
+              into revenue-ready SaaS products, AI automations, and internal
+              tools. You get a clear plan and price up front, then working
+              software to review every week.
             </motion.p>
 
             <motion.div
@@ -124,7 +158,7 @@ export function Hero() {
               variants={item}
               className="mt-8 text-sm text-muted-foreground"
             >
-              Already have a brief?{" "}
+              Rather email?{" "}
               <a
                 href={cta.projectMailto}
                 className="inline-flex items-center gap-1.5 font-semibold text-foreground underline-offset-4 hover:underline"
@@ -188,6 +222,47 @@ export function Hero() {
               ))}
             </div>
           </motion.div>
+        </div>
+
+        <motion.dl
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border shadow-soft lg:grid-cols-4"
+        >
+          {proof.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.65 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="group/proof flex flex-col gap-1 bg-card p-6 transition-colors duration-300 hover:bg-secondary/60"
+            >
+              <dt className="order-2 text-sm text-muted-foreground">
+                {item.label}
+              </dt>
+              <dd className="order-1 font-display text-2xl font-bold tracking-tight sm:text-3xl">
+                {item.count ? <AnimatedCounter value={item.count} /> : item.value}
+              </dd>
+            </motion.div>
+          ))}
+        </motion.dl>
+
+        <div
+          className="relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]"
+          aria-label="What we build"
+        >
+          <ul className="flex w-max animate-marquee gap-3 hover:[animation-play-state:paused] motion-reduce:animate-none">
+            {[...stack, ...stack].map((label, i) => (
+              <li
+                key={`${label}-${i}`}
+                aria-hidden={i >= stack.length}
+                className="whitespace-nowrap rounded-full border border-border bg-card/80 px-4 py-2 text-sm font-medium text-muted-foreground backdrop-blur"
+              >
+                {label}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

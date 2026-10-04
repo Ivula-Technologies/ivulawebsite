@@ -13,7 +13,7 @@ const buttonVariants = cva(
         accent:
           "bg-cyan-500 text-white shadow-glow hover:bg-cyan-400 hover:-translate-y-0.5",
         gradient:
-          "bg-brand-gradient text-white shadow-glow hover:-translate-y-0.5 hover:shadow-card-hover",
+          "btn-shine bg-brand-gradient text-white shadow-glow hover:-translate-y-0.5 hover:shadow-card-hover",
         outline:
           "border border-border bg-transparent hover:bg-secondary hover:-translate-y-0.5",
         ghost: "hover:bg-secondary hover:text-secondary-foreground",

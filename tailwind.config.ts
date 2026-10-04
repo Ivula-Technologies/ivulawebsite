@@ -17,6 +17,11 @@ const config: Config = {
       },
     },
     extend: {
+      // h-13 (large buttons) and md:h-18 (header) are not in the default scale.
+      spacing: {
+        13: "3.25rem",
+        18: "4.5rem",
+      },
       colors: {
         // Brand tokens
         navy: {

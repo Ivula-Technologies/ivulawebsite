@@ -49,8 +49,8 @@ export function HowItWorks() {
 
         <Reveal direction="up" className="mt-12 flex justify-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/contact">
-              Start a conversation <ArrowRight className="size-4" />
+            <Link href="/contact#brief">
+              Get a free estimate <ArrowRight className="size-4" />
             </Link>
           </Button>
         </Reveal>

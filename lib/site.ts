@@ -7,7 +7,7 @@ export const site = {
   shortName: "Ivula",
   tagline: "Building Solutions. Solving Problems.",
   description:
-    "Ivula Technologies designs and builds practical software products, AI-powered workflows, and custom platforms that help organizations work smarter and grow with confidence.",
+    "Ivula Technologies is a senior product and engineering studio that designs, builds, and launches SaaS products, AI automations, and custom platforms for startups and growing businesses.",
   url: "https://www.ivulatechnologies.com",
   origin: "Founded in Nairobi in 2022 · Building for the world",
   contact: {
@@ -16,6 +16,15 @@ export const site = {
   social: {
     linkedin: "https://www.linkedin.com/company/ivula-technologies-ltd",
   },
+  /**
+   * Lead capture. The site is a static export, so the project brief form
+   * posts to a third-party form endpoint (e.g. Formspree, Web3Forms, Basin).
+   * Set NEXT_PUBLIC_LEAD_FORM_ENDPOINT at build time to enable it; without
+   * it the form falls back to opening a pre-filled email.
+   */
+  leadFormEndpoint: process.env.NEXT_PUBLIC_LEAD_FORM_ENDPOINT ?? "",
+  /** Optional scheduling link (Calendly, Cal.com). Shown when set. */
+  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
   canopy: {
     home: "https://canopy.ivulatechnologies.com",
     signup: "https://canopy.ivulatechnologies.com/signup",
@@ -26,8 +35,8 @@ export const site = {
 export const mainNav = [
   { title: "Work", href: "/#work" },
   { title: "Services", href: "/services" },
+  { title: "Engagements", href: "/#engagements" },
   { title: "Approach", href: "/#approach" },
-  { title: "About", href: "/#about" },
   { title: "Contact", href: "/contact" },
 ] as const;
 
@@ -52,8 +61,8 @@ export const footerNav = {
 
 /** Convenience helpers for CTA links used across the site. */
 export const cta = {
-  projectHref: "/contact",
-  projectLabel: "Discuss a project",
+  projectHref: "/contact#brief",
+  projectLabel: "Get a free estimate",
   workHref: "/#work",
   workLabel: "View selected work",
   canopyHref: site.canopy.home,
