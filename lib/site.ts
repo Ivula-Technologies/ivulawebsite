@@ -25,6 +25,14 @@ export const site = {
   leadFormEndpoint: process.env.NEXT_PUBLIC_LEAD_FORM_ENDPOINT ?? "",
   /** Optional scheduling link (Calendly, Cal.com). Shown when set. */
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
+  /** Founder profile, shown in the homepage founder section. */
+  founder: {
+    name: "Bius Michael Joseph",
+    firstName: "Bius",
+    role: "Founder & CEO",
+    photo: "/team/bius-portrait-4x5.webp",
+    linkedin: "",
+  },
   canopy: {
     home: "https://canopy.ivulatechnologies.com",
     signup: "https://canopy.ivulatechnologies.com/signup",
@@ -53,6 +61,7 @@ export const footerNav = {
     { title: "Hosting & care plans", href: "/care-plans" },
     { title: "Contact", href: "/contact" },
     { title: "About Ivula", href: "/#about" },
+    { title: "Our founder", href: "/#founder" },
   ],
   Explore: [
     { title: "How we work", href: "/#approach" },
