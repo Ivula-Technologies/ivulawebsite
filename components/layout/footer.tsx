@@ -62,7 +62,7 @@ export function Footer() {
               Send a short brief and get a free written estimate within one business day.
             </p>
           </div>
-          <div className="flex flex-shrink-0 gap-3">
+          <div className="flex flex-wrap gap-3 sm:flex-shrink-0">
             <Button asChild variant="accent" size="lg">
               <Link href={cta.projectHref}>{cta.projectLabel}</Link>
             </Button>

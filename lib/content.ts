@@ -47,9 +47,14 @@ export const faqs = [
       "We plan for handover from the start and can continue with monitoring, improvements, and product support. The exact arrangement depends on your team, internal capacity, and how quickly the product needs to evolve.",
   },
   {
-    question: "What is Ivula Canopy?",
+    question: "Which products does Ivula make?",
     answer:
-      "Ivula Canopy is our organization-management platform for nonprofits, churches, youth programs, volunteer groups, and community teams. It brings people, events, attendance, announcements, engagement insights, and reports into one workspace.",
+      "Five so far: Ivula Canopy for churches and nonprofits (live), LeadFast AI for home service contractors (early access), ShelfKeeper for homeschooling families who borrow, buy and sell books (early access), WakiliNivo for law firms (early access in Kenya) and ProposalKit for freelancers (coming soon).",
+  },
+  {
+    question: "Do you host websites too?",
+    answer:
+      "Yes. Ivula Care Plans give a small business managed hosting, updates, backups and monthly edits from $49 a month. If you would rather run your own site, Ivula Hosting at ivulahosting.co.ke offers cPanel hosting from $59 a year, or KES 2,999 a year with M-Pesa.",
   },
 ] as const;
 

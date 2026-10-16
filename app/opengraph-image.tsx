@@ -78,7 +78,7 @@ export default function OpenGraphImage() {
               fontWeight: 800,
             }}
           >
-            Launch your product faster, without the agency price tag.
+            We build software products, and the team to build yours.
           </div>
           <div
             style={{
@@ -88,7 +88,7 @@ export default function OpenGraphImage() {
               color: "#b9c7df",
             }}
           >
-            Software products · AI automation · Cloud systems
+            Canopy · LeadFast AI · ShelfKeeper · ProposalKit · WakiliNivo
           </div>
         </div>
 

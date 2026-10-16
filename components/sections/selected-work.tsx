@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowUpRight, ExternalLink, Layers3 } from "lucide-react";
-import { ProjectReel } from "@/components/sections/project-reel";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { projects, type Project } from "@/lib/projects";
@@ -102,7 +101,8 @@ function ProjectCard({
 }
 
 export function SelectedWork() {
-  const [canopy, academy, lms] = projects;
+  const academy = projects.find((p) => p.slug === "code-joy-academy")!;
+  const lms = projects.find((p) => p.slug === "code-joy-lms")!;
 
   return (
     <section id="work" className="relative overflow-hidden border-y border-border py-20 md:py-28">
@@ -112,36 +112,30 @@ export function SelectedWork() {
           <div className="flex flex-col items-start">
             <Reveal>
               <Badge variant="accent" className="uppercase">
-                <Layers3 className="size-3.5" /> Selected work
+                <Layers3 className="size-3.5" /> Client work
               </Badge>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 max-w-3xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
-                Real products, live in production.
+                Built for clients, live in production.
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:ml-auto">
-              Each one started as a problem on a whiteboard. Here is what was
-              broken, what we built, and where it is today. Click through and
-              try them yourself.
+              Besides our own products, we design and build for clients. Here
+              is what was broken, what we built, and where it is today. Click
+              through and try them yourself.
             </p>
           </Reveal>
         </div>
 
         <RevealGroup className="mt-12 grid gap-6 lg:grid-cols-12">
-          <RevealItem className="lg:col-span-7">
-            <ProjectCard project={canopy} />
-          </RevealItem>
-          <RevealItem className="lg:col-span-5">
+          <RevealItem className="lg:col-span-6">
             <ProjectCard project={academy} />
           </RevealItem>
-          <RevealItem className="lg:col-span-5">
+          <RevealItem className="lg:col-span-6">
             <ProjectCard project={lms} />
-          </RevealItem>
-          <RevealItem className="lg:col-span-7">
-            <ProjectReel />
           </RevealItem>
         </RevealGroup>
       </div>

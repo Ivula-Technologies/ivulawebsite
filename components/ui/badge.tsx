@@ -15,7 +15,8 @@ const badgeVariants = cva(
         glass:
           "border-white/15 bg-white/10 text-white backdrop-blur-md",
         live: "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-        soon: "border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400",
+        early: "border-violet-500/20 bg-violet-500/10 text-violet-700 dark:text-violet-300",
+        soon: "border-amber-500/20 bg-amber-500/10 text-amber-700 dark:text-amber-400",
       },
     },
     defaultVariants: {

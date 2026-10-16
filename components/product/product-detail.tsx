@@ -2,18 +2,19 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Mail } from "lucide-react";
+import { ArrowRight, Check, Globe2, Mail } from "lucide-react";
 import { getProduct } from "@/lib/products";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { BrowserFrame } from "@/components/shared/browser-frame";
 import { AuroraBackground } from "@/components/shared/aurora-background";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { AnimatedCounter } from "@/components/motion/animated-counter";
+import { ProductMark } from "@/components/product/product-mark";
+import { StatusBadge } from "@/components/product/status-badge";
 import { Magnetic } from "@/components/motion/magnetic";
 import { usePrefersReducedMotion } from "@/components/motion/use-reduced-motion";
 import { cta as siteCta } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 /**
  * Reusable product-detail template. Every product in lib/products.ts renders
@@ -23,7 +24,6 @@ export function ProductDetail({ slug }: { slug: string }) {
   const product = getProduct(slug);
   const reduce = usePrefersReducedMotion();
   if (!product) return null;
-  const Icon = product.icon;
 
   return (
     <article className="flex flex-col">
@@ -34,9 +34,14 @@ export function ProductDetail({ slug }: { slug: string }) {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="flex flex-col items-start gap-6">
               <Reveal direction="up">
-                <Badge variant="accent" className="uppercase">
-                  <Icon className="size-3.5" /> {product.fullName}
-                </Badge>
+                <div className="flex flex-wrap items-center gap-3">
+                  <ProductMark slug={product.slug} size="md" />
+                  <div>
+                    <p className="font-display text-lg font-bold leading-tight">{product.fullName}</p>
+                    <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{product.category}</p>
+                  </div>
+                  <StatusBadge status={product.status} className="ml-1" />
+                </div>
               </Reveal>
               <Reveal direction="up" delay={0.05}>
                 <h1 className="text-balance font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-display-md">
@@ -91,34 +96,17 @@ export function ProductDetail({ slug }: { slug: string }) {
                     ease: "easeInOut",
                   }}
                 >
-                  <BrowserFrame src={product.screenshot} alt={`${product.fullName} product screenshot`} />
+                  <BrowserFrame
+                    src={product.screenshot}
+                    alt={`${product.fullName} product screenshot`}
+                    url={product.domain}
+                    priority
+                  />
                 </motion.div>
               </div>
             </Reveal>
           </div>
 
-          {/* Stats */}
-          {product.stats.length > 0 && (
-            <RevealGroup className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-4">
-              {product.stats.map((stat) => (
-                <RevealItem
-                  key={stat.label}
-                  className="flex flex-col items-center justify-center gap-1 bg-card px-4 py-8 text-center"
-                >
-                  <span className="font-display text-3xl font-bold text-gradient sm:text-4xl">
-                    <AnimatedCounter
-                      value={stat.value}
-                      prefix={stat.prefix}
-                      suffix={stat.suffix}
-                    />
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </span>
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          )}
         </div>
       </section>
 
@@ -126,12 +114,13 @@ export function ProductDetail({ slug }: { slug: string }) {
       {product.audiences.length > 0 && (
         <section className="py-20 md:py-28">
           <div className="container-wide">
-            <SectionHeading
-              eyebrow="Who it's for"
-              title="Built for people-powered organizations"
-              description="If your team coordinates people, programs, service, and impact, Canopy helps keep the work visible and manageable."
-            />
-            <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <SectionHeading eyebrow="Who it's for" title={product.audienceTitle} />
+            <RevealGroup
+              className={cn(
+                "mt-14 grid gap-6 sm:grid-cols-2",
+                product.audiences.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+              )}
+            >
               {product.audiences.map((aud) => {
                 const A = aud.icon;
                 return (
@@ -159,12 +148,13 @@ export function ProductDetail({ slug }: { slug: string }) {
       {product.steps.length > 0 && (
         <section className="relative overflow-hidden border-y border-border bg-secondary/30 py-20 md:py-28">
           <div className="container-wide">
-            <SectionHeading
-              eyebrow="Simple rollout"
-              title="How it works"
-              description="Move from scattered records to one practical workspace without a complicated implementation project."
-            />
-            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+            <SectionHeading eyebrow="Simple rollout" title="How it works" />
+            <div
+              className={cn(
+                "mt-14 grid gap-6 md:grid-cols-2",
+                product.steps.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+              )}
+            >
               {product.steps.map((step, i) => (
                 <Reveal key={step.title} direction="up" delay={i * 0.1}>
                   <div className="relative flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-8 shadow-soft">
@@ -189,8 +179,7 @@ export function ProductDetail({ slug }: { slug: string }) {
           <div className="container-wide">
             <SectionHeading
               eyebrow="Features"
-              title="Everything in one place"
-              description="No more juggling spreadsheets, chats, and paper records. Canopy brings everyday operations into one connected workspace."
+              title={`What ${product.name} does for you`}
             />
             <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {product.features.map((feature) => {
@@ -216,22 +205,63 @@ export function ProductDetail({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* ---------- PRICING ---------- */}
+      <section className="border-t border-border bg-secondary/30 py-20 md:py-28">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow={product.status === "coming-soon" ? "Launch pricing" : "Pricing"}
+            title={product.plans.length ? "Simple monthly plans" : "Pricing for your firm"}
+            description={product.pricingNote}
+          />
+          {product.plans.length > 0 && (
+            <RevealGroup
+              className={cn(
+                "mx-auto mt-14 grid max-w-4xl gap-6",
+                product.plans.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"
+              )}
+            >
+              {product.plans.map((plan) => (
+                <RevealItem key={plan.name} className="h-full">
+                  <div
+                    className={cn(
+                      "flex h-full flex-col rounded-3xl border bg-card p-7 shadow-soft",
+                      plan.featured ? "border-cyan-500/40 shadow-glow" : "border-border"
+                    )}
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                      {plan.name}
+                    </p>
+                    <p className="mt-4 font-display text-4xl font-bold tracking-tight">
+                      {plan.price}
+                      {plan.period && (
+                        <span className="text-base font-medium text-muted-foreground">{plan.period}</span>
+                      )}
+                    </p>
+                    <p className="mt-3 text-sm text-muted-foreground">{plan.description}</p>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          )}
+          <Reveal direction="up" className="mt-10 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
+            <Globe2 className="size-4" /> Available in: {product.market}
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------- CLOSING CTA ---------- */}
-      <section className="pb-24">
+      <section className="py-20 md:py-24">
         <div className="container-wide">
           <Reveal direction="up">
             <div className="relative overflow-hidden rounded-[2rem] border border-border bg-navy-900 px-8 py-16 text-center text-white shadow-soft-lg md:px-16 md:py-20">
               <AuroraBackground withGrid={false} />
               <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6">
                 <h2 className="text-balance font-display text-3xl font-bold sm:text-4xl md:text-display-sm">
-                  Ready to ditch the spreadsheet chaos?
+                  {product.closing.title}
                 </h2>
-                <p className="text-pretty text-white/80">
-                  Explore Canopy with your own organization for 14 days. No
-                  credit card is required to get started.
-                </p>
+                <p className="text-pretty text-white/80">{product.closing.body}</p>
                 <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/80">
-                  {["14-day free trial", "No credit card", "Built for lean teams"].map(
+                  {product.closing.points.map(
                     (item) => (
                       <li key={item} className="inline-flex items-center gap-2">
                         <Check className="size-4 text-cyan-400" /> {item}
