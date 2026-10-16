@@ -7,7 +7,7 @@ export const site = {
   shortName: "Ivula",
   tagline: "Building Solutions. Solving Problems.",
   description:
-    "Ivula Technologies is a senior product and engineering studio that designs, builds, and launches SaaS products, AI automations, and custom platforms for startups and growing businesses.",
+    "Ivula Technologies builds and runs its own SaaS products (Canopy, LeadFast AI, ShelfKeeper, ProposalKit and WakiliNivo) and designs, builds and hosts custom software for startups and growing businesses.",
   url: "https://www.ivulatechnologies.com",
   origin: "Founded in Nairobi in 2022 · Building for the world",
   contact: {
@@ -33,6 +33,7 @@ export const site = {
     photo: "/team/bius-portrait-4x5.webp",
     linkedin: "",
   },
+  hosting: "https://ivulahosting.co.ke",
   canopy: {
     home: "https://canopy.ivulatechnologies.com",
     signup: "https://canopy.ivulatechnologies.com/signup",
@@ -41,31 +42,34 @@ export const site = {
 } as const;
 
 export const mainNav = [
-  { title: "Work", href: "/#work" },
+  { title: "Products", href: "/products" },
   { title: "Services", href: "/services" },
-  { title: "Engagements", href: "/#engagements" },
-  { title: "Approach", href: "/#approach" },
-  { title: "Care Plans", href: "/care-plans" },
+  { title: "Hosting", href: "https://ivulahosting.co.ke" },
+  { title: "Work", href: "/#work" },
+  { title: "Roadmap", href: "/roadmap" },
   { title: "Contact", href: "/contact" },
 ] as const;
 
 export const footerNav = {
-  "Selected work": [
+  Products: [
     { title: "Ivula Canopy", href: "/products/canopy" },
-    { title: "Code Joy Academy", href: "https://www.codejoyacademy.com/" },
-    { title: "Code Joy Academy LMS", href: "https://lms.codejoyacademy.com/" },
-    { title: "All products", href: "/products" },
+    { title: "LeadFast AI", href: "/products/leadfast" },
+    { title: "ShelfKeeper", href: "/products/shelfkeeper" },
+    { title: "ProposalKit", href: "/products/proposalkit" },
+    { title: "WakiliNivo", href: "/products/wakilinivo" },
+  ],
+  Services: [
+    { title: "Ivula Studio", href: "/services" },
+    { title: "Care Plans", href: "/care-plans" },
+    { title: "Ivula Hosting", href: "/hosting" },
+    { title: "ivulahosting.co.ke", href: "https://ivulahosting.co.ke" },
   ],
   Company: [
-    { title: "Services", href: "/services" },
-    { title: "Hosting & care plans", href: "/care-plans" },
-    { title: "Contact", href: "/contact" },
-    { title: "About Ivula", href: "/#about" },
-    { title: "Our founder", href: "/#founder" },
-  ],
-  Explore: [
-    { title: "How we work", href: "/#approach" },
+    { title: "Client work", href: "/#work" },
+    { title: "Roadmap", href: "/roadmap" },
+    { title: "Meet the founder", href: "/#founder" },
     { title: "FAQ", href: "/#faq" },
+    { title: "Contact", href: "/contact" },
     { title: "LinkedIn", href: site.social.linkedin },
   ],
 } as const;

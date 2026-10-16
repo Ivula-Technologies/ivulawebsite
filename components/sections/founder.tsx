@@ -3,12 +3,8 @@ import { Linkedin, Mail } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { site, cta } from "@/lib/site";
-
-const products = [
-  { name: "Canopy", detail: "Volunteer management for churches and nonprofits" },
-  { name: "LeadFast AI", detail: "Instant replies to new leads for contractors" },
-  { name: "ProposalKit", detail: "Proposals, signatures and deposits in one link" },
-] as const;
+import { products } from "@/lib/products";
+import { statusLabel } from "@/lib/products";
 
 export function Founder() {
   const { founder } = site;
@@ -48,19 +44,21 @@ export function Founder() {
                 {founder.firstName} started Ivula in Nairobi in 2022 with a simple
                 idea: small organizations deserve software as well made as the
                 tools big companies use, at a price they can actually afford.
-                Today {founder.firstName} leads a growing family of products built for the US
-                market, and the studio team that designs, builds and hosts
-                products for founders and growing businesses.
+                Today {founder.firstName} leads a family of five products and the
+                studio team that designs, builds and hosts software for founders
+                and growing businesses in the US and Kenya.
               </p>
             </Reveal>
             <Reveal direction="up" delay={0.15}>
               <ul className="flex flex-col gap-3">
                 {products.map((p) => (
-                  <li key={p.name} className="flex gap-3 text-sm">
+                  <li key={p.slug} className="flex gap-3 text-sm">
                     <span className="mt-1.5 size-2 flex-shrink-0 rounded-full bg-brand-gradient" />
                     <span>
-                      <span className="font-semibold text-foreground">{p.name}</span>
-                      <span className="text-muted-foreground"> · {p.detail}</span>
+                      <span className="font-semibold text-foreground">{p.fullName}</span>
+                      <span className="text-muted-foreground">
+                        {" "}· {p.category} · {statusLabel[p.status]}
+                      </span>
                     </span>
                   </li>
                 ))}

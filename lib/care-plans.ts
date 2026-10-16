@@ -38,7 +38,7 @@ export const carePlans: CarePlan[] = [
     annual: 490,
     tagline: "Fast, secure hosting with the updates handled.",
     features: [
-      "Managed cloud hosting on US servers",
+      "Managed cPanel hosting behind a global CDN",
       "Free SSL and CDN",
       "Daily off-site backups, kept 30 days",
       "Core, theme and plugin updates",
@@ -96,7 +96,7 @@ export const careIncluded: { icon: LucideIcon; title: string; description: strin
     icon: HardDrive,
     title: "Managed cloud hosting",
     description:
-      "Your site runs on dedicated cloud servers in US data centers, not crowded shared hosting.",
+      "Your site runs on managed cPanel servers with Cloudflare in front, with resources set aside for your site.",
   },
   {
     icon: RefreshCw,

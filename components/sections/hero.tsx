@@ -2,36 +2,27 @@
 
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
-import {
-  ArrowRight,
-  BrainCircuit,
-  Check,
-  Cloud,
-  Code2,
-  Mail,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { BrowserFrame } from "@/components/shared/browser-frame";
+import { ProductShowcase } from "@/components/sections/product-showcase";
 import { AuroraBackground } from "@/components/shared/aurora-background";
 import { Magnetic } from "@/components/motion/magnetic";
 import { SplitWords } from "@/components/motion/split-words";
 import { AnimatedCounter } from "@/components/motion/animated-counter";
 import { usePrefersReducedMotion } from "@/components/motion/use-reduced-motion";
-import { flagship } from "@/lib/products";
 import { cta, site } from "@/lib/site";
 
 const trustPills = [
-  "Free written estimate",
-  "Working software every week",
+  "Fixed-price estimates",
   "You own 100% of the code",
+  "Live overlap with US mornings",
 ];
 
 /** Verifiable proof points; keep these factual. */
 const proof: { value: string; count?: number; label: string }[] = [
-  { value: "3", count: 3, label: "platforms live in production" },
-  { value: "Own SaaS", label: "we run Ivula Canopy ourselves" },
+  { value: "5", count: 5, label: "products we build and run" },
+  { value: "US + Kenya", label: "card, PayPal and M-Pesa billing" },
   { value: "Since 2022", label: "designing and shipping software" },
   { value: "US mornings", label: "live overlap with Eastern time" },
 ];
@@ -45,15 +36,9 @@ const stack = [
   "Customer portals",
   "Internal tools",
   "Mobile-first web apps",
-  "APIs & integrations",
+  "Stripe, PayPal & M-Pesa billing",
   "Dashboards & reporting",
-  "Payments & subscriptions",
-];
-
-const capabilities = [
-  { icon: Code2, label: "Software products" },
-  { icon: BrainCircuit, label: "AI & automation" },
-  { icon: Cloud, label: "Cloud systems" },
+  "Managed hosting",
 ];
 
 export function Hero() {
@@ -91,7 +76,7 @@ export function Hero() {
             <motion.div variants={item}>
               <Badge variant="accent" className="uppercase">
                 <Sparkles className="size-3.5" />
-                Product & AI studio for startups and growing teams
+                Ivula Technologies · Product studio
               </Badge>
             </motion.div>
 
@@ -99,7 +84,7 @@ export function Hero() {
               variants={item}
               className="mt-7 text-balance font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-display-md"
             >
-              <SplitWords text="Launch your product faster," delay={0.15} />{" "}
+              <SplitWords text="We build software products," delay={0.15} />{" "}
               <motion.span
                 className="inline-block"
                 initial={reduce ? false : { opacity: 0, y: "0.3em", filter: "blur(10px)" }}
@@ -107,7 +92,7 @@ export function Hero() {
                 transition={{ duration: 0.9, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
               >
                 <span className="text-gradient text-gradient-animated">
-                  without the agency price tag.
+                  and the team to build yours.
                 </span>
               </motion.span>
             </motion.h1>
@@ -116,10 +101,10 @@ export function Hero() {
               variants={item}
               className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl"
             >
-              Ivula is a senior design and engineering team that turns ideas
-              into revenue-ready SaaS products, AI automations, and internal
-              tools. You get a clear plan and price up front, then working
-              software to review every week.
+              Ivula makes and runs five products for churches, contractors,
+              homeschooling families, freelancers and law firms. The same senior team
+              designs, builds and hosts custom SaaS, AI automations and
+              internal tools for founders and growing businesses.
             </motion.p>
 
             <motion.div
@@ -128,15 +113,15 @@ export function Hero() {
             >
               <Magnetic>
                 <Button asChild variant="gradient" size="xl">
-                  <Link href={cta.projectHref}>
-                    {cta.projectLabel}
+                  <Link href="/#products">
+                    Explore our products
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
               </Magnetic>
               <Button asChild variant="outline" size="xl">
-                <Link href={cta.workHref}>
-                  {cta.workLabel}
+                <Link href={cta.projectHref}>
+                  {cta.projectLabel}
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -176,51 +161,7 @@ export function Hero() {
             className="relative mx-auto w-full max-w-3xl"
           >
             <div className="absolute -inset-8 rounded-[2.75rem] bg-brand-gradient opacity-20 blur-3xl" />
-            <div className="relative rounded-[2rem] border border-white/60 bg-white/65 p-3 shadow-soft-lg backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] sm:p-5">
-              <div className="mb-4 flex flex-col gap-3 px-1 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-400">
-                    Built by Ivula
-                  </p>
-                  <p className="mt-1 font-display text-lg font-bold">
-                    {flagship.fullName}
-                  </p>
-                </div>
-                <a
-                  href={cta.canopyHref}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-cyan-600 dark:hover:text-cyan-400"
-                >
-                  Visit Canopy <ArrowRight className="size-4" />
-                </a>
-              </div>
-
-              <motion.div
-                animate={reduce ? undefined : { y: [0, -8, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <BrowserFrame
-                  src={flagship.screenshot}
-                  alt="Ivula Canopy organization dashboard preview"
-                  url="canopy.ivulatechnologies.com"
-                  priority
-                  className="ring-1 ring-black/5 dark:ring-white/10"
-                />
-              </motion.div>
-            </div>
-
-            <div className="relative z-10 mx-4 -mt-4 grid gap-3 sm:mx-8 sm:grid-cols-3">
-              {capabilities.map(({ icon: Icon, label }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-3 rounded-2xl border border-border bg-card/95 p-4 shadow-soft backdrop-blur"
-                >
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
-                    <Icon className="size-4" />
-                  </span>
-                  <span className="text-sm font-semibold">{label}</span>
-                </div>
-              ))}
-            </div>
+            <ProductShowcase />
           </motion.div>
         </div>
 

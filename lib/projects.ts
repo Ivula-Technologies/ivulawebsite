@@ -30,8 +30,8 @@ export const projects: readonly Project[] = [
       "One workspace for the people, events, attendance, communication, and insights that keep a community organization moving.",
     href: "https://canopy.ivulatechnologies.com/",
     domain: "canopy.ivulatechnologies.com",
-    media: "/screenshots/canopy-dashboard.svg",
-    mediaAlt: "Illustrated preview of the Ivula Canopy organization dashboard",
+    media: "/screenshots/canopy.webp",
+    mediaAlt: "The Ivula Canopy website for churches and nonprofits",
     mediaKind: "dashboard",
     tags: ["SaaS product", "Operations", "Reporting"],
     challenge:
