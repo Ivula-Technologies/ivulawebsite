@@ -81,9 +81,21 @@ export const roadmap: RoadmapItem[] = [
     stage: "building",
   },
   {
+    title: "Quote links and job pipeline",
+    product: "LeadFast AI",
+    description: "Send customers a quote link, follow each lead to won or lost, and see the revenue it brought in.",
+    stage: "building",
+  },
+  {
     title: "Public launch",
     product: "LeadFast AI",
     description: "Opening sign-ups to contractors across the US after early access.",
+    stage: "building",
+  },
+  {
+    title: "Launch an accounting, tax and ESG firm's website",
+    product: "Client work",
+    description: "A custom WordPress site with services, industries, insights and an ESG hub, going live on the firm's domain.",
     stage: "building",
   },
   {
