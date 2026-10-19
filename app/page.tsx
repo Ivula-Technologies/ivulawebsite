@@ -5,6 +5,7 @@ import { SelectedWork } from "@/components/sections/selected-work";
 import { Engagements } from "@/components/sections/engagements";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { RoadmapPreview } from "@/components/sections/roadmap-preview";
+import { VisionMission } from "@/components/sections/vision-mission";
 import { Founder } from "@/components/sections/founder";
 import { Faq } from "@/components/sections/faq";
 import { LeadCapture } from "@/components/sections/lead-capture";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Engagements />
       <HowItWorks />
       <RoadmapPreview />
+      <VisionMission />
       <Founder />
       <Faq />
       <LeadCapture />

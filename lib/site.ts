@@ -47,6 +47,7 @@ export const mainNav = [
   { title: "Hosting", href: "https://ivulahosting.co.ke" },
   { title: "Work", href: "/#work" },
   { title: "Roadmap", href: "/roadmap" },
+  { title: "About", href: "/about" },
   { title: "Contact", href: "/contact" },
 ] as const;
 
@@ -65,6 +66,7 @@ export const footerNav = {
     { title: "ivulahosting.co.ke", href: "https://ivulahosting.co.ke" },
   ],
   Company: [
+    { title: "About Ivula", href: "/about" },
     { title: "Client work", href: "/#work" },
     { title: "Roadmap", href: "/roadmap" },
     { title: "Meet the founder", href: "/#founder" },

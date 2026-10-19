@@ -1,11 +1,11 @@
 export type ProjectMediaKind = "dashboard" | "photo" | "portal";
 
 export interface Project {
-  slug: "canopy" | "code-joy-academy" | "code-joy-lms";
+  slug: "canopy" | "code-joy-academy" | "code-joy-lms" | "advisory-firm";
   eyebrow: string;
   title: string;
   description: string;
-  href: string;
+  href?: string;
   domain: string;
   media: string;
   mediaAlt: string;
@@ -78,5 +78,23 @@ export const projects: readonly Project[] = [
       "A secure learning portal with role-based access for students, parents, and teachers.",
     outcome:
       "Live at lms.codejoyacademy.com, running day-to-day learning for the school.",
+  },
+  {
+    slug: "advisory-firm",
+    eyebrow: "Professional services website",
+    title: "Accounting, tax & ESG advisory firm",
+    description:
+      "A content-rich website for a Kenyan advisory firm, with service pages, industry pages, an insights hub, ESG articles and a request-a-proposal flow.",
+    domain: "Launching soon",
+    media: "/projects/advisory-firm.webp",
+    mediaAlt: "Homepage of the advisory firm website with the headline Count what matters",
+    mediaKind: "portal",
+    tags: ["WordPress", "Custom theme", "Content hub"],
+    challenge:
+      "A growing firm needed a site that explains tax, accounting and ESG services clearly and turns readers into proposal requests.",
+    solution:
+      "A custom WordPress theme the firm edits itself, with services, industries, insights, an ESG hub and a proposal form.",
+    outcome:
+      "Built and handed over, preparing for launch on the firm's own domain.",
   },
 ] as const;

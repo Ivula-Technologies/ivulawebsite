@@ -12,12 +12,18 @@ function ProjectCard({
   project: Project;
   className?: string;
 }) {
+  const Wrapper = project.href ? "a" : "div";
+  const linkProps = project.href
+    ? {
+        href: project.href,
+        target: "_blank",
+        rel: "noreferrer",
+        "aria-label": `Visit ${project.title} at ${project.domain}`,
+      }
+    : {};
   return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`Visit ${project.title} at ${project.domain}`}
+    <Wrapper
+      {...linkProps}
       className={cn(
         "group flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/35 hover:shadow-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
@@ -52,9 +58,11 @@ function ProjectCard({
         {project.mediaKind === "photo" && (
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950/65 via-transparent to-transparent" />
         )}
+        {project.href && (
         <span className="absolute right-4 top-4 flex size-10 items-center justify-center rounded-full border border-white/20 bg-navy-950/60 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 sm:right-6 sm:top-6">
           <ExternalLink className="size-4" />
         </span>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-6 sm:p-8">
@@ -92,17 +100,24 @@ function ProjectCard({
             </span>
           ))}
           <span className="ml-auto inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
-            Visit project <ArrowUpRight className="size-4" />
+            {project.href ? (
+              <>
+                Visit project <ArrowUpRight className="size-4" />
+              </>
+            ) : (
+              "Client name kept private"
+            )}
           </span>
         </div>
       </div>
-    </a>
+    </Wrapper>
   );
 }
 
 export function SelectedWork() {
   const academy = projects.find((p) => p.slug === "code-joy-academy")!;
   const lms = projects.find((p) => p.slug === "code-joy-lms")!;
+  const firm = projects.find((p) => p.slug === "advisory-firm")!;
 
   return (
     <section id="work" className="relative overflow-hidden border-y border-border py-20 md:py-28">
@@ -124,18 +139,20 @@ export function SelectedWork() {
           <Reveal delay={0.1}>
             <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:ml-auto">
               Besides our own products, we design and build for clients. Here
-              is what was broken, what we built, and where it is today. Click
-              through and try them yourself.
+              is what was broken, what we built, and where it is today.
             </p>
           </Reveal>
         </div>
 
         <RevealGroup className="mt-12 grid gap-6 lg:grid-cols-12">
-          <RevealItem className="lg:col-span-6">
+          <RevealItem className="lg:col-span-4">
             <ProjectCard project={academy} />
           </RevealItem>
-          <RevealItem className="lg:col-span-6">
+          <RevealItem className="lg:col-span-4">
             <ProjectCard project={lms} />
+          </RevealItem>
+          <RevealItem className="lg:col-span-4">
+            <ProjectCard project={firm} />
           </RevealItem>
         </RevealGroup>
       </div>

@@ -39,7 +39,7 @@ export function Header() {
       >
         <Logo />
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {mainNav.map((item) => {
             const href = item.href as string;
             const active =
@@ -49,7 +49,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                  "relative rounded-full px-3 py-2 text-sm font-medium xl:px-4 text-muted-foreground transition-colors hover:text-foreground",
                   active && "text-foreground"
                 )}
               >
@@ -69,11 +69,11 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={cta.mailto}
-            className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground lg:inline-flex"
+            className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground xl:inline-flex"
             aria-label={`Email ${site.contact.email}`}
           >
             <Mail className="size-4" />
-            <span className="hidden xl:inline">{site.contact.email}</span>
+            <span className="hidden 2xl:inline">{site.contact.email}</span>
           </a>
           <ThemeToggle />
           <Magnetic className="hidden sm:block">
@@ -84,7 +84,7 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border md:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-border lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -101,7 +101,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-border glass md:hidden"
+            className="overflow-hidden border-t border-border glass lg:hidden"
           >
             <div className="container-wide flex flex-col gap-1 py-4">
               {mainNav.map((item) => (
