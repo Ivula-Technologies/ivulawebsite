@@ -76,7 +76,7 @@ export function Header() {
             <span className="hidden 2xl:inline">{site.contact.email}</span>
           </a>
           <ThemeToggle />
-          <Button asChild variant="outline" size="sm" className="hidden md:inline-flex">
+          <Button asChild variant="outline" size="sm" className="hidden md:inline-flex lg:hidden xl:inline-flex">
             <Link href={cta.bookHref}>
               <CalendarClock className="size-4" /> {cta.bookLabel}
             </Link>
