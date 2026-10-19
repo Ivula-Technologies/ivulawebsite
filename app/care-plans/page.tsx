@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, Handshake, Mail } from "lucide-react";
+import { ArrowRight, CalendarClock, Handshake, Mail } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -9,7 +9,7 @@ import { Magnetic } from "@/components/motion/magnetic";
 import { PlanPricing } from "@/components/care-plans/plan-pricing";
 import { CarePlanForm } from "@/components/care-plans/care-plan-form";
 import { careFaqs, careIncluded, careSteps } from "@/lib/care-plans";
-import { site } from "@/lib/site";
+import { cta, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Website Hosting & Care Plans",
@@ -45,6 +45,11 @@ export default function CarePlansPage() {
         <Button asChild variant="outline" size="xl">
           <a href="#start">
             <Mail className="size-4" /> Ask about your site
+          </a>
+        </Button>
+        <Button asChild variant="outline" size="xl">
+          <a href={`${cta.bookHref}?about=care-plans`}>
+            <CalendarClock className="size-4" /> Book a call
           </a>
         </Button>
       </PageHero>
