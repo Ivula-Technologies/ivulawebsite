@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, Check, Mail, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarClock, Check, ShieldCheck, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -66,8 +66,8 @@ export default function PricingPage() {
           </Button>
         </Magnetic>
         <Button asChild variant="outline" size="xl">
-          <a href={cta.demoHref}>
-            <Mail className="size-4" /> Request a demo
+          <a href={`${cta.bookHref}?about=canopy`}>
+            <CalendarClock className="size-4" /> Book a demo call
           </a>
         </Button>
       </PageHero>
@@ -123,8 +123,8 @@ export default function PricingPage() {
                   that matter to you.
                 </p>
                 <Button asChild variant="outline" size="lg" className="mt-8 w-fit">
-                  <a href={cta.demoHref}>
-                    Request a walkthrough <Mail className="size-4" />
+                  <a href={`${cta.bookHref}?about=canopy`}>
+                    Book a walkthrough call <CalendarClock className="size-4" />
                   </a>
                 </Button>
               </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail, Quote } from "lucide-react";
+import { ArrowRight, CalendarClock, Quote } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -39,9 +39,9 @@ export default function ServicesPage() {
           </Button>
         </Magnetic>
         <Button asChild variant="outline" size="xl">
-          <a href={cta.projectMailto}>
-            <Mail className="size-4" /> Email us
-          </a>
+          <Link href={`${cta.bookHref}?about=studio`}>
+            <CalendarClock className="size-4" /> Book a call
+          </Link>
         </Button>
       </PageHero>
 

@@ -23,7 +23,13 @@ export const site = {
    * it the form falls back to opening a pre-filled email.
    */
   leadFormEndpoint: process.env.NEXT_PUBLIC_LEAD_FORM_ENDPOINT ?? "",
-  /** Optional scheduling link (Calendly, Cal.com). Shown when set. */
+  /**
+   * Bius's Google Calendar booking page (an appointment schedule, which adds
+   * a Google Meet link to every booking). Every Ivula app links to /book on
+   * this site, and /book embeds this page. Without it, /book falls back to
+   * an email request. Set it at build time:
+   *   NEXT_PUBLIC_BOOKING_URL=https://calendar.app.google/... npm run build
+   */
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
   /** Founder profile, shown in the homepage founder section. */
   founder: {
@@ -72,6 +78,7 @@ export const footerNav = {
     { title: "Meet the founder", href: "/#founder" },
     { title: "FAQ", href: "/#faq" },
     { title: "Contact", href: "/contact" },
+    { title: "Book a call", href: "/book/" },
     { title: "LinkedIn", href: site.social.linkedin },
   ],
 } as const;
@@ -91,6 +98,8 @@ export const cta = {
     "Ivula Canopy demo request"
   )}`,
   demoLabel: "Request a Canopy demo",
+  bookHref: "/book/",
+  bookLabel: "Book a call",
   mailto: `mailto:${site.contact.email}`,
   projectMailto: `mailto:${site.contact.email}?subject=${encodeURIComponent(
     "Custom software project enquiry"

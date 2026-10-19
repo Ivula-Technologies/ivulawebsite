@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ArrowRight, Code2, Handshake, Mail, MessageSquare } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CalendarClock, Code2, Handshake, MessageSquare } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Accordion } from "@/components/ui/accordion";
@@ -8,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
 import { ProjectBriefForm } from "@/components/lead/project-brief-form";
 import { faqs } from "@/lib/content";
-import { cta, site } from "@/lib/site";
+import { cta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -64,19 +65,11 @@ export default function ContactPage() {
             </a>
           </Button>
         </Magnetic>
-        {site.bookingUrl ? (
-          <Button asChild variant="outline" size="xl">
-            <a href={site.bookingUrl} target="_blank" rel="noreferrer">
-              Book a 30-minute call
-            </a>
-          </Button>
-        ) : (
-          <Button asChild variant="outline" size="xl">
-            <a href={cta.projectMailto}>
-              <Mail className="size-4" /> {site.contact.email}
-            </a>
-          </Button>
-        )}
+        <Button asChild variant="outline" size="xl">
+          <Link href={`${cta.bookHref}?about=studio`}>
+            <CalendarClock className="size-4" /> Book a 30-minute call
+          </Link>
+        </Button>
       </PageHero>
 
       <section id="brief" className="scroll-mt-24 pb-12 pt-4">
