@@ -63,6 +63,7 @@ export const footerNav = {
     { title: "Ivula Studio", href: "/services" },
     { title: "Care Plans", href: "/care-plans" },
     { title: "Ivula Hosting", href: "/hosting" },
+    { title: "All pricing", href: "/pricing" },
     { title: "ivulahosting.co.ke", href: "https://ivulahosting.co.ke" },
   ],
   Company: [
