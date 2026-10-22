@@ -33,7 +33,7 @@ export const site = {
     photo: "/team/bius-portrait-4x5.webp",
     linkedin: "",
   },
-  hosting: "https://ivulahosting.co.ke",
+  hosting: "https://hosting.ivulatechnologies.com",
   canopy: {
     home: "https://canopy.ivulatechnologies.com",
     signup: "https://canopy.ivulatechnologies.com/signup",
@@ -44,7 +44,7 @@ export const site = {
 export const mainNav = [
   { title: "Products", href: "/products" },
   { title: "Services", href: "/services" },
-  { title: "Hosting", href: "https://ivulahosting.co.ke" },
+  { title: "Hosting", href: "https://hosting.ivulatechnologies.com" },
   { title: "Work", href: "/#work" },
   { title: "Roadmap", href: "/roadmap" },
   { title: "About", href: "/about" },
@@ -64,7 +64,7 @@ export const footerNav = {
     { title: "Care Plans", href: "/care-plans" },
     { title: "Ivula Hosting", href: "/hosting" },
     { title: "All pricing", href: "/pricing" },
-    { title: "ivulahosting.co.ke", href: "https://ivulahosting.co.ke" },
+    { title: "Order hosting", href: "https://hosting.ivulatechnologies.com" },
   ],
   Company: [
     { title: "About Ivula", href: "/about" },
