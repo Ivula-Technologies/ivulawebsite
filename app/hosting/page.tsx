@@ -20,18 +20,18 @@ export default function HostingPage() {
   return (
     <>
       <PageHero
-        eyebrow="Ivula Hosting · ivulahosting.co.ke"
+        eyebrow="Ivula Hosting"
         title={
           <>
             Honest web hosting,{" "}
             <span className="text-gradient">same price every year.</span>
           </>
         }
-        description="cPanel hosting with free SSL, business email, one-click WordPress and daily backups. Pay by card in US dollars or with M-Pesa in Kenya shillings. Ivula Hosting is part of Ivula Technologies and runs at ivulahosting.co.ke."
+        description="cPanel hosting with free SSL, business email, one-click WordPress and daily backups. Pay by card in US dollars or with M-Pesa in Kenya shillings. Ivula Hosting is part of Ivula Technologies and runs at hosting.ivulatechnologies.com."
       >
         <Button asChild variant="gradient" size="xl">
           <a href={site.hosting}>
-            Visit ivulahosting.co.ke <ArrowRight className="size-4" />
+            Order hosting <ArrowRight className="size-4" />
           </a>
         </Button>
         <Button asChild variant="outline" size="xl">

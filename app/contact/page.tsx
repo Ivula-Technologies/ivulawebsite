@@ -99,7 +99,7 @@ export default function ContactPage() {
               const Icon = reason.icon;
               return (
                 <RevealItem key={reason.title} className="h-full">
-                  <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
+                  <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 sm:p-8 hover:shadow-card-hover">
                     <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
                       <Icon className="size-6" />
                     </span>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                     <p className="flex-1 text-sm text-muted-foreground">
                       {reason.description}
                     </p>
-                    <Button asChild variant="outline" size="sm" className="w-fit">
+                    <Button asChild variant="outline" size="sm" className="h-auto min-h-9 w-fit max-w-full whitespace-normal py-2 text-left">
                       <a href={reason.href}>
                         {reason.label} <ArrowRight className="size-4" />
                       </a>
