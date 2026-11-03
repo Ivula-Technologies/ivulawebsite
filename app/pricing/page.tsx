@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, CreditCard, RefreshCcw, ShieldCheck } from "lucide-react";
+import { ArrowRight, CalendarClock, Check, CreditCard, RefreshCcw, ShieldCheck } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -62,6 +62,11 @@ export default function PricingPage() {
         </Magnetic>
         <Button asChild variant="outline" size="xl">
           <Link href="#services">Services and hosting</Link>
+        </Button>
+        <Button asChild variant="ghost" size="xl">
+          <Link href={cta.bookHref}>
+            <CalendarClock className="size-4" /> {cta.bookLabel}
+          </Link>
         </Button>
       </PageHero>
 
@@ -263,7 +268,11 @@ export default function PricingPage() {
               <Link href="/contact" className="font-semibold text-foreground underline underline-offset-4">
                 Ask us
               </Link>{" "}
-              and we will reply within one business day.
+              and we will reply within one business day, or{" "}
+              <Link href={cta.bookHref} className="font-semibold text-foreground underline underline-offset-4">
+                book a free call
+              </Link>
+              .
             </p>
           </Reveal>
         </div>

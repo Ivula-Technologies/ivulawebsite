@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Loader2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { engagements } from "@/lib/content";
-import { site } from "@/lib/site";
+import { cta, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const projectTypes = [
@@ -162,13 +162,11 @@ export function ProjectBriefForm({ className }: { className?: string }) {
             ? "A member of our team will reply within one business day with next steps and a few questions to sharpen the estimate."
             : `Your email app should have opened with your brief filled in. Just press send. If nothing opened, email us at ${site.contact.email}.`}
         </p>
-        {site.bookingUrl && (
-          <Button asChild variant="gradient" size="lg">
-            <a href={site.bookingUrl} target="_blank" rel="noreferrer">
-              Skip the wait and book a call <ArrowRight className="size-4" />
-            </a>
-          </Button>
-        )}
+        <Button asChild variant="gradient" size="lg">
+          <a href={`${cta.bookHref}?about=studio`}>
+            Skip the wait and book a call <ArrowRight className="size-4" />
+          </a>
+        </Button>
       </motion.div>
     );
   }
