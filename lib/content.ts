@@ -54,7 +54,7 @@ export const faqs = [
   {
     question: "Do you host websites too?",
     answer:
-      "Yes. Ivula Care Plans give a small business managed hosting, updates, backups and monthly edits from $49 a month. If you would rather run your own site, Ivula Hosting at ivulahosting.co.ke offers cPanel hosting from $59 a year, or KES 2,999 a year with M-Pesa.",
+      "Yes. Ivula Care Plans give a small business managed hosting, updates, backups and monthly edits from $49 a month. If you would rather run your own site, Ivula Hosting at hosting.ivulatechnologies.com offers cPanel hosting from $59 a year, or KES 2,999 a year with M-Pesa.",
   },
 ] as const;
 

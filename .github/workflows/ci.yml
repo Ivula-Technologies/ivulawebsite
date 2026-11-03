@@ -1,0 +1,33 @@
+name: CI
+
+# Lint, typecheck and build every PR, and publish the cPanel upload package
+# (the contents of out/) as a downloadable artifact.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Upload cPanel package
+        uses: actions/upload-artifact@v4
+        with:
+          name: ivulawebsite-cpanel
+          path: out/
+          include-hidden-files: true
+          retention-days: 30

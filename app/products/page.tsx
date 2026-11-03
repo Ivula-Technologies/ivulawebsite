@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { ProductsSection } from "@/components/sections/products-section";
 import { Button } from "@/components/ui/button";
-import { cta } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -31,9 +30,7 @@ export default function ProductsPage() {
           </Link>
         </Button>
         <Button asChild variant="outline" size="xl">
-          <a href={cta.mailto}>
-            <Mail className="size-4" /> Get product updates
-          </a>
+          <Link href="/pricing">Compare all prices</Link>
         </Button>
       </PageHero>
       <ProductsSection showHeading={false} className="pt-8 md:pt-8" />

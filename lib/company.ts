@@ -110,7 +110,7 @@ export const journey: JourneyItem[] = [
   {
     when: "Oct 2026",
     title: "Ivula Care Plans and Ivula Hosting",
-    description: "Managed website care for US businesses, and cPanel hosting paid by card or M-Pesa at ivulahosting.co.ke.",
+    description: "Managed website care for US businesses, and cPanel hosting paid by card or M-Pesa at hosting.ivulatechnologies.com.",
   },
   {
     when: "Oct 2026",

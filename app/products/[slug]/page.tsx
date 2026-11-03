@@ -17,12 +17,19 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const product = getProduct(params.slug);
   if (!product) return { title: "Product not found" };
   return {
-    title: `${product.fullName} — ${product.tagline}`,
+    title: `${product.fullName}: ${product.category}`,
     description: product.subhead,
     openGraph: {
-      title: `${product.fullName} — ${product.headline}`,
+      title: `${product.fullName}: ${product.headline}`,
       description: product.subhead,
       url: `/products/${product.slug}`,
+      images: [{ url: product.screenshot, alt: `${product.fullName} preview` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.fullName}: ${product.headline}`,
+      description: product.subhead,
+      images: [product.screenshot],
     },
     alternates: { canonical: `/products/${product.slug}` },
   };

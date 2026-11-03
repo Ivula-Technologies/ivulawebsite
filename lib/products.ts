@@ -35,6 +35,7 @@ import {
   CalendarClock,
   Fingerprint,
 } from "lucide-react";
+import { site } from "@/lib/site";
 
 /**
  * ============================================================================
@@ -128,9 +129,8 @@ export interface Product {
   };
 }
 
-const email = "info@ivulatechnologies.com";
 const mailto = (subject: string) =>
-  `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+  `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}`;
 
 export const products: Product[] = [
   {
@@ -571,13 +571,8 @@ export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
-/** Kept for callers that resolved teasers separately. */
-export const getAnyProduct = getProduct;
-
 /** Slugs that should be statically generated. */
 export function getProductSlugs(): string[] {
   return products.map((p) => p.slug);
 }
 
-/** The flagship product, surfaced prominently on the homepage. */
-export const flagship = products.find((p) => p.slug === "canopy")!;

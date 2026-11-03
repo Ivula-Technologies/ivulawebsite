@@ -28,20 +28,20 @@ export function Footer() {
           {Object.entries(footerNav).map(([heading, links]) => (
             <div key={heading} className="flex flex-col gap-4">
               <h3 className="text-sm font-semibold">{heading}</h3>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-1">
                 {links.map((link) => (
                   <li key={link.href}>
                     {link.href.startsWith("http") ? (
                       <a
                         href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.title}
                       </a>
                     ) : (
                       <Link
                         href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.title}
                       </Link>
