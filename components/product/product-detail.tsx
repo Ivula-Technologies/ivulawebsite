@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Globe2, Mail } from "lucide-react";
+import { ArrowRight, CalendarClock, Check, Globe2 } from "lucide-react";
 import { getProduct } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import { BrowserFrame } from "@/components/shared/browser-frame";
@@ -283,9 +283,9 @@ export function ProductDetail({ slug }: { slug: string }) {
                     size="xl"
                     className="bg-white/10 text-white hover:bg-white/20"
                   >
-                    <a href={siteCta.mailto}>
-                      <Mail className="size-4" /> Talk to us
-                    </a>
+                    <Link href={`${siteCta.bookHref}?about=${product.slug}`}>
+                      <CalendarClock className="size-4" /> Book a call
+                    </Link>
                   </Button>
                 </div>
               </div>

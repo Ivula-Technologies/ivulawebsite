@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { CalendarClock, Clock, FileText, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { ProjectBriefForm } from "@/components/lead/project-brief-form";
-import { site } from "@/lib/site";
+import { cta } from "@/lib/site";
 
 const promises = [
   {
@@ -56,17 +57,13 @@ export function LeadCapture() {
                 </li>
               ))}
             </ul>
-            {site.bookingUrl && (
-              <a
-                href={site.bookingUrl}
-                target="_blank"
-                rel="noreferrer"
+            <Link
+                href={`${cta.bookHref}?about=studio`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-foreground underline-offset-4 hover:underline"
               >
                 <CalendarClock className="size-4" /> Prefer to talk? Book a
                 30-minute call
-              </a>
-            )}
+            </Link>
           </Reveal>
 
           <Reveal direction="left" delay={0.1}>

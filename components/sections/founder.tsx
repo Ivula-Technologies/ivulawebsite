@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import { CalendarClock, Linkedin, Mail } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { site, cta } from "@/lib/site";
@@ -66,6 +67,13 @@ export function Founder() {
             </Reveal>
             <Reveal direction="up" delay={0.2}>
               <div className="flex flex-wrap gap-4 pt-2 text-sm font-medium">
+                <Link
+                  href={cta.bookHref}
+                  className="inline-flex items-center gap-2 transition-colors hover:text-cyan-600 dark:hover:text-cyan-400"
+                >
+                  <CalendarClock className="size-4" />
+                  Book a call with {founder.firstName}
+                </Link>
                 <a
                   href={cta.mailto}
                   className="inline-flex items-center gap-2 transition-colors hover:text-cyan-600 dark:hover:text-cyan-400"

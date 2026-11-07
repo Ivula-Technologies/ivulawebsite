@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Mail } from "lucide-react";
+import { CalendarClock, Menu, X, Mail } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -76,6 +76,11 @@ export function Header() {
             <span className="hidden 2xl:inline">{site.contact.email}</span>
           </a>
           <ThemeToggle />
+          <Button asChild variant="outline" size="sm" className="hidden md:inline-flex lg:hidden xl:inline-flex">
+            <Link href={cta.bookHref}>
+              <CalendarClock className="size-4" /> {cta.bookLabel}
+            </Link>
+          </Button>
           <Magnetic className="hidden sm:block">
             <Button asChild variant="gradient" size="sm">
               <Link href={cta.projectHref}>{cta.projectLabel}</Link>
@@ -118,6 +123,11 @@ export function Header() {
                 <Button asChild variant="gradient" size="lg">
                   <Link href={cta.projectHref} onClick={() => setOpen(false)}>
                     {cta.projectLabel}
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href={cta.bookHref} onClick={() => setOpen(false)}>
+                    <CalendarClock className="size-4" /> {cta.bookLabel}
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
