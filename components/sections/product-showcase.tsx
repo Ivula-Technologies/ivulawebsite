@@ -91,7 +91,7 @@ export function ProductShowcase() {
       </div>
 
       <div
-        className="mt-4 grid grid-cols-5 gap-2"
+        className="mt-4 grid grid-cols-4 gap-2"
         role="tablist"
         aria-label="Ivula products"
       >
