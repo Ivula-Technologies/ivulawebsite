@@ -12,7 +12,6 @@ import { site } from "@/lib/site";
  */
 const topics: Record<string, string> = {
   canopy: "Ivula Canopy",
-  leadfast: "LeadFast AI",
   proposalkit: "ProposalKit",
   shelfkeeper: "ShelfKeeper",
   wakilinivo: "WakiliNivo",

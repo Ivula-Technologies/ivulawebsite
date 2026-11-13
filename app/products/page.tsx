@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "The Ivula product family: Canopy for churches and nonprofits, LeadFast AI for contractors, ShelfKeeper for homeschooling families, ProposalKit for freelancers and WakiliNivo for law firms.",
+    "The Ivula product family: Canopy for churches and nonprofits, ShelfKeeper for homeschooling families, ProposalKit for freelancers and WakiliNivo for law firms.",
   alternates: { canonical: "/products" },
 };
 

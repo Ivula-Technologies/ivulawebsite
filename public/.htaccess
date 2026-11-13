@@ -3,6 +3,7 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^products/cannopy/?$ /products/canopy/ [R=301,L]
+  RewriteRule ^products/leadfast/?$ /products/ [R=301,L]
 </IfModule>
 
 <IfModule mod_headers.c>

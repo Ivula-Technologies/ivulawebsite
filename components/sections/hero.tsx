@@ -21,7 +21,7 @@ const trustPills = [
 
 /** Verifiable proof points; keep these factual. */
 const proof: { value: string; count?: number; label: string }[] = [
-  { value: "5", count: 5, label: "products we build and run" },
+  { value: "4", count: 4, label: "products we build and run" },
   { value: "US + Kenya", label: "card, PayPal and M-Pesa billing" },
   { value: "Since 2022", label: "designing and shipping software" },
   { value: "US mornings", label: "live overlap with Eastern time" },
@@ -101,7 +101,7 @@ export function Hero() {
               variants={item}
               className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl"
             >
-              Ivula makes and runs five products for churches, contractors,
+              Ivula makes and runs four products for churches,
               homeschooling families, freelancers and law firms. The same senior team
               designs, builds and hosts custom SaaS, AI automations and
               internal tools for founders and growing businesses.

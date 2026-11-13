@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Every Ivula price in one place: Canopy, LeadFast AI, ProposalKit, ShelfKeeper, WakiliNivo, custom builds, care plans and web hosting. Free trials, no card needed.",
+    "Every Ivula price in one place: Canopy, ProposalKit, ShelfKeeper, WakiliNivo, custom builds, care plans and web hosting. Free trials, no card needed.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -25,7 +25,7 @@ const promises = [
   {
     icon: CreditCard,
     title: "Free trials, no card",
-    description: "Canopy, LeadFast AI and ProposalKit start with 14 days free. ShelfKeeper is free to join.",
+    description: "Canopy and ProposalKit start with 14 days free. ShelfKeeper is free to join.",
   },
   {
     icon: RefreshCcw,
