@@ -9,7 +9,7 @@ import { cta } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Roadmap",
   description:
-    "What Ivula Technologies has shipped across Canopy, LeadFast AI, ShelfKeeper, ProposalKit, WakiliNivo and Ivula Hosting, and what we are building next.",
+    "What Ivula Technologies has shipped across Canopy, ShelfKeeper, ProposalKit, WakiliNivo and Ivula Hosting, and what we are building next.",
   alternates: { canonical: "/roadmap" },
 };
 
@@ -17,6 +17,7 @@ export default function RoadmapPage() {
   return (
     <>
       <PageHero
+        video="code"
         eyebrow="Roadmap"
         title={
           <>

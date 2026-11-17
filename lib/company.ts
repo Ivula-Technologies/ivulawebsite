@@ -99,8 +99,8 @@ export const journey: JourneyItem[] = [
   },
   {
     when: "Oct 2026",
-    title: "LeadFast AI, ProposalKit and ShelfKeeper",
-    description: "Instant lead replies for contractors, proposals with deposits for freelancers, and book sharing for families.",
+    title: "ProposalKit and ShelfKeeper",
+    description: "Proposals with deposits for freelancers, and book sharing for families.",
   },
   {
     when: "Oct 2026",

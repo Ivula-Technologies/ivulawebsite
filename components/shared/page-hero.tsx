@@ -1,24 +1,27 @@
-import { AuroraBackground } from "@/components/shared/aurora-background";
+import { VideoBackground, type HeroClip } from "@/components/shared/video-background";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 
 /**
- * Compact hero used at the top of interior pages (products, services, etc.).
+ * Compact hero used at the top of interior pages (products, services, etc.),
+ * always dark, over a looping tech video picked to fit the page.
  */
 export function PageHero({
   eyebrow,
   title,
   description,
   children,
+  video = "network",
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
+  video?: HeroClip;
 }) {
   return (
-    <section className="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16">
-      <AuroraBackground />
+    <section data-dark-hero className="dark relative overflow-hidden bg-navy-950 pt-28 pb-14 text-foreground md:pt-36 md:pb-20">
+      <VideoBackground clip={video} />
       <div className="container-wide relative">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           {eyebrow && (

@@ -6,7 +6,7 @@ import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProductShowcase } from "@/components/sections/product-showcase";
-import { AuroraBackground } from "@/components/shared/aurora-background";
+import { VideoBackground } from "@/components/shared/video-background";
 import { Magnetic } from "@/components/motion/magnetic";
 import { SplitWords } from "@/components/motion/split-words";
 import { AnimatedCounter } from "@/components/motion/animated-counter";
@@ -21,7 +21,7 @@ const trustPills = [
 
 /** Verifiable proof points; keep these factual. */
 const proof: { value: string; count?: number; label: string }[] = [
-  { value: "5", count: 5, label: "products we build and run" },
+  { value: "4", count: 4, label: "products we build and run" },
   { value: "US + Kenya", label: "card, PayPal and M-Pesa billing" },
   { value: "Since 2022", label: "designing and shipping software" },
   { value: "US mornings", label: "live overlap with Eastern time" },
@@ -62,8 +62,8 @@ export function Hero() {
       };
 
   return (
-    <section className="relative overflow-hidden pb-20 pt-28 md:pb-28 md:pt-36">
-      <AuroraBackground />
+    <section data-dark-hero className="dark relative overflow-hidden bg-navy-950 pb-20 pt-28 text-foreground md:pb-28 md:pt-36">
+      <VideoBackground clip="home" overlay="left" />
 
       <div className="container-wide relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
@@ -101,7 +101,7 @@ export function Hero() {
               variants={item}
               className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl"
             >
-              Ivula makes and runs five products for churches, contractors,
+              Ivula makes and runs four products for churches,
               homeschooling families, freelancers and law firms. The same senior team
               designs, builds and hosts custom SaaS, AI automations and
               internal tools for founders and growing businesses.

@@ -20,6 +20,7 @@ export default function HostingPage() {
   return (
     <>
       <PageHero
+        video="servers"
         eyebrow="Ivula Hosting"
         title={
           <>

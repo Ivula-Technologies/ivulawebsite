@@ -29,13 +29,6 @@ export const roadmap: RoadmapItem[] = [
     when: "Oct 2026",
   },
   {
-    title: "Private lead data, sign-in and billing",
-    product: "LeadFast AI",
-    description: "Every business sees only its own leads, with Stripe billing and a no-card trial.",
-    stage: "shipped",
-    when: "Oct 2026",
-  },
-  {
     title: "Book lending with card, PayPal and M-Pesa",
     product: "ShelfKeeper",
     description: "Barcode scanning, lending with reminders, team helpers and three ways to pay.",
@@ -78,18 +71,6 @@ export const roadmap: RoadmapItem[] = [
     title: "Homeschool book community",
     product: "ShelfKeeper",
     description: "Families borrow from each other for a small fee, and buy and sell the books their children outgrow.",
-    stage: "building",
-  },
-  {
-    title: "Quote links and job pipeline",
-    product: "LeadFast AI",
-    description: "Send customers a quote link, follow each lead to won or lost, and see the revenue it brought in.",
-    stage: "building",
-  },
-  {
-    title: "Public launch",
-    product: "LeadFast AI",
-    description: "Opening sign-ups to contractors across the US after early access.",
     stage: "building",
   },
   {

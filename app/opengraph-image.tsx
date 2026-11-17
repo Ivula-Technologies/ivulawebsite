@@ -88,7 +88,7 @@ export default function OpenGraphImage() {
               color: "#b9c7df",
             }}
           >
-            Canopy · LeadFast AI · ShelfKeeper · ProposalKit · WakiliNivo
+            Canopy · ShelfKeeper · ProposalKit · WakiliNivo
           </div>
         </div>
 

@@ -12,7 +12,6 @@ import { site } from "@/lib/site";
  */
 const topics: Record<string, string> = {
   canopy: "Ivula Canopy",
-  leadfast: "LeadFast AI",
   proposalkit: "ProposalKit",
   shelfkeeper: "ShelfKeeper",
   wakilinivo: "WakiliNivo",
@@ -62,8 +61,8 @@ export function BookCall({ topic }: { topic: string }) {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-      <Reveal direction="up">
-        <div className="flex flex-col gap-5 rounded-3xl border border-border bg-card p-8 shadow-soft">
+      <Reveal direction="up" className="min-w-0">
+        <div className="flex flex-col gap-5 rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-8">
           <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
             <Video className="size-6" />
           </span>
@@ -80,7 +79,7 @@ export function BookCall({ topic }: { topic: string }) {
           </ul>
           <p className="text-sm text-muted-foreground">
             Can&apos;t find a time that works? Email{" "}
-            <a href={mailto} className="font-medium text-foreground underline-offset-4 hover:underline">
+            <a href={mailto} className="break-all font-medium text-foreground underline-offset-4 hover:underline">
               {site.contact.email}
             </a>{" "}
             and we&apos;ll fit you in.
@@ -88,7 +87,7 @@ export function BookCall({ topic }: { topic: string }) {
         </div>
       </Reveal>
 
-      <Reveal direction="up" delay={0.05}>
+      <Reveal direction="up" delay={0.05} className="min-w-0">
         {embed ? (
           <div className="overflow-hidden rounded-3xl border border-border bg-white shadow-soft-lg">
             <iframe
@@ -107,7 +106,7 @@ export function BookCall({ topic }: { topic: string }) {
             </a>
           </div>
         ) : (
-          <div className="flex h-full flex-col items-start justify-center gap-5 rounded-3xl border border-border bg-card p-8 shadow-soft-lg">
+          <div className="flex h-full flex-col items-start justify-center gap-5 rounded-3xl border border-border bg-card p-6 shadow-soft-lg sm:p-8">
             <CalendarClock className="size-10 text-cyan-600 dark:text-cyan-400" />
             <h2 className="font-display text-2xl font-bold">
               {bookingUrl ? "Choose a time" : "Request a time"}

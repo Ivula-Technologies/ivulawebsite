@@ -45,7 +45,7 @@ export function Founder() {
                 {founder.firstName} started Ivula in Nairobi in 2022 with a simple
                 idea: small organizations deserve software as well made as the
                 tools big companies use, at a price they can actually afford.
-                Today {founder.firstName} leads a family of five products and the
+                Today {founder.firstName} leads a family of four products and the
                 studio team that designs, builds and hosts software for founders
                 and growing businesses in the US and Kenya.
               </p>

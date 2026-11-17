@@ -26,6 +26,7 @@ export default function CarePlansPage() {
   return (
     <>
       <PageHero
+        video="servers"
         eyebrow="Hosting & care plans"
         title={
           <>
@@ -136,7 +137,7 @@ export default function CarePlansPage() {
 
       <section
         id="start"
-        className="relative scroll-mt-20 border-t border-border bg-secondary/30 py-20 md:py-28"
+        className="relative scroll-mt-20 overflow-x-clip border-t border-border bg-secondary/30 py-20 md:py-28"
       >
         <div className="container-wide">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">

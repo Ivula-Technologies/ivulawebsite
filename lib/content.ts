@@ -49,7 +49,7 @@ export const faqs = [
   {
     question: "Which products does Ivula make?",
     answer:
-      "Five so far: Ivula Canopy for churches and nonprofits (live), LeadFast AI for home service contractors (early access), ShelfKeeper for homeschooling families who borrow, buy and sell books (early access), WakiliNivo for law firms (early access in Kenya) and ProposalKit for freelancers (coming soon).",
+      "Four so far: Ivula Canopy for churches and nonprofits (live), ShelfKeeper for homeschooling families who borrow, buy and sell books (early access), WakiliNivo for law firms (early access in Kenya) and ProposalKit for freelancers (coming soon).",
   },
   {
     question: "Do you host websites too?",

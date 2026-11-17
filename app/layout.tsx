@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     "nearshore and offshore software development",
     "software development company Kenya",
     "church volunteer management software",
-    "AI lead response for contractors",
     "homeschool book sharing",
     "law firm practice management Kenya",
     "cPanel web hosting Kenya M-Pesa",

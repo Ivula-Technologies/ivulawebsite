@@ -25,23 +25,20 @@ export function ProductsSection({
             eyebrow="Our products"
             title={
               <>
-                Five products, <span className="text-gradient">built and run by us.</span>
+                Four products, <span className="text-gradient">built and run by us.</span>
               </>
             }
             description="Each one solves a real problem for a specific kind of team. Running them ourselves keeps us honest about reliability, support and what customers will actually pay for."
           />
         )}
 
-        <RevealGroup className={cn("grid gap-6 md:grid-cols-2 lg:grid-cols-3", showHeading && "mt-14")}>
-          {products.map((product, i) => (
-            <RevealItem
-              key={product.slug}
-              className={cn("h-full", i === 0 && "md:col-span-2")}
-            >
-              <ProductCard slug={product.slug} featured={i === 0} />
+        <RevealGroup className={cn("grid gap-6 md:grid-cols-2", showHeading && "mt-14")}>
+          {products.map((product) => (
+            <RevealItem key={product.slug} className="h-full">
+              <ProductCard slug={product.slug} />
             </RevealItem>
           ))}
-          <RevealItem className="h-full md:col-span-2 lg:col-span-3">
+          <RevealItem className="h-full md:col-span-2">
             <Link
               href="/contact#brief"
               className="group flex h-full flex-col gap-6 rounded-[2rem] border border-dashed border-border bg-secondary/30 p-7 transition-colors hover:border-cyan-500/40 hover:bg-secondary/60 sm:flex-row sm:items-center sm:p-9"

@@ -7,7 +7,7 @@ export const site = {
   shortName: "Ivula",
   tagline: "Building Solutions. Solving Problems.",
   description:
-    "Ivula Technologies builds and runs its own SaaS products (Canopy, LeadFast AI, ShelfKeeper, ProposalKit and WakiliNivo) and designs, builds and hosts custom software for startups and growing businesses.",
+    "Ivula Technologies builds and runs its own SaaS products (Canopy, ShelfKeeper, ProposalKit and WakiliNivo) and designs, builds and hosts custom software for startups and growing businesses.",
   url: "https://www.ivulatechnologies.com",
   origin: "Founded in Nairobi in 2022 · Building for the world",
   contact: {
@@ -60,7 +60,6 @@ export const mainNav = [
 export const footerNav = {
   Products: [
     { title: "Ivula Canopy", href: "/products/canopy" },
-    { title: "LeadFast AI", href: "/products/leadfast" },
     { title: "ShelfKeeper", href: "/products/shelfkeeper" },
     { title: "ProposalKit", href: "/products/proposalkit" },
     { title: "WakiliNivo", href: "/products/wakilinivo" },
