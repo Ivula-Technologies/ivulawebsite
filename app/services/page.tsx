@@ -22,6 +22,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
+        video="code"
         eyebrow="Software services"
         title={
           <>

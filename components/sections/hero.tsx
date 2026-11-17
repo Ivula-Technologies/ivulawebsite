@@ -6,7 +6,7 @@ import { ArrowRight, Check, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProductShowcase } from "@/components/sections/product-showcase";
-import { AuroraBackground } from "@/components/shared/aurora-background";
+import { VideoBackground } from "@/components/shared/video-background";
 import { Magnetic } from "@/components/motion/magnetic";
 import { SplitWords } from "@/components/motion/split-words";
 import { AnimatedCounter } from "@/components/motion/animated-counter";
@@ -62,8 +62,8 @@ export function Hero() {
       };
 
   return (
-    <section className="relative overflow-hidden pb-20 pt-28 md:pb-28 md:pt-36">
-      <AuroraBackground />
+    <section data-dark-hero className="dark relative overflow-hidden bg-navy-950 pb-20 pt-28 text-foreground md:pb-28 md:pt-36">
+      <VideoBackground clip="home" overlay="left" />
 
       <div className="container-wide relative">
         <div className="grid items-center gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">

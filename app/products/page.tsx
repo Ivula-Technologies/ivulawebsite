@@ -16,6 +16,7 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
+        video="home"
         eyebrow="Our products"
         title={
           <>

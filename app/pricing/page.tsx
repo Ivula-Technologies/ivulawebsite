@@ -44,6 +44,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
+        video="code"
         eyebrow="Pricing"
         title={
           <>

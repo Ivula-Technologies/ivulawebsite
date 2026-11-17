@@ -17,6 +17,7 @@ export default function RoadmapPage() {
   return (
     <>
       <PageHero
+        video="code"
         eyebrow="Roadmap"
         title={
           <>

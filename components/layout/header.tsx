@@ -16,6 +16,13 @@ export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  // Pages with a video hero start dark, so the header reads light-on-dark until scrolled.
+  const [darkHero, setDarkHero] = React.useState(false);
+
+  React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reads the DOM after each navigation
+    setDarkHero(Boolean(document.querySelector("[data-dark-hero]")));
+  }, [pathname]);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -28,6 +35,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        darkHero && !scrolled && !open && "dark text-foreground",
         scrolled
           ? "border-b border-border glass shadow-soft"
           : "border-b border-transparent"
