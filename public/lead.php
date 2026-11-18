@@ -33,39 +33,50 @@ function respond(int $status, array $body): void
     exit;
 }
 
-/** Private folder next to public_html (never served), or the temp folder as a fallback. */
-function dataDir(): string
+/** Private folder next to the site folder (never served), or null if it cannot be used. */
+function dataDir(): ?string
 {
     $root = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/');
-    $dir = ($root !== '' ? dirname($root) : sys_get_temp_dir()) . '/ivula-data';
+    if ($root === '') {
+        return null;
+    }
+    $dir = dirname($root) . '/ivula-data';
     if (!is_dir($dir)) {
         @mkdir($dir, 0700, true);
     }
-    return is_dir($dir) && is_writable($dir) ? $dir : sys_get_temp_dir();
+    return is_dir($dir) && is_writable($dir) ? $dir : null;
 }
 
 /** Counts hits on a key for the current hour; false once the limit is reached. */
 function underLimit(string $key, int $limit): bool
 {
     $file = sys_get_temp_dir() . '/ivula-lead-' . hash('sha256', $key . date('YmdH'));
-    $count = (int) @file_get_contents($file);
-    if ($count >= $limit) {
-        return false;
+    $handle = @fopen($file, 'c+');
+    if (!$handle) {
+        return true;
     }
-    @file_put_contents($file, (string) ($count + 1), LOCK_EX);
-    return true;
+    flock($handle, LOCK_EX); // read and increment as one step, so bursts cannot slip past
+    $count = (int) stream_get_contents($handle);
+    if ($count < $limit) {
+        ftruncate($handle, 0);
+        rewind($handle);
+        fwrite($handle, (string) ($count + 1));
+    }
+    flock($handle, LOCK_UN);
+    fclose($handle);
+    return $count < $limit;
 }
 
-$mailFailedFile = dataDir() . '/lead-mail-failed';
+$mailFailedFile = (dataDir() ?? sys_get_temp_dir()) . '/lead-mail-failed';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['health'])) {
     $lastFailure = (int) @filemtime($mailFailedFile);
     $mailOk = $lastFailure < time() - 86400;
-    $healthy = function_exists('mail') && is_writable(dataDir()) && $mailOk;
+    $healthy = function_exists('mail') && dataDir() !== null && $mailOk;
     respond($healthy ? 200 : 503, [
         'ok' => $healthy,
         'mail' => function_exists('mail'),
-        'storage' => is_writable(dataDir()),
+        'storage' => dataDir() !== null,
         'lastMailFailure' => $lastFailure ? gmdate('c', $lastFailure) : null,
     ]);
 }
@@ -147,11 +158,11 @@ $lines[] = 'Reply to this email to answer ' . $name . ' directly.';
 // Link-stuffed messages are spam; repeats of the same message are double clicks.
 // Both get a normal "sent" answer so bots learn nothing, but no email.
 $spam = preg_match_all('~https?://|www\.~i', $message) > MAX_LINKS;
-$fingerprint = hash('sha256', strtolower($email) . '|' . $message);
+$fingerprint = hash('sha256', strtolower($email) . '|' . implode('|', $lines));
 $repeat = !underLimit('dup:' . $fingerprint, 1);
 
 // Keep every lead before trying to email it.
-@file_put_contents(
+$saved = dataDir() !== null && @file_put_contents(
     dataDir() . '/leads-' . date('Y-m') . '.jsonl',
     json_encode([
         'at' => gmdate('c'),
@@ -162,7 +173,10 @@ $repeat = !underLimit('dup:' . $fingerprint, 1);
         'status' => $spam ? 'spam' : ($repeat ? 'repeat' : 'new'),
     ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n",
     FILE_APPEND | LOCK_EX
-);
+) !== false;
+if (!$saved) {
+    error_log('lead.php: could not save a lead to ivula-data');
+}
 if ($spam || $repeat) {
     respond(200, ['ok' => true]);
 }
@@ -186,8 +200,12 @@ $sent = mail(
 );
 
 if (!$sent) {
-    // The lead is already saved; flag the failure so the health check alerts.
+    // Flag the failure so the health check alerts.
     @touch($mailFailedFile);
     error_log('lead.php: mail() failed for a lead from ' . $email);
+    if (!$saved) {
+        // Neither emailed nor saved: tell the visitor rather than pretend.
+        respond(502, ['ok' => false, 'error' => 'We could not send your message. Please email us instead.']);
+    }
 }
 respond(200, ['ok' => true]);

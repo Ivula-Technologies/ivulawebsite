@@ -31,4 +31,12 @@ grep -q '"status":"repeat"' "$work"/ivula-data/leads-*.jsonl || fail "repeat sho
 grep -q '"status":"spam"' "$work"/ivula-data/leads-*.jsonl || fail "spam should be logged as spam"
 for i in 1 2 3; do post -d "{\"name\":\"R$i\",\"email\":\"r$i@b.co\"}" >/dev/null; done
 [ "$(post -d '{"name":"R9","email":"r9@b.co"}')" = 429 ] || fail "6th post in an hour should be 429"
+# If the private folder cannot be used and mail fails too, say so instead of "sent".
+kill $pid; wait $pid 2>/dev/null || true
+rm -rf "$work/ivula-data" "$TMPDIR"/*; touch "$work/ivula-data"
+php -S 127.0.0.1:8099 -t "$work/public_html" -d sendmail_path=/bin/false >/dev/null 2>&1 &
+pid=$!
+sleep 1
+[ "$(curl -s -o /dev/null -w '%{http_code}' "$url?health")" = 503 ] || fail "health should be red without storage"
+[ "$(post -d '{"name":"Zed","email":"z@b.co"}')" = 502 ] || fail "unsaved and unsent should be 502"
 echo "lead.php: all checks passed"
