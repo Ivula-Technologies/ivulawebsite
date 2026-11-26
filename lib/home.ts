@@ -28,6 +28,7 @@ export const homeApps: HomeApp[] = [
     imageAlt: "Kisumu Mental Health Linkage dashboard with referrals, follow-ups and where people drop out of care (synthetic data)",
     href: "/work",
     linkLabel: "Read about it",
+    demo: "https://www.loom.com/share/36fb3b152d874cfc9159dbb9b590ed02",
   },
   {
     name: "Vemi Logistics",

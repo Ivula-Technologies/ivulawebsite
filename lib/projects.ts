@@ -71,6 +71,7 @@ export const projects: readonly Project[] = [
     solution:
       "Electronic referrals ranked by service, open slots and travel time, appointment reminders, tracing of missed visits, feedback to the referrer and an emergency path to an on-call clinician. Fixed rules decide; AI only drafts notes and weekly briefs.",
     outcome: "Prototype built on synthetic data for the county pilot proposal.",
+    demo: "https://www.loom.com/share/36fb3b152d874cfc9159dbb9b590ed02",
   },
   {
     slug: "vemi-logistics",
