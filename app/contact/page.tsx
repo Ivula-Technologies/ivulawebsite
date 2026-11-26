@@ -111,7 +111,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section id="faq" className="scroll-mt-24 py-16 md:py-24">
         <div className="container-wide max-w-3xl">
           <SectionHeading
             eyebrow="Before we talk"
