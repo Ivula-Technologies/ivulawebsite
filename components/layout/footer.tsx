@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
+import { WhatsAppLink } from "@/components/shared/whatsapp";
 import { site, footerNav, cta } from "@/lib/site";
 
 export function Footer() {
@@ -21,6 +22,7 @@ export function Footer() {
               <Mail className="size-4" />
               {site.contact.email}
             </a>
+            <WhatsAppLink />
             <p className="text-xs text-muted-foreground">{site.origin}</p>
           </div>
 
