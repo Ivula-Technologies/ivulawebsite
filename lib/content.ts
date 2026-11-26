@@ -80,9 +80,9 @@ export const services: Service[] = [
   },
   {
     icon: Smartphone,
-    title: "Mobile-first products",
+    title: "Websites & mobile apps",
     description:
-      "Create responsive web and mobile experiences that stay fast, clear, and usable across the devices your customers rely on.",
+      "Fast business websites with WhatsApp quotes and bookings, and Android apps on Google Play, built for the phones your customers actually use.",
   },
   {
     icon: Workflow,

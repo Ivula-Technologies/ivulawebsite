@@ -117,6 +117,21 @@ export const journey: JourneyItem[] = [
     title: "A website for an accounting, tax and ESG firm",
     description: "A custom WordPress theme with services, industries, an insights hub and a proposal request flow.",
   },
+  {
+    when: "Oct 2026",
+    title: "Vemi Logistics, a truck marketplace",
+    description: "Shippers book verified trucks across East Africa, compare bids and pay by M-Pesa, with Android apps for carriers.",
+  },
+  {
+    when: "Nov 2026",
+    title: "Websites for VLC Logistics, ACK Aqua Hub and Demosh Designs",
+    description: "A clearing and transport company, a swim school and a print studio, each built to take quotes and bookings on WhatsApp.",
+  },
+  {
+    when: "Nov 2026",
+    title: "Service software for a security installer",
+    description: "A working demo that runs every client site, camera, fence and alarm from one system, from visit to invoice.",
+  },
 ];
 
 /** Where we are going. Ambitions, not promises. */

@@ -35,7 +35,8 @@ function ProjectCard({
           project.mediaKind === "dashboard" &&
             "aspect-[16/10] bg-gradient-to-br from-navy-950 via-navy-900 to-cyan-950 p-4 sm:p-6",
           project.mediaKind === "photo" && "aspect-[4/3]",
-          project.mediaKind === "portal" && "aspect-[4/3] bg-[#07152e]"
+          project.mediaKind === "portal" && "aspect-[16/10] bg-[#07152e]",
+          project.mediaKind === "site" && "aspect-[16/10] bg-navy-950"
         )}
       >
         <Image
@@ -45,14 +46,15 @@ function ProjectCard({
           sizes={
             project.slug === "canopy"
               ? "(max-width: 1024px) 100vw, 58vw"
-              : "(max-width: 1024px) 100vw, 42vw"
+              : "(max-width: 768px) 100vw, 50vw"
           }
           className={cn(
             "transition-transform duration-700 ease-out group-hover:scale-[1.035]",
             project.mediaKind === "dashboard" &&
               "!inset-4 !size-[calc(100%-2rem)] rounded-xl object-cover object-top shadow-2xl sm:!inset-6 sm:!size-[calc(100%-3rem)]",
             project.mediaKind === "photo" && "object-cover",
-            project.mediaKind === "portal" && "object-cover object-center"
+            project.mediaKind === "portal" && "object-cover object-center",
+            project.mediaKind === "site" && "object-cover object-top"
           )}
         />
         {project.mediaKind === "photo" && (
@@ -104,8 +106,10 @@ function ProjectCard({
               <>
                 Visit project <ArrowUpRight className="size-4" />
               </>
-            ) : (
+            ) : project.clientPrivate ? (
               "Client name kept private"
+            ) : (
+              project.domain
             )}
           </span>
         </div>
@@ -114,10 +118,20 @@ function ProjectCard({
   );
 }
 
+/** Client work, newest first. Ivula's own products live on /products. */
+const clientWork: Project["slug"][] = [
+  "vemi-logistics",
+  "vlc-logistics",
+  "ack-aqua-hub",
+  "demosh-designs",
+  "security-ops",
+  "advisory-firm",
+  "code-joy-academy",
+  "code-joy-lms",
+];
+
 export function SelectedWork() {
-  const academy = projects.find((p) => p.slug === "code-joy-academy")!;
-  const lms = projects.find((p) => p.slug === "code-joy-lms")!;
-  const firm = projects.find((p) => p.slug === "advisory-firm")!;
+  const work = clientWork.map((slug) => projects.find((p) => p.slug === slug)!);
 
   return (
     <section id="work" className="relative overflow-hidden border-y border-border py-20 md:py-28">
@@ -132,28 +146,25 @@ export function SelectedWork() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 max-w-3xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
-                Built for clients, live in production.
+                What we have built for clients.
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:ml-auto">
-              Besides our own products, we design and build for clients. Here
-              is what was broken, what we built, and where it is today.
+              Besides our own products, we design and build websites, apps and
+              platforms for businesses. Here is what each one needed, what we
+              built, and where it is today.
             </p>
           </Reveal>
         </div>
 
-        <RevealGroup className="mt-12 grid gap-6 lg:grid-cols-12">
-          <RevealItem className="lg:col-span-4">
-            <ProjectCard project={academy} />
-          </RevealItem>
-          <RevealItem className="lg:col-span-4">
-            <ProjectCard project={lms} />
-          </RevealItem>
-          <RevealItem className="lg:col-span-4">
-            <ProjectCard project={firm} />
-          </RevealItem>
+        <RevealGroup className="mt-12 grid gap-6 md:grid-cols-2">
+          {work.map((project) => (
+            <RevealItem key={project.slug}>
+              <ProjectCard project={project} />
+            </RevealItem>
+          ))}
         </RevealGroup>
       </div>
     </section>
