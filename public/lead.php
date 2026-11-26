@@ -7,12 +7,21 @@
  * submission is emailed to the Ivula inbox with Reply-To set to the visitor,
  * so a reply goes straight back to them. No third-party form service needed.
  *
- * Spam and abuse: same-site requests only, field length caps, header
- * injection stripped, and at most 5 submissions per IP address per hour.
+ * Spam and abuse: same-site requests only, honeypot, field length caps,
+ * header injection stripped, at most 5 submissions per IP address and 30 in
+ * total per hour, link-stuffed messages and exact repeats are dropped quietly.
+ *
+ * No lost leads: every real submission is first appended to a private log
+ * outside the web root (../ivula-data/leads-YYYY-MM.jsonl), so a mail outage
+ * never loses one. A failed send is recorded, and GET lead.php?health answers
+ * 503 for a day afterwards, so an uptime monitor emails Bius (see README.md,
+ * "Monitoring").
  */
 
 const LEAD_TO = 'info@ivulatechnologies.com';
 const MAX_PER_HOUR = 5;
+const MAX_TOTAL_PER_HOUR = 30;
+const MAX_LINKS = 3;
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
@@ -22,6 +31,54 @@ function respond(int $status, array $body): void
     http_response_code($status);
     echo json_encode($body);
     exit;
+}
+
+/** Private folder next to the site folder (never served), or null if it cannot be used. */
+function dataDir(): ?string
+{
+    $root = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/');
+    if ($root === '') {
+        return null;
+    }
+    $dir = dirname($root) . '/ivula-data';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0700, true);
+    }
+    return is_dir($dir) && is_writable($dir) ? $dir : null;
+}
+
+/** Counts hits on a key for the current hour; false once the limit is reached. */
+function underLimit(string $key, int $limit): bool
+{
+    $file = sys_get_temp_dir() . '/ivula-lead-' . hash('sha256', $key . date('YmdH'));
+    $handle = @fopen($file, 'c+');
+    if (!$handle) {
+        return true;
+    }
+    flock($handle, LOCK_EX); // read and increment as one step, so bursts cannot slip past
+    $count = (int) stream_get_contents($handle);
+    if ($count < $limit) {
+        ftruncate($handle, 0);
+        rewind($handle);
+        fwrite($handle, (string) ($count + 1));
+    }
+    flock($handle, LOCK_UN);
+    fclose($handle);
+    return $count < $limit;
+}
+
+$mailFailedFile = (dataDir() ?? sys_get_temp_dir()) . '/lead-mail-failed';
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['health'])) {
+    $lastFailure = (int) @filemtime($mailFailedFile);
+    $mailOk = $lastFailure < time() - 86400;
+    $healthy = function_exists('mail') && dataDir() !== null && $mailOk;
+    respond($healthy ? 200 : 503, [
+        'ok' => $healthy,
+        'mail' => function_exists('mail'),
+        'storage' => dataDir() !== null,
+        'lastMailFailure' => $lastFailure ? gmdate('c', $lastFailure) : null,
+    ]);
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -62,14 +119,11 @@ if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(422, ['ok' => false, 'error' => 'Please give your name and a valid email address.']);
 }
 
-// Simple per-IP rate limit, stored in the system temp folder.
+// Per-IP and site-wide hourly limits, so a flood never buries the inbox.
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$bucket = sys_get_temp_dir() . '/ivula-lead-' . hash('sha256', $ip . date('YmdH'));
-$count = (int) @file_get_contents($bucket);
-if ($count >= MAX_PER_HOUR) {
+if (!underLimit('ip:' . $ip, MAX_PER_HOUR) || !underLimit('all', MAX_TOTAL_PER_HOUR)) {
     respond(429, ['ok' => false, 'error' => 'Too many submissions. Please email us instead.']);
 }
-@file_put_contents($bucket, (string) ($count + 1), LOCK_EX);
 
 $subject = clean($data['_subject'] ?? '', 150) ?: "Website enquiry from {$name}";
 
@@ -101,6 +155,32 @@ if ($message !== '') {
 $lines[] = '';
 $lines[] = 'Reply to this email to answer ' . $name . ' directly.';
 
+// Link-stuffed messages are spam; repeats of the same message are double clicks.
+// Both get a normal "sent" answer so bots learn nothing, but no email.
+$spam = preg_match_all('~https?://|www\.~i', $message) > MAX_LINKS;
+$fingerprint = hash('sha256', strtolower($email) . '|' . implode('|', $lines));
+$repeat = !underLimit('dup:' . $fingerprint, 1);
+
+// Keep every lead before trying to email it.
+$saved = dataDir() !== null && @file_put_contents(
+    dataDir() . '/leads-' . date('Y-m') . '.jsonl',
+    json_encode([
+        'at' => gmdate('c'),
+        'subject' => $subject,
+        'name' => $name,
+        'email' => $email,
+        'body' => implode("\n", $lines),
+        'status' => $spam ? 'spam' : ($repeat ? 'repeat' : 'new'),
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n",
+    FILE_APPEND | LOCK_EX
+) !== false;
+if (!$saved) {
+    error_log('lead.php: could not save a lead to ivula-data');
+}
+if ($spam || $repeat) {
+    respond(200, ['ok' => true]);
+}
+
 // Send from the site's own domain; never trust an unexpected Host header.
 $domain = preg_match('/(^|\.)ivulatechnologies\.com$/', $host) ? preg_replace('/^www\./', '', $host) : 'ivulatechnologies.com';
 $replyName = str_replace(['"', '<', '>', ',', ';'], '', $name);
@@ -120,6 +200,12 @@ $sent = mail(
 );
 
 if (!$sent) {
-    respond(502, ['ok' => false, 'error' => 'We could not send your message. Please email us instead.']);
+    // Flag the failure so the health check alerts.
+    @touch($mailFailedFile);
+    error_log('lead.php: mail() failed for a lead from ' . $email);
+    if (!$saved) {
+        // Neither emailed nor saved: tell the visitor rather than pretend.
+        respond(502, ['ok' => false, 'error' => 'We could not send your message. Please email us instead.']);
+    }
 }
 respond(200, ['ok' => true]);

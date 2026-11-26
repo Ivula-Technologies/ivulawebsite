@@ -24,6 +24,8 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run build
+      - name: Lead form handler (PHP)
+        run: php -l public/lead.php && bash tests/lead-php.sh
       - name: Upload cPanel package
         uses: actions/upload-artifact@v4
         with:
