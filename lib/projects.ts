@@ -3,6 +3,7 @@ export type ProjectMediaKind = "dashboard" | "photo" | "portal" | "site";
 export interface Project {
   slug:
     | "canopy"
+    | "kisumu-health"
     | "vemi-logistics"
     | "vlc-logistics"
     | "ack-aqua-hub"
@@ -26,6 +27,8 @@ export interface Project {
   outcome: string;
   /** True when the client's name is kept off the site. */
   clientPrivate?: boolean;
+  /** Optional recorded demo (e.g. a Loom link). */
+  demo?: string;
 }
 
 /**
@@ -51,6 +54,23 @@ export const projects: readonly Project[] = [
       "A SaaS workspace for people, events, attendance, announcements, and reports.",
     outcome:
       "Live in production with self-serve sign-up and a 14-day free trial.",
+  },
+  {
+    slug: "kisumu-health",
+    eyebrow: "Health referral app with AI",
+    title: "Kisumu Mental Health Linkage",
+    description:
+      "A working prototype for a community mental health programme in Kisumu's informal settlements, built for the Adventist Community Development Organization (ACDO) West Kenya with the Kisumu County Department of Health.",
+    domain: "Working prototype",
+    media: "/projects/kisumu-health.webp",
+    mediaAlt: "Kisumu Mental Health Linkage dashboard with referrals and follow-ups (synthetic data)",
+    mediaKind: "site",
+    tags: ["Health", "AI drafting", "Referrals"],
+    challenge:
+      "People screened in the community were referred on paper and often never reached care, and nobody could see where they dropped out.",
+    solution:
+      "Electronic referrals ranked by service, open slots and travel time, appointment reminders, tracing of missed visits, feedback to the referrer and an emergency path to an on-call clinician. Fixed rules decide; AI only drafts notes and weekly briefs.",
+    outcome: "Prototype built on synthetic data for the county pilot proposal.",
   },
   {
     slug: "vemi-logistics",

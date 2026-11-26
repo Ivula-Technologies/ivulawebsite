@@ -89,13 +89,9 @@ export default function ContactPage() {
           />
           <RevealGroup className="grid gap-6 md:grid-cols-3">
             {reasons.map((reason) => {
-              const Icon = reason.icon;
               return (
                 <RevealItem key={reason.title} className="h-full">
                   <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 sm:p-8 hover:shadow-card-hover">
-                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
-                      <Icon className="size-6" />
-                    </span>
                     <h2 className="font-display text-lg font-bold">
                       {reason.title}
                     </h2>

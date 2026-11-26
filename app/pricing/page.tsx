@@ -74,10 +74,10 @@ export default function PricingPage() {
       <section className="pb-6">
         <div className="container-wide">
           <RevealGroup className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3">
-            {promises.map(({ icon: Icon, title, description }) => (
+            {promises.map(({ title, description }) => (
               <RevealItem key={title}>
                 <div className="flex h-full gap-3 rounded-2xl border border-border bg-secondary/40 p-5">
-                  <Icon className="mt-0.5 size-5 shrink-0 text-cyan-600 dark:text-cyan-400" />
+
                   <div>
                     <p className="font-semibold">{title}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{description}</p>

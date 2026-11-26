@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { ArrowUpRight, ExternalLink, Layers3 } from "lucide-react";
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { projects, type Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
@@ -92,6 +91,16 @@ function ProjectCard({
             </div>
           ))}
         </dl>
+        {project.demo && !project.href && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full bg-brand-gradient px-4 py-2 text-sm font-semibold text-white"
+          >
+            Watch the demo <ArrowUpRight className="size-4" />
+          </a>
+        )}
         <div className="mt-6 flex flex-wrap items-center gap-2">
           {project.tags.map((tag) => (
             <span
@@ -120,6 +129,7 @@ function ProjectCard({
 
 /** Client work, newest first. Ivula's own products live on /products. */
 const clientWork: Project["slug"][] = [
+  "kisumu-health",
   "vemi-logistics",
   "vlc-logistics",
   "ack-aqua-hub",
@@ -130,36 +140,13 @@ const clientWork: Project["slug"][] = [
   "code-joy-lms",
 ];
 
-export function SelectedWork() {
+/** Every client project as a two-column grid of cards. */
+export function WorkGrid() {
   const work = clientWork.map((slug) => projects.find((p) => p.slug === slug)!);
-
   return (
-    <section id="work" className="relative overflow-hidden border-y border-border py-20 md:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-dotgrid opacity-40 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] dark:opacity-20" />
-      <div className="container-wide relative">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div className="flex flex-col items-start">
-            <Reveal>
-              <Badge variant="accent" className="uppercase">
-                <Layers3 className="size-3.5" /> Client work
-              </Badge>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h2 className="mt-5 max-w-3xl text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
-                What we have built for clients.
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={0.1}>
-            <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:ml-auto">
-              Besides our own products, we design and build websites, apps and
-              platforms for businesses. Here is what each one needed, what we
-              built, and where it is today.
-            </p>
-          </Reveal>
-        </div>
-
-        <RevealGroup className="mt-12 grid gap-6 md:grid-cols-2">
+    <section className="py-20 md:py-28">
+      <div className="container-wide">
+        <RevealGroup className="grid gap-8 md:grid-cols-2">
           {work.map((project) => (
             <RevealItem key={project.slug}>
               <ProjectCard project={project} />

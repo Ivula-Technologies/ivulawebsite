@@ -132,6 +132,11 @@ export const journey: JourneyItem[] = [
     title: "Service software for a security installer",
     description: "A working demo that runs every client site, camera, fence and alarm from one system, from visit to invoice.",
   },
+  {
+    when: "Nov 2026",
+    title: "Kisumu Mental Health Linkage",
+    description: "A referral and follow-up app with AI-drafted notes, built for a community mental health programme in Kisumu County.",
+  },
 ];
 
 /** Where we are going. Ambitions, not promises. */

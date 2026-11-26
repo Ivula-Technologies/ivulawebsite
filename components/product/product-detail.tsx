@@ -122,13 +122,9 @@ export function ProductDetail({ slug }: { slug: string }) {
               )}
             >
               {product.audiences.map((aud) => {
-                const A = aud.icon;
                 return (
                   <RevealItem key={aud.label} className="h-full">
                     <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                      <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
-                        <A className="size-6" />
-                      </span>
                       <h3 className="font-display text-lg font-bold">
                         {aud.label}
                       </h3>
@@ -183,13 +179,9 @@ export function ProductDetail({ slug }: { slug: string }) {
             />
             <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {product.features.map((feature) => {
-                const F = feature.icon;
                 return (
                   <RevealItem key={feature.title} className="h-full">
                     <div className="group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                      <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
-                        <F className="size-6" />
-                      </span>
                       <h3 className="font-display text-lg font-bold">
                         {feature.title}
                       </h3>

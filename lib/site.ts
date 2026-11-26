@@ -49,10 +49,9 @@ export const site = {
 
 export const mainNav = [
   { title: "Products", href: "/products" },
+  { title: "Work", href: "/work" },
   { title: "Services", href: "/services" },
-  { title: "Hosting", href: "https://hosting.ivulatechnologies.com" },
-  { title: "Work", href: "/#work" },
-  { title: "Roadmap", href: "/roadmap" },
+  { title: "Hosting", href: "/hosting" },
   { title: "About", href: "/about" },
   { title: "Contact", href: "/contact" },
 ] as const;
@@ -73,10 +72,10 @@ export const footerNav = {
   ],
   Company: [
     { title: "About Ivula", href: "/about" },
-    { title: "Client work", href: "/#work" },
+    { title: "Our work", href: "/work" },
     { title: "Roadmap", href: "/roadmap" },
-    { title: "Meet the founder", href: "/#founder" },
-    { title: "FAQ", href: "/#faq" },
+    { title: "Meet the founder", href: "/about#founder" },
+    { title: "FAQ", href: "/contact#faq" },
     { title: "Contact", href: "/contact" },
     { title: "Book a call", href: "/book/" },
     { title: "LinkedIn", href: site.social.linkedin },
@@ -87,7 +86,7 @@ export const footerNav = {
 export const cta = {
   projectHref: "/contact#brief",
   projectLabel: "Get a free estimate",
-  workHref: "/#work",
+  workHref: "/work",
   workLabel: "View selected work",
   canopyHref: site.canopy.home,
   canopyLabel: "Explore Canopy",

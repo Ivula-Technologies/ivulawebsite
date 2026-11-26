@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Rocket } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { ProductCard } from "@/components/product/product-card";
@@ -43,9 +43,6 @@ export function ProductsSection({
               href="/contact#brief"
               className="group flex h-full flex-col gap-6 rounded-[2rem] border border-dashed border-border bg-secondary/30 p-7 transition-colors hover:border-cyan-500/40 hover:bg-secondary/60 sm:flex-row sm:items-center sm:p-9"
             >
-              <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-navy-900 text-white dark:bg-white dark:text-navy-900">
-                <Rocket className="size-6" />
-              </span>
               <div className="flex-1">
                 <h3 className="font-display text-2xl font-bold tracking-tight">
                   Your product could be next.
