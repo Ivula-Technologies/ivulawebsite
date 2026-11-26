@@ -204,20 +204,19 @@ export const projects: readonly Project[] = [
   {
     slug: "advisory-firm",
     eyebrow: "Professional services website",
-    title: "Accounting, tax & ESG advisory firm",
+    title: "JENIQA Advisory",
     description:
-      "A content-rich website for a Kenyan advisory firm, with service pages, industry pages, an insights hub, ESG articles and a request-a-proposal flow.",
-    domain: "Launching soon",
+      "A website for a Nairobi accounting, tax, advisory and ESG firm, with service and industry pages, an insights hub, free tax tools and a request-a-proposal flow.",
+    href: "https://firm-website-eight.vercel.app/",
+    domain: "firm-website-eight.vercel.app",
     media: "/projects/advisory-firm.webp",
-    mediaAlt: "Homepage of the advisory firm website with the headline Count what matters",
-    mediaKind: "portal",
-    tags: ["WordPress", "Custom theme", "Content hub"],
+    mediaAlt: "JENIQA Advisory homepage with the headline Count what matters",
+    mediaKind: "site",
+    tags: ["Website", "Free tax tools", "Content hub"],
     challenge:
       "A growing firm needed a site that explains tax, accounting and ESG services clearly and turns readers into proposal requests.",
     solution:
-      "A custom WordPress theme the firm edits itself, with services, industries, insights, an ESG hub and a proposal form.",
-    outcome:
-      "Built and handed over, preparing for launch on the firm's own domain.",
-    clientPrivate: true,
+      "Services, industries and insights pages, PAYE and VAT calculators, a KRA deadline countdown, an ESG readiness check and a proposal form.",
+    outcome: "Live at firm-website-eight.vercel.app."
   },
 ] as const;

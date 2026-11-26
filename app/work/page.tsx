@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Our work",
   description:
-    "Websites, apps and platforms Ivula has built for clients: Vemi Logistics, VLC Logistics, ACK Aqua Hub, Demosh Designs, Code Joy Academy and more.",
+    "Websites, apps and platforms Ivula has built for clients: Vemi Logistics, VLC Logistics, ACK Aqua Hub, Demosh Designs, JENIQA Advisory, Code Joy Academy and more.",
   alternates: { canonical: "/work" },
 };
 

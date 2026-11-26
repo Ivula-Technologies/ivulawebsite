@@ -114,8 +114,8 @@ export const journey: JourneyItem[] = [
   },
   {
     when: "Oct 2026",
-    title: "A website for an accounting, tax and ESG firm",
-    description: "A custom WordPress theme with services, industries, an insights hub and a proposal request flow.",
+    title: "A website for JENIQA Advisory",
+    description: "An accounting, tax and ESG firm site with an insights hub, free tax tools and a proposal request flow.",
   },
   {
     when: "Oct 2026",
