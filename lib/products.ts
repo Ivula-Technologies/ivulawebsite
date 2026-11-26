@@ -328,6 +328,7 @@ export const products: Product[] = [
       "ProposalKit lets freelancers and consultants write a proposal, attach the contract, collect an e-signature and take the deposit, all from one shareable link your client opens without an account.",
     accent: { from: "#0f1a3e", to: "#00c2ff" },
     icon: FileSignature,
+    logo: "/brands/proposalkit-icon.webp",
     screenshot: "/screenshots/proposalkit.webp",
     domain: "proposalkit.ivulatechnologies.com",
     priceFrom: "From $29/mo",

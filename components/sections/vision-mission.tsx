@@ -20,7 +20,7 @@ export function VisionMission({ showLink = true }: { showLink?: boolean }) {
           description="What we are building toward, and how we work every day to get there."
         />
         <RevealGroup className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
-          {cards.map(({ icon: Icon, title, statement, detail }, i) => (
+          {cards.map(({ title, statement, detail }, i) => (
             <RevealItem key={title} className="h-full">
               <div
                 className={
@@ -32,15 +32,6 @@ export function VisionMission({ showLink = true }: { showLink?: boolean }) {
                 {i === 0 && (
                   <div className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-cyan-500/30 blur-3xl" />
                 )}
-                <span
-                  className={
-                    i === 0
-                      ? "relative inline-flex size-12 items-center justify-center rounded-2xl bg-white/10 text-cyan-300"
-                      : "inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white"
-                  }
-                >
-                  <Icon className="size-6" />
-                </span>
                 <p
                   className={
                     i === 0

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
@@ -45,12 +45,9 @@ export default function AboutPage() {
         <div className="container-wide">
           <SectionHeading eyebrow="What we value" title="How we work" />
           <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map(({ icon: Icon, title, description }) => (
+            {values.map(({ title, description }) => (
               <RevealItem key={title} className="h-full">
                 <div className="flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-7 shadow-soft">
-                  <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-brand-gradient text-white">
-                    <Icon className="size-5" />
-                  </span>
                   <h3 className="font-display text-lg font-bold">{title}</h3>
                   <p className="text-sm text-muted-foreground">{description}</p>
                 </div>
@@ -90,7 +87,7 @@ export default function AboutPage() {
         <div className="container-wide relative">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">
-              <Sparkles className="size-3.5" /> Our dreams
+              Our dreams
             </span>
             <h2 className="mt-6 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-display-sm">
               Where we are going

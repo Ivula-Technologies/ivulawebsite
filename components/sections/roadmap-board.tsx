@@ -26,14 +26,14 @@ export function RoadmapBoard({
       )}
     >
       {stages.map((stage) => {
-        const { icon: Icon, tone } = stageStyle[stage];
+        const { tone } = stageStyle[stage];
         const items = roadmap.filter((item) => item.stage === stage);
         return (
           <RevealItem key={stage} className="h-full">
             <div className="flex h-full flex-col rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-7">
               <div className="flex items-center justify-between">
                 <h3 className={cn("inline-flex items-center gap-2 font-display text-lg font-bold", tone)}>
-                  <Icon className="size-5" /> {roadmapStageLabel[stage]}
+                  {roadmapStageLabel[stage]}
                 </h3>
                 <span className="rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold text-muted-foreground">
                   {items.length}

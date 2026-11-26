@@ -114,8 +114,8 @@ export const journey: JourneyItem[] = [
   },
   {
     when: "Oct 2026",
-    title: "A website for an accounting, tax and ESG firm",
-    description: "A custom WordPress theme with services, industries, an insights hub and a proposal request flow.",
+    title: "A website for JENIQA Advisory",
+    description: "An accounting, tax and ESG firm site with an insights hub, free tax tools and a proposal request flow.",
   },
   {
     when: "Oct 2026",
@@ -131,6 +131,11 @@ export const journey: JourneyItem[] = [
     when: "Nov 2026",
     title: "Service software for a security installer",
     description: "A working demo that runs every client site, camera, fence and alarm from one system, from visit to invoice.",
+  },
+  {
+    when: "Nov 2026",
+    title: "Kisumu Mental Health Linkage",
+    description: "A referral and follow-up app with AI-drafted notes, built for a community mental health programme in Kisumu County.",
   },
 ];
 

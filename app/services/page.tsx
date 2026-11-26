@@ -7,6 +7,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Engagements } from "@/components/sections/engagements";
+import { HomeWork } from "@/components/home/home";
 import { SpotlightCard } from "@/components/motion/spotlight-card";
 import { services, serviceValues } from "@/lib/content";
 import { cta } from "@/lib/site";
@@ -56,13 +57,9 @@ export default function ServicesPage() {
           />
           <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => {
-              const Icon = service.icon;
               return (
                 <RevealItem key={service.title} className="h-full">
                   <SpotlightCard className="group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="size-6" />
-                    </span>
                     <h3 className="font-display text-lg font-bold">
                       {service.title}
                     </h3>
@@ -80,6 +77,7 @@ export default function ServicesPage() {
       <div className="border-t border-border">
         <Engagements />
       </div>
+      <HomeWork />
 
       {/* Why Ivula */}
       <section className="border-y border-border bg-secondary/30 py-16 md:py-24">

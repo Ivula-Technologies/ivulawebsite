@@ -72,12 +72,9 @@ export default function CarePlansPage() {
             description="The jobs that slip when a website has no owner. We do them every month, so you never have to think about them."
           />
           <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {careIncluded.map(({ icon: Icon, title, description }) => (
+            {careIncluded.map(({ title, description }) => (
               <RevealItem key={title} className="h-full">
                 <div className="flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-6 shadow-soft">
-                  <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
-                    <Icon className="size-5" />
-                  </span>
                   <h3 className="font-display text-base font-bold">{title}</h3>
                   <p className="text-sm text-muted-foreground">{description}</p>
                 </div>

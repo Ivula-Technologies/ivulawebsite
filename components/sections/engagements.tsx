@@ -20,7 +20,6 @@ export function Engagements() {
 
         <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-3">
           {engagements.map((engagement) => {
-            const Icon = engagement.icon;
             return (
               <RevealItem key={engagement.slug} className="h-full">
                 <SpotlightCard
@@ -37,9 +36,6 @@ export function Engagements() {
                     </span>
                   )}
                   <div className="flex items-center gap-4">
-                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft transition-transform duration-500 group-hover/spot:-rotate-6 group-hover/spot:scale-110">
-                      <Icon className="size-6" />
-                    </span>
                     <div>
                       <h3 className="font-display text-xl font-bold">
                         {engagement.name}
