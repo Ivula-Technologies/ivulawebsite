@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CalendarClock, Code2, Handshake, MessageSquare } from "lucide-react";
+import { WhatsAppLogo } from "@/components/shared/whatsapp";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { Accordion } from "@/components/ui/accordion";
@@ -9,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
 import { ProjectBriefForm } from "@/components/lead/project-brief-form";
 import { faqs } from "@/lib/content";
-import { cta } from "@/lib/site";
+import { cta, site, whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -70,6 +71,16 @@ export default function ContactPage() {
             <CalendarClock className="size-4" /> Book a 30-minute call
           </Link>
         </Button>
+        <a
+          href={whatsappHref()}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#25D366] px-9 text-base font-semibold text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1da851]"
+        >
+          <WhatsAppLogo className="size-5" />
+          <span className="sm:hidden">WhatsApp us</span>
+          <span className="hidden sm:inline">WhatsApp {site.contact.whatsappLabel}</span>
+        </a>
       </PageHero>
 
       <section id="brief" className="scroll-mt-24 pb-12 pt-4">

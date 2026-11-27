@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/shared/whatsapp";
 import { PageTransition } from "@/components/layout/page-transition";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { site } from "@/lib/site";
@@ -117,6 +118,7 @@ const organizationJsonLd = {
     name: "Nairobi, Kenya",
   },
   email: site.contact.email,
+  telephone: `+${site.contact.whatsapp}`,
   sameAs: [site.social.linkedin],
   knowsAbout: [
     "Custom software development",
@@ -167,6 +169,7 @@ export default function RootLayout({
               <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
+            <WhatsAppButton />
           </LenisProvider>
         </ThemeProvider>
       </body>

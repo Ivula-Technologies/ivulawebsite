@@ -12,6 +12,9 @@ export const site = {
   origin: "Founded in Nairobi in 2022 · Building for the world",
   contact: {
     email: "info@ivulatechnologies.com",
+    /** Bius's WhatsApp, shown as +254 743 761 460. */
+    whatsapp: "254743761460",
+    whatsappLabel: "+254 743 761 460",
   },
   social: {
     linkedin: "https://www.linkedin.com/company/ivula-technologies-ltd",
@@ -81,6 +84,10 @@ export const footerNav = {
     { title: "LinkedIn", href: site.social.linkedin },
   ],
 } as const;
+
+/** wa.me link with an optional pre-typed message. */
+export const whatsappHref = (message = "Hi Ivula, I'd like to talk about a project.") =>
+  `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
 
 /** Convenience helpers for CTA links used across the site. */
 export const cta = {
